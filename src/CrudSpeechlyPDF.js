@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import "./App.css";
 import ChartsIncome from './ChartsIncome';
 import ChartsExpense from './ChartsExpense';
 import Header from './Header';

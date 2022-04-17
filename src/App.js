@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './App.css';
 import CrudSpeechlyPDF from "./CrudSpeechlyPDF";
 import Login from './Login';
 import Signup from './Signup';

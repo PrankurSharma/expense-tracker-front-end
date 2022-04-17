@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import './App.css';
 import Header from './Header';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';

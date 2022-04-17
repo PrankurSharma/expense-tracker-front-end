@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Login.css';
 import uuid from 'react-uuid';
 import Axios from 'axios';
 
