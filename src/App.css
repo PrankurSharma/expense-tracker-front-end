@@ -23,7 +23,7 @@ body {
 }
 .spinner {
 	display: flex;
-	margin: 80px auto;
+	margin: auto;
 	align-items: center;
 	justify-content: center;
 }
