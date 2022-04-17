@@ -11,22 +11,18 @@ function App() {
 	const [loading, setLoading] = useState(true);
       
     useEffect(() => {
-      // Loading function to load data or 
-      // fake it using setTimeout;
       const loadData = async () => {
-  
-        // Wait for five seconds
         await new Promise((r) => setTimeout(r, 7000));
-  
-        // Toggle loading state
         setLoading((loading) => !loading);
       };
         
       loadData();
     }, []);
+
     if (loading) {
 		return (<Spinner />);
 	}
+	
 	else{
 		return (
 			<BrowserRouter>
