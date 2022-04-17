@@ -3,7 +3,7 @@ import ReactLoading from 'react-loading';
 
 function Spinner(){
     return (
-        <ReactLoading type="spin" color="gray" height={100} width={50} postition="center" />
+        <ReactLoading type="spin" color="#9370db" height={150} width={70} />
     );
 }
 
