@@ -16,7 +16,7 @@ function App() {
       const loadData = async () => {
   
         // Wait for five seconds
-        await new Promise((r) => setTimeout(r, 5000));
+        await new Promise((r) => setTimeout(r, 7000));
   
         // Toggle loading state
         setLoading((loading) => !loading);
