@@ -18,8 +18,12 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
-.divhead{
+.divhead {
 	margin-top: 70px;
+}
+.spinner {
+	align-items: center;
+	justify-content: center;
 }
 .container {
 	display: flex;
