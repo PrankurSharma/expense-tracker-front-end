@@ -54,14 +54,14 @@ const ChartsIncome = () => {
                   gridLines: {
                     display: false
                   },
-                  min: 0
+                  ticks: { beginAtZero: true }
                 }],
               xAxes: [
                 {
                   gridLines: {
                     display: false
                   },
-                  min: 0
+                  ticks: { beginAtZero: true }
                 }]
             }
           }}
