@@ -80,7 +80,6 @@ function FilterTransactions() {
                 month: month,
                 year: year
             }).then((response) => {
-                console.log(response.data[0].amTotal);
                 setfilter_income(response.data[0].amTotal);
             }).catch((err) => {
                 alert(err);
@@ -94,7 +93,6 @@ function FilterTransactions() {
                 month: month,
                 year: year
             }).then((response) => {
-                console.log(response.data[0].amTotal);
                 setfilter_expense(response.data[0].amTotal);
             }).catch((err) => {
                 alert(err);
