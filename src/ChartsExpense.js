@@ -33,9 +33,8 @@ const ChartsExpense = () => {
         });
       })
       .catch(err => {
-        console.log(err);
+        alert(err);
       });
-    console.log(getTask, getAmount);
   };
 
   useEffect(() => {

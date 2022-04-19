@@ -98,15 +98,12 @@ function CrudSpeechlyPDF() {
 				switch (s.type) {
 					case 'amount':
 						set_amount(s.value);
-						console.log(amount);
 						break;
 					case 'task':
 						set_task(s.value);
-						console.log(task);
 						break;
 					case 'type':
 						set_type(s.value);
-						console.log(s.value);
 						break;
 					case 'date':
 						set_date(s.value);
