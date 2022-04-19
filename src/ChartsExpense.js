@@ -53,15 +53,13 @@ const ChartsExpense = () => {
                 {
                   gridLines: {
                     display: false
-                  },
-                  ticks: { beginAtZero: true }
+                  }
                 }],
               xAxes: [
                 {
                   gridLines: {
                     display: false
-                  }, 
-                  ticks: { beginAtZero: true }
+                  }
                 }]
             }
           }}
