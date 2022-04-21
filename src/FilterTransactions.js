@@ -24,7 +24,7 @@ function FilterTransactions() {
         }).catch((err) => {
             alert(err);
         });
-        refreshPage();
+        //refreshPage();
         alert("Transaction deleted successfully.");
     };
 
@@ -37,7 +37,7 @@ function FilterTransactions() {
             }).catch((err) => {
                 alert(err.response);
             });
-            refreshPage();
+            //refreshPage();
             alert("Transaction updated successfully.");
         }
         else {
