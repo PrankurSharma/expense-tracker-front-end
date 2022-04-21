@@ -27,16 +27,6 @@ function AllTransactions() {
 		});
 	});
 
-	useEffect(() => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/login').then((response) => {
-			if (!response.data[0].person_id && !response.data[0].username) {
-				window.location.href = '/login';
-			}
-		}).catch((err) => {
-			alert(err);
-		});
-	});
-
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {

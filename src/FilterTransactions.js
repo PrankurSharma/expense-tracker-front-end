@@ -14,17 +14,6 @@ function FilterTransactions() {
     const [filter_expense, setfilter_expense] = useState("");
     Axios.defaults.withCredentials = true;
 
-
-    useEffect(() => {
-        Axios.get('https://my-expense-tracker-project.herokuapp.com/api/login').then((response) => {
-            if (!response.data[0].person_id && !response.data[0].username) {
-                window.location.href = '/login';
-            }
-        }).catch((err) => {
-            alert(err);
-        })
-    });
-
     function refreshPage() {
         window.location.reload(false);
     }
