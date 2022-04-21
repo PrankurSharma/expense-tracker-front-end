@@ -27,7 +27,6 @@ function AllTransactions() {
 		});
 	});
 
-
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
 			set_money(response.data);
