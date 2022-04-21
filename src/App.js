@@ -10,21 +10,21 @@ import Spinner from "./Spinner";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
 	const [loading, setLoading] = useState(true);
-      
-    useEffect(() => {
-      const loadData = async () => {
-        await new Promise((r) => setTimeout(r, 5000));
-        setLoading((loading) => !loading);
-      };
-        
-      loadData();
-    }, []);
 
-    if (loading) {
+	useEffect(() => {
+		const loadData = async () => {
+			await new Promise((r) => setTimeout(r, 5000));
+			setLoading((loading) => !loading);
+		};
+
+		loadData();
+	}, []);
+
+	if (loading) {
 		return (<Spinner />);
 	}
-	
-	else{
+
+	else {
 		return (
 			<BrowserRouter>
 				<Routes>

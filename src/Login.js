@@ -8,22 +8,22 @@ function Login() {
   const [password, set_password] = useState("");
 
   const handleSubmit = () => {
-      if(person_id && password){
-          Axios.post('https://my-expense-tracker-project.herokuapp.com/api/login', {
-              person_id: person_id,
-              password: password
-          }).then((response) => {
-            if (!response.data.message && !response.data.error) {
-                window.location.href = "/";
-            }
-            else {
-                alert(response.data.message);
-            }
-            });
-      }
-      else{
-        alert("Please fill both the fields in order to proceed.");
-      }
+    if (person_id && password) {
+      Axios.post('https://my-expense-tracker-project.herokuapp.com/api/login', {
+        person_id: person_id,
+        password: password
+      }).then((response) => {
+        if (!response.data.message && !response.data.error) {
+          window.location.href = "/";
+        }
+        else {
+          alert(response.data.message);
+        }
+      });
+    }
+    else {
+      alert("Please fill both the fields in order to proceed.");
+    }
   }
 
   return (

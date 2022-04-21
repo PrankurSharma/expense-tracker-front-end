@@ -10,15 +10,15 @@ function Signup() {
   const person_id = uuid().slice(0, 7);
   const handleSubmit = async () => {
     if (username && password) {
-        Axios.post('https://my-expense-tracker-project.herokuapp.com/api/signup', {
-          person_id: person_id,
-          username: username,
-          password: password
-        }).catch((err) => {
-          alert(err);
-        });
-          alert("Your personal id is: " + person_id + ". Please keep it safely as it will be used for all the future logins.");
-          window.location.href = "/login";
+      Axios.post('https://my-expense-tracker-project.herokuapp.com/api/signup', {
+        person_id: person_id,
+        username: username,
+        password: password
+      }).catch((err) => {
+        alert(err);
+      });
+      alert("Your personal id is: " + person_id + ". Please keep it safely as it will be used for all the future logins.");
+      window.location.href = "/login";
     }
     else {
       alert("Please fill both the fields in order to proceed.");
