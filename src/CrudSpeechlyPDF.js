@@ -37,9 +37,11 @@ function CrudSpeechlyPDF() {
 			setmonth_expense(response.data[0].amTotal);
 		});
 	});
+
 	function refreshPage() {
 		window.location.reload(false);
 	}
+
 	const submitEntries = () => {
 		if (amount && task && type && (type === "Income" || type === "Expense" || type === "INCOME" || type === "EXPENSE" || type === "income" || type === "expense")) {
 			Axios.post('https://my-expense-tracker-project.herokuapp.com/api/insert', {
@@ -53,7 +55,7 @@ function CrudSpeechlyPDF() {
 				alert(err);
 			});
 			alert("Record inserted successfully.");
-			//refreshPage();
+			refreshPage();
 		}
 		else if (type !== "Income" && type !== "Expense" && type !== "INCOME" && type !== "EXPENSE" && type !== "income" && type !== "expense") {
 			alert("Type of transaction can either be Income or Expense.");
@@ -63,13 +65,11 @@ function CrudSpeechlyPDF() {
 		}
 	};
 
-
-
 	const deleteTransaction = (trans_id) => {
 		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`).catch((err) => {
 			alert(err);
 		});
-		//refreshPage();
+		refreshPage();
 		alert("Transaction deleted successfully.");
 	};
 
@@ -80,9 +80,9 @@ function CrudSpeechlyPDF() {
 				amount: new_amount,
 				task: new_task
 			}).catch((err) => {
-				alert(err.response);
+				alert(err);
 			});
-			//refreshPage();
+			refreshPage();
 			alert("Transaction updated successfully.")
 		}
 		else {
@@ -118,6 +118,7 @@ function CrudSpeechlyPDF() {
 			}
 		}
 	}, [segment]);
+	
 	function jsPdfGenerator() {
 		var doc = new jsPDF();
 		var cols = ["Trans_id", "Task", "Amount", "Type", "Date"];

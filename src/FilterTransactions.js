@@ -20,11 +20,11 @@ function FilterTransactions() {
 
     const deleteTransaction = (trans_id) => {
         Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`).catch((err) => {
-            alert(err.response);
+            alert(err);
         }).catch((err) => {
             alert(err);
         });
-        //refreshPage();
+        refreshPage();
         alert("Transaction deleted successfully.");
     };
 
@@ -35,9 +35,9 @@ function FilterTransactions() {
                 amount: new_amount,
                 task: new_task
             }).catch((err) => {
-                alert(err.response);
+                alert(err);
             });
-            //refreshPage();
+            refreshPage();
             alert("Transaction updated successfully.");
         }
         else {

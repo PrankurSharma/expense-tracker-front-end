@@ -36,6 +36,10 @@ function AllTransactions() {
 		});
 	}, []);
 
+	function refreshPage() {
+		window.location.reload(false);
+	}
+
 	const deleteTransaction = (trans_id) => {
 		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`).catch((err) => {
 			alert(err.response);
@@ -53,7 +57,7 @@ function AllTransactions() {
 				amount: new_amount,
 				task: new_task
 			}).catch((err) => {
-				alert(err.response);
+				alert(err);
 			});
 			alert("Transaction updated successfully.");
 			refreshPage();
@@ -64,11 +68,6 @@ function AllTransactions() {
 		setnew_amount("");
 		setnew_task("");
 	};
-
-	function refreshPage() {
-		window.location.reload(false);
-	}
-
 
 	function jsPdfGenerator() {
 		var doc = new jsPDF();
