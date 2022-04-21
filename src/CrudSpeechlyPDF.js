@@ -53,7 +53,7 @@ function CrudSpeechlyPDF() {
 				alert(err);
 			});
 			alert("Record inserted successfully.");
-			refreshPage();
+			//refreshPage();
 		}
 		else if (type !== "Income" && type !== "Expense" && type !== "INCOME" && type !== "EXPENSE" && type !== "income" && type !== "expense") {
 			alert("Type of transaction can either be Income or Expense.");
@@ -69,8 +69,8 @@ function CrudSpeechlyPDF() {
 		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`).catch((err) => {
 			alert(err);
 		});
-		refreshPage();
-		alert("Transaction deleted successfully");
+		//refreshPage();
+		alert("Transaction deleted successfully.");
 	};
 
 	const updateTransaction = (trans_id) => {
@@ -82,7 +82,7 @@ function CrudSpeechlyPDF() {
 			}).catch((err) => {
 				alert(err.response);
 			});
-			refreshPage();
+			//refreshPage();
 			alert("Transaction updated successfully.")
 		}
 		else {
