@@ -10,12 +10,14 @@ const ChartsExpense = () => {
 
   const chart = () => {
     let getAmount = [];
-    let getTask = [];
-
+    let getTask = []; 
+    let inPercent = [];
     axios.get("https://my-expense-tracker-project.herokuapp.com/api/getexpense")
       .then(res => {
         for (const dataObj of res.data) {
           getAmount.push(parseInt(dataObj.Amount));
+          var total = getAmount.reduce((a,v) => a + v);
+          inPercent = seriesData.map(v => Math.max(v / total * 100, 1));
           getTask.push(dataObj.Task);
         }
         setChartData({
@@ -23,7 +25,7 @@ const ChartsExpense = () => {
           datasets: [
             {
               label: "Amount",
-              data: getAmount,
+              data: inPercent,
               backgroundColor: function (context) {
                 return palette[context.dataIndex % palette.length];
               },
@@ -52,6 +54,16 @@ const ChartsExpense = () => {
               legend: {
                 display: false
               }
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'nearest',
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var value = getAmount[tooltipItem.index];
+                  var label = getTask[tooltipItem.index];
+                  return `${label}: ${value}`;
+                }
             },
             scales: {
               yAxes: [
