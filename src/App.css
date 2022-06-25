@@ -36,12 +36,6 @@ body {
 	align-items: center;
 }
 
-.container1 {
-	display: flex;
-	width: 1450px;
-	overflow-x: scroll;
-}
-
 .head {
 	color: whitesmoke;
 }
@@ -61,6 +55,7 @@ body {
 
 .form {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	border: 2px solid whitesmoke;
@@ -69,7 +64,8 @@ body {
 	margin-right: 20px;
 	background-color: black;
 	opacity: 0.5;
-	width: 45%;
+	width: 25%;
+	height: auto;
 }
 
 .pushbutton {
@@ -164,7 +160,7 @@ body {
 	justify-content: center;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
-	width: 45%;
+	width: 33%;
 	height: auto;
 	background-color: black;
 	opacity: 0.5;
@@ -176,7 +172,7 @@ body {
 	justify-content: center;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
-	width: 45%;
+	width: 33%;
 	height: auto;
 	background-color: black;
 	opacity: 0.5;
