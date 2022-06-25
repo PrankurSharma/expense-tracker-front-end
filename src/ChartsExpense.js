@@ -31,14 +31,12 @@ const ChartsExpense = () => {
             datasets: [
               {
                 data: getAmount,
-                backgroundColor: palette,
                 borderWidth: 1
               }
             ]
           }}
           options={{
             responsive: true,
-            title: { text: "Money Added", display: true },
             plugins: {
               legend: {
                 display: false
