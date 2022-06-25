@@ -31,9 +31,7 @@ const ChartsExpense = () => {
             datasets: [
               {
                 data: getAmount,
-                backgroundColor: function (context) {
-                  return palette[context.dataIndex % palette.length];
-                },
+                backgroundColor: palette,
                 borderWidth: 1
               }
             ]
