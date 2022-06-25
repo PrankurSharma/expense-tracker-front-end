@@ -45,11 +45,8 @@ const ChartsExpense = () => {
       <div>
         <Doughnut
           data={chartData}
-          width="70%"
-          height="100%"
           options={{
             responsive: true,
-            maintainAspectRatio: false,
             title: { text: "Money Added", display: true },
             scales: {
               yAxes: [
