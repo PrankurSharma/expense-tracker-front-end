@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import SpinnerLogin from "./SpinnerLogin";
 
 function Header() {
     const [user_id, setuser_id] = useState("");
@@ -24,7 +23,6 @@ function Header() {
     }
     return (
         <div>
-            <SpinnerLogin />
             <div>
                 <a href="/">
                     <img src='/logo.png' alt="Finer" />

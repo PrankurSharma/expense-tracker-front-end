@@ -7,6 +7,7 @@ import Forgot from './Forgot';
 import AllTransactions from './AllTransactions';
 import FilterTransactions from './FilterTransactions';
 import Spinner from "./Spinner";
+import SpinnerLogin from "./SpinnerLogin"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
 	const [loading, setLoading] = useState(true);
@@ -28,7 +29,10 @@ function App() {
 		return (
 			<BrowserRouter>
 				<Routes>
-					<Route exact path="/" element={<CrudSpeechlyPDF />} />
+					<Route exact path="/" element={<SpinnerLogin />} />
+				</Routes>
+				<Routes>
+					<Route exact path="/home" element={<CrudSpeechlyPDF />} />
 				</Routes>
 				<Routes>
 					<Route exact path="/login" element={<Login />} />
