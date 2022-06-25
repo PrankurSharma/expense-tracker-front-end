@@ -27,7 +27,7 @@ const ChartsExpense = () => {
               backgroundColor: function (context) {
                 return palette[context.dataIndex % palette.length];
               },
-              borderWidth: 1
+              borderWidth: 0
             }
           ]
         });
@@ -47,12 +47,6 @@ const ChartsExpense = () => {
           data={chartData}
           options={{
             responsive: true,
-            title: { text: "Money Added", display: true },
-            elements: {
-              arc: {
-                borderWidth: 0
-              }
-            },
             plugins: {
               legend: {
                 display: false
