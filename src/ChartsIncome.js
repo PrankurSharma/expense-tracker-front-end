@@ -48,6 +48,11 @@ const ChartsIncome = () => {
           options={{
             responsive: true,
             title: { text: "Money Added", display: true },
+            elements: {
+              arc: {
+                borderWidth: 0
+              }
+            },
             plugins: {
               legend: {
                 display: false
