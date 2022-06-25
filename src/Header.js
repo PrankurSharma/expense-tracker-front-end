@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import Spinner from "./Spinner";
+import SpinnerLogin from "./SpinnerLogin";
+
 function Header() {
     const [user_id, setuser_id] = useState("");
     const [user_name, setuser_name] = useState("");
@@ -10,9 +11,6 @@ function Header() {
             if (response.data[0].person_id && response.data[0].username) {
                 setuser_id(response.data[0].person_id);
                 setuser_name(response.data[0].username);
-            }
-            else {
-                window.location.href = '/login';
             }
         })
     }, []);
@@ -26,7 +24,7 @@ function Header() {
     }
     return (
         <div>
-            <Spinner />
+            <SpinnerLogin />
             <div>
                 <a href="/">
                     <img src='/logo.png' alt="Finer" />
