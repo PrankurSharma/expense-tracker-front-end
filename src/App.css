@@ -34,6 +34,10 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.container1 {
+	display: flex;
 	width: 1450px;
 	overflow-x: scroll;
 }
