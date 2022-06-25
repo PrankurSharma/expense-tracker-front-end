@@ -39,7 +39,6 @@ body {
 
 .container1 {
 	display: flex;
-	overflow-x: scroll;
 }
 
 .head {
