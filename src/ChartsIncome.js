@@ -45,7 +45,8 @@ const ChartsIncome = () => {
       <div>
         <Doughnut
           data={chartData}
-          width={"30%"}
+          width={"70%"}
+          height={"auto"}
           options={{
             responsive: true,
             maintainAspectRatio: false,
