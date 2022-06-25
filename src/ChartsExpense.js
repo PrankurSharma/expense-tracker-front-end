@@ -48,6 +48,16 @@ const ChartsExpense = () => {
           options={{
             responsive: true,
             title: { text: "Money Added", display: true },
+            plugins: {
+              legend: {
+                labels: {
+                  font: {
+                    size: 8
+                  },
+                  boxWidth: 10
+                }
+              }
+            },
             scales: {
               yAxes: [
                 {
