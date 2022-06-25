@@ -29,10 +29,7 @@ function App() {
 		return (
 			<BrowserRouter>
 				<Routes>
-					<Route exact path="/" element={<SpinnerLogin />} />
-				</Routes>
-				<Routes>
-					<Route exact path="/home" element={<CrudSpeechlyPDF />} />
+					<Route exact path="/" element={<CrudSpeechlyPDF />} />
 				</Routes>
 				<Routes>
 					<Route exact path="/login" element={<Login />} />

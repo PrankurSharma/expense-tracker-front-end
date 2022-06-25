@@ -14,7 +14,7 @@ function Login() {
         password: password
       }).then((response) => {
         if (!response.data.message && !response.data.error) {
-          window.location.href = "/home";
+          window.location.href = "/";
         }
         else {
           alert(response.data.message);
