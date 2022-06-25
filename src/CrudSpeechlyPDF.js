@@ -43,7 +43,7 @@ function CrudSpeechlyPDF() {
 	}
 
 	const submitEntries = () => {
-		if (amount && task && type && (type === "Income" || type === "Expense" || type === "INCOME" || type === "EXPENSE" || type === "income" || type === "expense")) {
+		if (amount && task && type && date && (type === "Income" || type === "Expense" || type === "INCOME" || type === "EXPENSE" || type === "income" || type === "expense")) {
 			Axios.post('https://my-expense-tracker-project.herokuapp.com/api/insert', {
 				amount: amount,
 				task: task,
@@ -113,7 +113,7 @@ function CrudSpeechlyPDF() {
 				}
 			});
 
-			if (segment.isFinal && amount && task && type) {
+			if (segment.isFinal && amount && task && type && date) {
 				submitEntries();
 			}
 		}
