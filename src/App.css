@@ -34,6 +34,8 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 1450px;
+	overflow-x: scroll;
 }
 
 .head {
@@ -64,8 +66,8 @@ body {
 	margin-right: 20px;
 	background-color: black;
 	opacity: 0.5;
-	width: 25%;
-	height: auto;
+	width: auto;
+	height: 45%;
 }
 
 .pushbutton {
@@ -160,7 +162,7 @@ body {
 	justify-content: center;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
-	width: 33%;
+	width: 45%;
 	height: auto;
 	background-color: black;
 	opacity: 0.5;
@@ -172,7 +174,7 @@ body {
 	justify-content: center;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
-	width: 33%;
+	width: 45%;
 	height: auto;
 	background-color: black;
 	opacity: 0.5;
