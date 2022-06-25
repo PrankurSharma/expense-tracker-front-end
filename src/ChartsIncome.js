@@ -45,8 +45,10 @@ const ChartsIncome = () => {
       <div>
         <Doughnut
           data={chartData}
+          width={"30%"}
           options={{
             responsive: true,
+            maintainAspectRatio: false,
             title: { text: "Money Added", display: true },
             scales: {
               yAxes: [
