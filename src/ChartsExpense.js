@@ -8,8 +8,8 @@ const ChartsExpense = () => {
 
   var palette = ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"];
 
-    let getAmount = [];
-    let getTask = [];
+    var getAmount = [];
+    var getTask = [];
 
     axios.get("https://my-expense-tracker-project.herokuapp.com/api/getexpense")
       .then(res => {
@@ -30,7 +30,6 @@ const ChartsExpense = () => {
             labels: getTask,
             datasets: [
               {
-                label: "Amount",
                 data: getAmount,
                 backgroundColor: function (context) {
                   return palette[context.dataIndex % palette.length];
