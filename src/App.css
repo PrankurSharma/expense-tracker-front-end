@@ -38,8 +38,7 @@ body {
 
 .container1 {
 	display: flex;
-	width: 1450px;
-	overflow-y: scroll;
+	overflow-x: scroll;
 }
 
 .head {
