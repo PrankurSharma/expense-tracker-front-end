@@ -64,7 +64,7 @@ body {
 	margin-right: 20px;
 	background-color: black;
 	opacity: 0.5;
-	width: 27%;
+	width: 25%;
 }
 
 .pushbutton {
@@ -159,7 +159,7 @@ body {
 	justify-content: center;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
-	width: auto;
+	width: 33%;
 	height: auto;
 	background-color: black;
 	opacity: 0.5;
