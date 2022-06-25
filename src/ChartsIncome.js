@@ -42,7 +42,7 @@ const ChartsIncome = () => {
   }, []);
   return (
     <div className="App">
-      <div style={{height:"60vh",position:"relative", marginBottom:"1%", padding:"1%"}}>
+      <div>
         <Doughnut
           data={chartData}
           options={{
