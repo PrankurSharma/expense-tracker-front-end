@@ -39,6 +39,7 @@ const ChartsExpense = () => {
       .catch(err => {
         alert(err);
       });
+      console.log(inPercent);
   };
 
   useEffect(() => {
