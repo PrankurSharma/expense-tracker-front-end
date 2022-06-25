@@ -50,12 +50,7 @@ const ChartsIncome = () => {
             title: { text: "Money Added", display: true },
             plugins: {
               legend: {
-                labels: {
-                  font: {
-                    size: 8
-                  },
-                  boxWidth: 10
-                }
+                display: false
               }
             },
             scales: {
