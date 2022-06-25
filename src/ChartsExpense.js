@@ -26,6 +26,7 @@ const ChartsExpense = () => {
               data: function(){
                 var total = getAmount.reduce((a, v) => a + v);
                 var inPercent = getAmount.map(v => Math.max(v / total * 100, 1));
+                console.log(inPercent);
                 return inPercent;
               },
               backgroundColor: function (context) {
@@ -39,7 +40,6 @@ const ChartsExpense = () => {
       .catch(err => {
         alert(err);
       });
-      console.log(inPercent);
   };
 
   useEffect(() => {
