@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import Spinner from "Spinner";
+import Spinner from "./Spinner";
 function Header() {
     const [user_id, setuser_id] = useState("");
     const [user_name, setuser_name] = useState("");
