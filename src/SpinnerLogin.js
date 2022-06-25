@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Spinner from "./Spinner";
-import CrudSpeechlyPDF from "./CrudSpeechlyPDF";
 function SpinnerLogin(){
     Axios.defaults.withCredentials = true;
     useEffect(() => {
