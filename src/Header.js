@@ -24,7 +24,7 @@ function Header() {
     return (
         <div>
             <div>
-                <a href="/">
+                <a href="/home">
                     <img src='/logo.png' alt="Finer" />
                 </a>
             </div>
