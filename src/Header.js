@@ -29,7 +29,7 @@ function Header() {
                 </a>
             </div>
             <div className="divhead">
-                <h1 className="head"> Hi User {user_name} </h1>
+                <h1 className="head"> Hi {user_name}, </h1>
                 <button className="button" onClick={() => {
                     logout();
                 }}> Logout </button>
