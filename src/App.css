@@ -65,6 +65,7 @@ body {
 	background-color: black;
 	opacity: 0.5;
 	width: 25%;
+	height: auto;
 }
 
 .pushbutton {
@@ -160,7 +161,7 @@ body {
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
 	width: 33%;
-	height: 40%;
+	height: auto;
 	background-color: black;
 	opacity: 0.5;
 }
@@ -172,7 +173,7 @@ body {
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
 	width: 33%;
-	height: 40%;
+	height: auto;
 	background-color: black;
 	opacity: 0.5;
 }
