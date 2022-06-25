@@ -149,63 +149,65 @@ function CrudSpeechlyPDF() {
 			<div className="bg"> </div>
 			<Header />
 			<div className="container">
-				<div className="income">
-					<h2 className="record"> Income For This Month: ₹ {monthincome} </h2>
-					<ChartsIncome />
-				</div>
-				<div className="form">
-					<h2 className="record"> Record Transaction </h2>
-					<label className="label"> Amount: </label>
-					<input
-						type="text"
-						name="amount"
-						onChange={(e) => {
-							set_amount(e.target.value);
-						}}
-					/>
-					<label className="label"> Task: </label>
-					<input
-						type="text"
-						name="task"
-						onChange={(e) => {
-							set_task(e.target.value);
-						}}
-					/>
-					<label className="label"> Type: </label>
-					<select
-						id="type"
-						type="text"
-						name="type"
-						onChange={(e) => {
-							set_type(e.target.value);
-						}}>
-						<option> Type </option>
-						<option> Income </option>
-						<option> Expense </option>
-					</select>
-					<label className="label"> Date: </label>
-					<input id="date"
-						type="date"
-						name="date"
-						InputLabelProps={{
-							shrink: true,
-						}}
-						onChange={(e) => {
-							set_date(e.target.value);
-						}} />
-					<button className="button" onClick={() => {
-						submitEntries();
-					}}> Submit </button>
-					<div>
-						<h5 className="head1"> OR Hold the button and Try Saying: Add amount of 50 rupees for task Shopping of type Expense for Today. </h5>
+				<div className="container1">
+					<div className="income">
+						<h2 className="record"> Income For This Month: ₹ {monthincome} </h2>
+						<ChartsIncome />
 					</div>
-					<PushToTalkButton className="pushbutton" captureKey=" " />
-				</div>
-				<BigTranscript placement="top" />
-				<ErrorPanel placement="bottom" />
-				<div className="expense">
-					<h2 className="record"> Expenses For This Month: ₹ {monthexpense} </h2>
-					<ChartsExpense />
+					<div className="form">
+						<h2 className="record"> Record Transaction </h2>
+						<label className="label"> Amount: </label>
+						<input
+							type="text"
+							name="amount"
+							onChange={(e) => {
+								set_amount(e.target.value);
+							}}
+						/>
+						<label className="label"> Task: </label>
+						<input
+							type="text"
+							name="task"
+							onChange={(e) => {
+								set_task(e.target.value);
+							}}
+						/>
+						<label className="label"> Type: </label>
+						<select
+							id="type"
+							type="text"
+							name="type"
+							onChange={(e) => {
+								set_type(e.target.value);
+							}}>
+							<option> Type </option>
+							<option> Income </option>
+							<option> Expense </option>
+						</select>
+						<label className="label"> Date: </label>
+						<input id="date"
+							type="date"
+							name="date"
+							InputLabelProps={{
+								shrink: true,
+							}}
+							onChange={(e) => {
+								set_date(e.target.value);
+							}} />
+						<button className="button" onClick={() => {
+							submitEntries();
+						}}> Submit </button>
+						<div>
+							<h5 className="head1"> OR Hold the button and Try Saying: Add amount of 50 rupees for task Shopping of type Expense for Today. </h5>
+						</div>
+						<PushToTalkButton className="pushbutton" captureKey=" " />
+					</div>
+					<BigTranscript placement="top" />
+					<ErrorPanel placement="bottom" />
+					<div className="expense">
+						<h2 className="record"> Expenses For This Month: ₹ {monthexpense} </h2>
+						<ChartsExpense />
+					</div>
 				</div>
 			</div>
 			<div>
