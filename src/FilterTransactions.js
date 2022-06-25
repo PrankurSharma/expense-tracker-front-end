@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import Header from './Header';
+import Spinner from './Spinner';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
@@ -12,6 +13,16 @@ function FilterTransactions() {
     const [new_task, setnew_task] = useState("");
     const [filter_income, setfilter_income] = useState("");
     const [filter_expense, setfilter_expense] = useState("");
+    const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		const loadData = async () => {
+			await new Promise((r) => setTimeout(r, 5000));
+			setLoading((loading) => !loading);
+		};
+
+		loadData();
+	}, []);
     Axios.defaults.withCredentials = true;
 
     function refreshPage() {
@@ -100,7 +111,10 @@ function FilterTransactions() {
         doc.autoTable(cols, rows, { startY: 10 });
         doc.save("transactions.pdf");
     }
-
+    if(loading){
+        return (<Spinner />);
+    }
+    else{
     return (
         <div className='App'>
             <Header />
@@ -261,5 +275,6 @@ function FilterTransactions() {
             </div>
         </div>
     );
+    }
 }
 export default FilterTransactions;

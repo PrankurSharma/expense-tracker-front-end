@@ -3,6 +3,7 @@ import Axios from "axios";
 import ChartsIncome from './ChartsIncome';
 import ChartsExpense from './ChartsExpense';
 import Header from './Header';
+import Spinner from "./Spinner";
 import { PushToTalkButton, BigTranscript, ErrorPanel } from '@speechly/react-ui';
 import { useSpeechContext } from '@speechly/react-client';
 import jsPDF from 'jspdf';
@@ -19,6 +20,16 @@ function CrudSpeechlyPDF() {
 	const [new_amount, setnew_amount] = useState("");
 	const [new_task, setnew_task] = useState("");
 	const { segment } = useSpeechContext();
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		const loadData = async () => {
+			await new Promise((r) => setTimeout(r, 5000));
+			setLoading((loading) => !loading);
+		};
+
+		loadData();
+	}, []);
 	Axios.defaults.withCredentials = true;
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {
@@ -130,7 +141,9 @@ function CrudSpeechlyPDF() {
 		doc.autoTable(cols, rows, { startY: 10 });
 		doc.save("transactions.pdf");
 	}
-
+	if(loading){
+		return (<Spinner />);
+	}
 	return (
 		<div className="App">
 			<div className="bg"> </div>
