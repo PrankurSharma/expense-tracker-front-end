@@ -90,53 +90,53 @@ function AllTransactions() {
 		doc.autoTable(cols, rows, { startY: 10 });
 		doc.save("transactions.pdf");
 	}
-	if(loading){
+	if (loading) {
 		return (<Spinner />);
 	}
-	else{
-	return (
-		<div className='App'>
-			<Header />
-			<h1 className='head'> All Transactions </h1>
-			<h1 className="record"> Income: ₹ {totalincome} </h1>
-			<h1 className="record"> Expenses: ₹ {totalexpense} </h1>
-			<button className='button' onClick={() => {
-				window.location.href = "/filtertransactions";
-			}}> Filter Transactions By Month And Year </button>
-			<div className="containertrans">
-				<div className="alltransactions">
-					{money.map((val) => {
-						return (
-							<div className="card">
-								<h1 className="heading"> {val.Task} </h1>
-								<h2 className="heading"> ID: {val.trans_id} </h2>
-								<h3 className="heading"> Amount: ₹ {val.Amount} <span> Type: {val.Type} </span> </h3>
-								<h4 className="heading"> Date: {val.added_date} </h4>
-								<button className="delete" onClick={() => {
-									deleteTransaction(val.trans_id);
-								}}> Delete </button>
-								<div className="smallcard">
-									<h4 className="heading"> New Task: <input type="text" id="updateInput" onChange={(e) => {
-										setnew_task(e.target.value)
-									}} />
-										New Amount: <input type="text" id="updateInput1" onChange={(e) => {
-											setnew_amount(e.target.value)
+	else {
+		return (
+			<div className='App'>
+				<Header />
+				<h1 className='head'> All Transactions </h1>
+				<h1 className="record"> Income: ₹ {totalincome} </h1>
+				<h1 className="record"> Expenses: ₹ {totalexpense} </h1>
+				<button className='button' onClick={() => {
+					window.location.href = "/filtertransactions";
+				}}> Filter Transactions By Month And Year </button>
+				<div className="containertrans">
+					<div className="alltransactions">
+						{money.map((val) => {
+							return (
+								<div className="card">
+									<h1 className="heading"> {val.Task} </h1>
+									<h2 className="heading"> ID: {val.trans_id} </h2>
+									<h3 className="heading"> Amount: ₹ {val.Amount} <span> Type: {val.Type} </span> </h3>
+									<h4 className="heading"> Date: {val.added_date} </h4>
+									<button className="delete" onClick={() => {
+										deleteTransaction(val.trans_id);
+									}}> Delete </button>
+									<div className="smallcard">
+										<h4 className="heading"> New Task: <input type="text" id="updateInput" onChange={(e) => {
+											setnew_task(e.target.value)
 										}} />
-									</h4>
-									<button className="update" onClick={() => {
-										updateTransaction(val.trans_id);
-									}}> Update </button>
+											New Amount: <input type="text" id="updateInput1" onChange={(e) => {
+												setnew_amount(e.target.value)
+											}} />
+										</h4>
+										<button className="update" onClick={() => {
+											updateTransaction(val.trans_id);
+										}}> Update </button>
+									</div>
 								</div>
-							</div>
-						);
-					})}
+							);
+						})}
+					</div>
+				</div>
+				<div>
+					<button className="button" disabled={!money.length} onClick={jsPdfGenerator}> Generate PDF for all transactions </button>
 				</div>
 			</div>
-			<div>
-				<button className="button" disabled={!money.length} onClick={jsPdfGenerator}> Generate PDF for all transactions </button>
-			</div>
-		</div>
-	);
+		);
 	}
 }
 export default AllTransactions;

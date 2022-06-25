@@ -129,7 +129,7 @@ function CrudSpeechlyPDF() {
 			}
 		}
 	}, [segment]);
-	
+
 	function jsPdfGenerator() {
 		var doc = new jsPDF();
 		var cols = ["Trans_id", "Task", "Amount", "Type", "Date"];
@@ -141,7 +141,7 @@ function CrudSpeechlyPDF() {
 		doc.autoTable(cols, rows, { startY: 10 });
 		doc.save("transactions.pdf");
 	}
-	if(loading){
+	if (loading) {
 		return (<Spinner />);
 	}
 	return (
