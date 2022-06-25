@@ -45,8 +45,8 @@ const ChartsExpense = () => {
       <div>
         <Doughnut
           data={chartData}
-          width={"70%"}
-          height={"auto"}
+          width="70%"
+          height="30%"
           options={{
             responsive: true,
             maintainAspectRatio: false,
