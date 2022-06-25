@@ -23,7 +23,11 @@ const ChartsExpense = () => {
           datasets: [
             {
               label: "Amount",
-              data: getAmount,
+              data: function(){
+                var total = getAmount.reduce((a, v) => a + v);
+                var inPercent = getAmount.map(v => Math.max(v / total * 100, 1));
+                return inPercent;
+              },
               backgroundColor: function (context) {
                 return palette[context.dataIndex % palette.length];
               },
@@ -51,6 +55,15 @@ const ChartsExpense = () => {
             plugins: {
               legend: {
                 display: false
+              }
+            }, 
+            tooltips: {
+              enabled: true,
+              mode: 'nearest',
+              callbacks: function(tooltipItem, data) {
+                var value = getAmount[tooltipItem.index];
+                var label = getTask[tooltipItem.index];
+                return `${label}: ${value}`;
               }
             },
             scales: {
