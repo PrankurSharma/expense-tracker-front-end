@@ -38,7 +38,6 @@ body {
 
 .container1 {
 	display: flex;
-	flex-direction: column;
 	width: 1450px;
 	border-radius: 15px;
 	overflow-x: scroll;
