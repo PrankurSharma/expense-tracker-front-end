@@ -48,6 +48,7 @@ const ChartsIncome = () => {
           width="300%"
           options={{
             responsive: false,
+            maintainAspectRatio: false,
             scales: {
               yAxes: [
                 {
