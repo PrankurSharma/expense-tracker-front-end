@@ -149,6 +149,7 @@ function CrudSpeechlyPDF() {
 			<div className="bg"> </div>
 			<Header />
 			<div className="container">
+				<div className="container1">
 				<div className="income">
 					<h2 className="record"> Income For This Month: ₹ {monthincome} </h2>
 					<ChartsIncome />
@@ -207,6 +208,7 @@ function CrudSpeechlyPDF() {
 					<h2 className="record"> Expenses For This Month: ₹ {monthexpense} </h2>
 					<ChartsExpense />
 				</div>
+			</div>
 			</div>
 			<div>
 				<h1 className="head"> Transactions This Month </h1>
