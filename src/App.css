@@ -71,7 +71,7 @@ body {
 	margin: 10px;
 	background-color: black;
 	opacity: 0.5;
-	width: auto;
+	width: 33%;
 	height: auto;
 }
 
@@ -94,7 +94,7 @@ body {
 .form input,
 #type {
 	height: auto;
-	width: auto;
+	width: 90%;
 	font-size: 25px;
 }
 
@@ -168,7 +168,7 @@ body {
 	margin: 10px;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
-	width: auto;
+	width: 33%;
 	height: auto;
 	background-color: black;
 	opacity: 0.5;
@@ -181,7 +181,7 @@ body {
 	margin: 10px;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
-	width: auto;
+	width: 33%;
 	height: auto;
 	background-color: black;
 	opacity: 0.5;
