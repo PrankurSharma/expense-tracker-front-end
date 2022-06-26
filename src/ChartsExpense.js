@@ -47,11 +47,6 @@ const ChartsExpense = () => {
           data={chartData}
           options={{
             responsive: true,
-            plugins: {
-              legend: {
-                display: false
-              }
-            },
             scales: {
               yAxes: [
                 {
