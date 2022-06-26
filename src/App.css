@@ -62,8 +62,6 @@ body {
 }
 
 .form {
-	display: flex;
-	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	border: 2px solid whitesmoke;
@@ -162,8 +160,6 @@ body {
 }
 
 .income {
-	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
@@ -174,8 +170,6 @@ body {
 }
 
 .expense {
-	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
