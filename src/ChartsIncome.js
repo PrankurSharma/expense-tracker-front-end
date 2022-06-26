@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Bar } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import axios from "axios";
 
 
@@ -43,7 +43,7 @@ const ChartsIncome = () => {
   return (
     <div className="App">
       <div style={{height:"auto",position:"relative", marginBottom:"1%", padding:"1%"}}>
-        <Bar
+        <Doughnut
           data={chartData}
           options={{
             responsive: true,
