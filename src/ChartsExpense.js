@@ -42,7 +42,7 @@ const ChartsExpense = () => {
   }, []);
   return (
     <div className="App">
-      <div style={{position: "relative", height:"40vh", width:"80vw"}}>
+      <div>
         <Doughnut
           data={chartData}
           options={{
