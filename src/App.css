@@ -32,6 +32,7 @@ body {
 
 .container {
 	display: flex;
+	width: 1450px;
 	justify-content: center;
 	align-items: center;
 }
@@ -39,7 +40,6 @@ body {
 .container1 {
 	display: flex;
 	border-radius: 15px;
-	width: 1450px;
 	overflow-x: scroll;
 	overflow-y: hidden;
 }
@@ -72,7 +72,7 @@ body {
 	margin-right: 20px;
 	background-color: black;
 	opacity: 0.5;
-	width: auto;
+	width: 500px;
 	height: auto;
 }
 
@@ -168,7 +168,7 @@ body {
 	justify-content: center;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
-	width: auto;
+	width: 500px;
 	height: auto;
 	background-color: black;
 	opacity: 0.5;
@@ -180,7 +180,7 @@ body {
 	justify-content: center;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
-	width: auto;
+	width: 500px;
 	height: auto;
 	background-color: black;
 	opacity: 0.5;
