@@ -42,7 +42,7 @@ const ChartsIncome = () => {
   }, []);
   return (
     <div className="App">
-      <div style="position: relative; height:40vh; width:80vw">
+      <div style={{position: "relative", height:"40vh", width:"80vw"}}>
         <Doughnut
           data={chartData}
           width="300%"

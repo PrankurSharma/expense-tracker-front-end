@@ -71,7 +71,7 @@ body {
 	margin: 10px;
 	background-color: black;
 	opacity: 0.5;
-	width: 500px;
+	width: auto;
 	height: auto;
 }
 
@@ -165,7 +165,7 @@ body {
 	justify-content: center;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
-	width: 500px;
+	width: auto;
 	height: auto;
 	background-color: black;
 	opacity: 0.5;
@@ -175,7 +175,7 @@ body {
 	justify-content: center;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
-	width: 500px;
+	width: auto;
 	height: auto;
 	background-color: black;
 	opacity: 0.5;
