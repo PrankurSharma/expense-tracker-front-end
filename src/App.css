@@ -36,11 +36,12 @@ body {
 	align-items: center;
 }
 
-.conatiner1 {
-	width: 1450px;
+.container1 {
+	display: flex;
 	border-radius: 15px;
-	overflow-y: hidden;
+	width: 1450px;
 	overflow-x: scroll;
+	overflow-y: hidden;
 }
 
 .head {
@@ -71,7 +72,7 @@ body {
 	margin-right: 20px;
 	background-color: black;
 	opacity: 0.5;
-	width: 500px;
+	width: 25%;
 	height: auto;
 }
 
@@ -167,7 +168,7 @@ body {
 	justify-content: center;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
-	width: 500px;
+	width: 33%;
 	height: auto;
 	background-color: black;
 	opacity: 0.5;
@@ -179,7 +180,7 @@ body {
 	justify-content: center;
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
-	width: 500px;
+	width: 33%;
 	height: auto;
 	background-color: black;
 	opacity: 0.5;
