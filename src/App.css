@@ -33,10 +33,6 @@ body {
 .container {
 	display: flex;
 	justify-content: center;
-}
-
-.container1 {
-	display: flex;
 	width: 1450px;
 	overflow-y: hidden;
 	overflow-x: scroll;
