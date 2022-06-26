@@ -46,7 +46,7 @@ const ChartsExpense = () => {
         <Doughnut
           data={chartData}
           options={{
-            responsive: true,
+            responsive: false,
             scales: {
               yAxes: [
                 {
