@@ -42,11 +42,12 @@ const ChartsExpense = () => {
   }, []);
   return (
     <div className="App">
-      <div>
+      <div style={{width: '100%', height: '100%'}}>
         <Doughnut
           data={chartData}
           options={{
-            responsive: false,
+            responsive: true,
+            maintainAspectRatio: true,
             scales: {
               yAxes: [
                 {
