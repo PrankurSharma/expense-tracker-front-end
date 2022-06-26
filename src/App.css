@@ -33,7 +33,6 @@ body {
 .container {
 	display: flex;
 	justify-content: center;
-	align-items: center;
 }
 
 .container1 {
@@ -178,6 +177,7 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	border: 2px solid whitesmoke;
+	border-radius: 15px;
 	width: 500px;
 	height: auto;
 	background-color: black;
