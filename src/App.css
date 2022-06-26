@@ -32,13 +32,13 @@ body {
 
 .container {
 	display: flex;
-	width: 1450px;
 	justify-content: center;
 	align-items: center;
 }
 
 .container1 {
 	display: flex;
+	width: 1450px;
 	border-radius: 15px;
 	overflow-x: scroll;
 	overflow-y: hidden;
