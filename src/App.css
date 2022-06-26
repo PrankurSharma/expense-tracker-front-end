@@ -37,7 +37,6 @@ body {
 }
 
 .container1 {
-	display: flex;
 	border-radius: 15px;
 	width: 1450px;
 	overflow-x: scroll;
