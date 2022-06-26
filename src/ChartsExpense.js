@@ -45,7 +45,6 @@ const ChartsExpense = () => {
       <div style={{position: "relative", height:"40vh", width:"80vw"}}>
         <Doughnut
           data={chartData}
-          width="300%"
           options={{
             responsive: false,
             scales: {
