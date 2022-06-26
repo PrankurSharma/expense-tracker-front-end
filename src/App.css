@@ -94,7 +94,7 @@ body {
 .form input,
 #type {
 	height: auto;
-	width: 90%;
+	width: auto;
 	font-size: 25px;
 }
 
