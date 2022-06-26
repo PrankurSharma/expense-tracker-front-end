@@ -40,7 +40,7 @@ body {
 	display: flex;
 	width: 1450px;
 	border-radius: 15px;
-	overflow-x: auto;
+	overflow-x: scroll;
 	overflow-y: hidden;
 }
 
@@ -73,7 +73,7 @@ body {
 	background-color: black;
 	opacity: 0.5;
 	width: 500px;
-	height: auto;
+	height: 500px;
 }
 
 .pushbutton {
@@ -169,7 +169,7 @@ body {
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
 	width: 500px;
-	height: auto;
+	height: 500px;
 	background-color: black;
 	opacity: 0.5;
 }
@@ -181,7 +181,7 @@ body {
 	border: 2px solid whitesmoke;
 	border-radius: 15px;
 	width: 500px;
-	height: auto;
+	height: 500px;
 	background-color: black;
 	opacity: 0.5;
 }
