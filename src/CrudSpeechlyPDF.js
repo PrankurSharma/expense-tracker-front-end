@@ -28,6 +28,7 @@ function CrudSpeechlyPDF() {
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {
 			setmonth_money(response.data);
+			setLoading((loading) => !loading);
 		});
 	}, []);
 
@@ -61,7 +62,7 @@ function CrudSpeechlyPDF() {
 			setmonth_expense(response.data[0].amTotal);
 		});
 	};
-	
+
 	const submitEntries = () => {
 		if (amount && task && type && date && (type === "Income" || type === "Expense" || type === "INCOME" || type === "EXPENSE" || type === "income" || type === "expense")) {
 			Axios.post('https://my-expense-tracker-project.herokuapp.com/api/insert', {
