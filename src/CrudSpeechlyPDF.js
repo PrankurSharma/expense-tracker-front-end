@@ -98,7 +98,10 @@ function CrudSpeechlyPDF() {
 			alert(err);
 		});
 		alert("Transaction deleted successfully.");
-		refreshPage();
+		setLoading((loading) => !loading);
+		monthTrans();
+		monthIncome();
+		monthExpense();
 	};
 
 	const updateTransaction = (trans_id) => {
@@ -111,7 +114,10 @@ function CrudSpeechlyPDF() {
 				alert(err);
 			});
 			alert("Transaction updated successfully.");
-			refreshPage();
+			setLoading((loading) => !loading);
+			monthTrans();
+			monthIncome();
+			monthExpense();
 		}
 		else {
 			alert("Please fill both the values in order to update the transaction.");

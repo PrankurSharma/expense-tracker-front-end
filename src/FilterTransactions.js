@@ -30,35 +30,6 @@ function FilterTransactions() {
         window.location.reload(false);
     }
 
-    const deleteTransaction = (trans_id) => {
-        Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`).catch((err) => {
-            alert(err);
-        }).catch((err) => {
-            alert(err);
-        });
-        alert("Transaction deleted successfully.");
-        refreshPage();
-    };
-
-    const updateTransaction = (trans_id) => {
-        if (new_amount && new_task) {
-            Axios.put('https://my-expense-tracker-project.herokuapp.com/api/update', {
-                trans_id: trans_id,
-                amount: new_amount,
-                task: new_task
-            }).catch((err) => {
-                alert(err);
-            });
-            alert("Transaction updated successfully.");
-            refreshPage();
-        }
-        else {
-            alert("Please fill both the values in order to update the transaction.");
-        }
-        setnew_amount("");
-        setnew_task("");
-    };
-
     const filterEntries = () => {
         if (month && year) {
             Axios.post('https://my-expense-tracker-project.herokuapp.com/api/filter', {
@@ -100,6 +71,39 @@ function FilterTransactions() {
             });
         }
     }
+
+    const deleteTransaction = (trans_id) => {
+        Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`).catch((err) => {
+            alert(err);
+        }).catch((err) => {
+            alert(err);
+        });
+        alert("Transaction deleted successfully.");
+        filterEntries();
+        filterIncome();
+        filterExpense();
+    };
+
+    const updateTransaction = (trans_id) => {
+        if (new_amount && new_task) {
+            Axios.put('https://my-expense-tracker-project.herokuapp.com/api/update', {
+                trans_id: trans_id,
+                amount: new_amount,
+                task: new_task
+            }).catch((err) => {
+                alert(err);
+            });
+            alert("Transaction updated successfully.");
+            filterEntries();
+            filterIncome();
+            filterExpense();
+        }
+        else {
+            alert("Please fill both the values in order to update the transaction.");
+        }
+        setnew_amount("");
+        setnew_task("");
+    };
 
     function jsPdfGenerator() {
         var doc = new jsPDF();

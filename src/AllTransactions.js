@@ -38,6 +38,31 @@ function AllTransactions() {
 		});
 	}, []);
 
+	const totalTrans = () => {
+		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
+			set_money(response.data);
+			setLoading((loading) => !loading);
+		}).catch((err) => {
+			alert(err);
+		});
+	};
+
+	const totalIncome = () => {
+		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalincome').then((response) => {
+			settotal_income(response.data[0].amTotal);
+		}).catch((err) => {
+			alert(err);
+		});
+	};
+
+	const totalExpense = () => {
+		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalexpense').then((response) => {
+			settotal_expense(response.data[0].amTotal);
+		}).catch((err) => {
+			alert(err);
+		});
+	};
+
 	function refreshPage() {
 		window.location.reload(false);
 	}
@@ -49,7 +74,9 @@ function AllTransactions() {
 			alert(err);
 		});
 		alert("Transaction deleted successfully");
-		refreshPage();
+		totalTrans();
+		totalIncome();
+		totalExpense();
 	};
 
 	const updateTransaction = (trans_id) => {
@@ -62,7 +89,9 @@ function AllTransactions() {
 				alert(err);
 			});
 			alert("Transaction updated successfully.");
-			refreshPage();
+			totalTrans();
+			totalIncome();
+			totalExpense();
 		}
 		else {
 			alert("Please fill both the values in order to update the transaction.");
