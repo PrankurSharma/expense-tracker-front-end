@@ -14,6 +14,15 @@ function FilterTransactions() {
     const [filter_income, setfilter_income] = useState("");
     const [filter_expense, setfilter_expense] = useState("");
     const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const loadData = async () => {
+            await new Promise((r) => setTimeout(r, 5000));
+            setLoading((loading) => !loading);
+        };
+
+        loadData();
+    }, []);
     Axios.defaults.withCredentials = true;
 
     function refreshPage() {
@@ -56,7 +65,6 @@ function FilterTransactions() {
                 year: year
             }).then((response) => {
                 set_money(response.data);
-                setLoading((loading) => !loading);
             }).catch((err) => {
                 alert(err);
             })
