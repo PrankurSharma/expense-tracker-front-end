@@ -15,7 +15,6 @@ function AllTransactions() {
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalincome').then((response) => {
 			settotal_income(response.data[0].amTotal);
-			setLoading((loading) => !loading);
 		}).catch((err) => {
 			alert(err);
 		});
@@ -32,6 +31,7 @@ function AllTransactions() {
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
 			set_money(response.data);
+			setLoading((loading) => !loading);
 		}).catch((err) => {
 			alert(err);
 		});
