@@ -26,8 +26,8 @@ function FilterTransactions() {
         }).catch((err) => {
             alert(err);
         });
-        refreshPage();
         alert("Transaction deleted successfully.");
+        refreshPage();
     };
 
     const updateTransaction = (trans_id) => {
@@ -39,8 +39,8 @@ function FilterTransactions() {
             }).catch((err) => {
                 alert(err);
             });
-            refreshPage();
             alert("Transaction updated successfully.");
+            refreshPage();
         }
         else {
             alert("Please fill both the values in order to update the transaction.");

@@ -73,8 +73,8 @@ function CrudSpeechlyPDF() {
 		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`).catch((err) => {
 			alert(err);
 		});
-		refreshPage();
 		alert("Transaction deleted successfully.");
+		refreshPage();
 	};
 
 	const updateTransaction = (trans_id) => {
@@ -86,8 +86,8 @@ function CrudSpeechlyPDF() {
 			}).catch((err) => {
 				alert(err);
 			});
+			alert("Transaction updated successfully.");
 			refreshPage();
-			alert("Transaction updated successfully.")
 		}
 		else {
 			alert("Please fill both the values in order to update the transaction.");
