@@ -8,8 +8,7 @@ function Login() {
   const [person_id, setperson_id] = useState("");
   const [password, set_password] = useState("");
 
-  const handleSubmit = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
     const navigateToSignup = () => {
       navigate('/signup');
@@ -19,6 +18,7 @@ function Login() {
       navigate('/');
     };
 
+  const handleSubmit = () => {
     if (person_id && password) {
       Axios.post('https://my-expense-tracker-project.herokuapp.com/api/login', {
         person_id: person_id,
