@@ -47,7 +47,6 @@ function CrudSpeechlyPDF() {
 	const monthTrans = () => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {
 			setmonth_money(response.data);
-			setLoading((loading) => !loading);
 		});
 	};
 
@@ -63,10 +62,6 @@ function CrudSpeechlyPDF() {
 		});
 	};
 
-	function refreshPage() {
-		window.location.reload(false);
-	}
-
 	const submitEntries = () => {
 		if (amount && task && type && date && (type === "Income" || type === "Expense" || type === "INCOME" || type === "EXPENSE" || type === "income" || type === "expense")) {
 			Axios.post('https://my-expense-tracker-project.herokuapp.com/api/insert', {
@@ -80,7 +75,6 @@ function CrudSpeechlyPDF() {
 				alert(err);
 			});
 			alert("Record inserted successfully.");
-			setLoading((loading) => !loading);
 			monthTrans();
 			monthIncome();
 			monthExpense();
@@ -98,7 +92,6 @@ function CrudSpeechlyPDF() {
 			alert(err);
 		});
 		alert("Transaction deleted successfully.");
-		setLoading((loading) => !loading);
 		monthTrans();
 		monthIncome();
 		monthExpense();
@@ -114,7 +107,6 @@ function CrudSpeechlyPDF() {
 				alert(err);
 			});
 			alert("Transaction updated successfully.");
-			setLoading((loading) => !loading);
 			monthTrans();
 			monthIncome();
 			monthExpense();

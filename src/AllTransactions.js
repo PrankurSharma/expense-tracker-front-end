@@ -41,7 +41,6 @@ function AllTransactions() {
 	const totalTrans = () => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
 			set_money(response.data);
-			setLoading((loading) => !loading);
 		}).catch((err) => {
 			alert(err);
 		});
@@ -63,10 +62,6 @@ function AllTransactions() {
 		});
 	};
 
-	function refreshPage() {
-		window.location.reload(false);
-	}
-
 	const deleteTransaction = (trans_id) => {
 		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`).catch((err) => {
 			alert(err.response);
@@ -74,7 +69,6 @@ function AllTransactions() {
 			alert(err);
 		});
 		alert("Transaction deleted successfully");
-		setLoading((loading) => !loading);
 		totalTrans();
 		totalIncome();
 		totalExpense();
@@ -90,7 +84,6 @@ function AllTransactions() {
 				alert(err);
 			});
 			alert("Transaction updated successfully.");
-			setLoading((loading) => !loading);
 			totalTrans();
 			totalIncome();
 			totalExpense();

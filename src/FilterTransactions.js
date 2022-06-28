@@ -26,10 +26,6 @@ function FilterTransactions() {
     }, []);
     Axios.defaults.withCredentials = true;
 
-    function refreshPage() {
-        window.location.reload(false);
-    }
-
     const filterEntries = () => {
         if (month && year) {
             Axios.post('https://my-expense-tracker-project.herokuapp.com/api/filter', {
