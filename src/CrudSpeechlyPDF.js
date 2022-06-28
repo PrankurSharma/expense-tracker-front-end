@@ -24,6 +24,7 @@ function CrudSpeechlyPDF() {
 	const [loading, setLoading] = useState(true);
 
 	Axios.defaults.withCredentials = true;
+
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {
 			setmonth_money(response.data);
@@ -42,6 +43,25 @@ function CrudSpeechlyPDF() {
 			setmonth_expense(response.data[0].amTotal);
 		});
 	});
+	
+	const monthTrans = () => {
+		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {
+			setmonth_money(response.data);
+			setLoading((loading) => !loading);
+		});
+	};
+
+	const monthIncome = () => {
+		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthincome').then((response) => {
+			setmonth_income(response.data[0].amTotal);
+		});
+	};
+
+	const monthExpense = () => {
+		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthexpense').then((response) => {
+			setmonth_expense(response.data[0].amTotal);
+		});
+	};
 
 	function refreshPage() {
 		window.location.reload(false);
@@ -60,7 +80,10 @@ function CrudSpeechlyPDF() {
 				alert(err);
 			});
 			alert("Record inserted successfully.");
-			refreshPage();
+			setLoading((loading) => !loading);
+			monthTrans();
+			monthIncome();
+			monthExpense();
 		}
 		else if (type !== "Income" && type !== "Expense" && type !== "INCOME" && type !== "EXPENSE" && type !== "income" && type !== "expense") {
 			alert("Type of transaction can either be Income or Expense.");
