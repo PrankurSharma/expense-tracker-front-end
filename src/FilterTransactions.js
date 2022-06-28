@@ -79,7 +79,6 @@ function FilterTransactions() {
             alert(err);
         });
         alert("Transaction deleted successfully.");
-        setLoading((loading) => !loading);
         filterEntries();
         filterIncome();
         filterExpense();
@@ -95,7 +94,6 @@ function FilterTransactions() {
                 alert(err);
             });
             alert("Transaction updated successfully.");
-            setLoading((loading) => !loading);
             filterEntries();
             filterIncome();
             filterExpense();
