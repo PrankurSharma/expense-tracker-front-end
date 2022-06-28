@@ -91,9 +91,6 @@ function AllTransactions() {
 				<h1 className='head'> All Transactions </h1>
 				<h1 className="record"> Income: ₹ {totalincome} </h1>
 				<h1 className="record"> Expenses: ₹ {totalexpense} </h1>
-				<button className='button' onClick={() => {
-					window.location.href = "/filtertransactions";
-				}}> Filter Transactions By Month And Year </button>
 				<div className="containertrans">
 					<div className="alltransactions">
 						{money.map((val) => {
@@ -125,6 +122,9 @@ function AllTransactions() {
 				</div>
 				<div>
 					<button className="button" disabled={!money.length} onClick={jsPdfGenerator}> Generate PDF for all transactions </button>
+					<button className='button' onClick={() => {
+					window.location.href = "/filtertransactions";
+				}}> Filter Transactions By Month And Year </button>
 				</div>
 			</div>
 		);

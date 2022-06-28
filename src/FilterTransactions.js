@@ -231,9 +231,6 @@ function FilterTransactions() {
                         filterExpense();
                     }}> Filter Results </button>
                 </div>
-                <button className='button' onClick={() => {
-                    window.location.href = "/alltransactions";
-                }}> View All Transactions </button>
                 <div className="filtertransactions">
                     <h1 className='heading'> Income for the chosen month: ₹ {filter_income} </h1>
                     <h1 className='heading'> Expenses for the chosen month: ₹ {filter_expense} </h1>
@@ -272,6 +269,9 @@ function FilterTransactions() {
                 </div>
                 <div>
                     <button className="button" disabled={!money.length} onClick={jsPdfGenerator}> Generate PDF </button>
+                    <button className='button' onClick={() => {
+                    window.location.href = "/alltransactions";
+                }}> View All Transactions </button>
                 </div>
             </div>
         );
