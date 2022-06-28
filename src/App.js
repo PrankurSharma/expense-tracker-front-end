@@ -12,20 +12,10 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				<Route exact path="/" element={<CrudSpeechlyPDF />} />
-			</Routes>
-			<Routes>
 				<Route exact path="/login" element={<Login />} />
-			</Routes>
-			<Routes>
 				<Route exact path="/signup" element={<Signup />} />
-			</Routes>
-			<Routes>
 				<Route exact path="/forgot" element={<Forgot />} />
-			</Routes>
-			<Routes>
 				<Route exact path="/alltransactions" element={<AllTransactions />} />
-			</Routes>
-			<Routes>
 				<Route exact path="/filtertransactions" element={<FilterTransactions />} />
 			</Routes>
 		</BrowserRouter>
