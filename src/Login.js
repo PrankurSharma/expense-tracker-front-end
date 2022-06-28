@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 
 
@@ -8,13 +9,23 @@ function Login() {
   const [password, set_password] = useState("");
 
   const handleSubmit = () => {
+    const navigate = useNavigate();
+
+    const navigateToSignup = () => {
+      navigate('/signup');
+    }
+    
+    const navigateToHome = () => {
+      navigate('/');
+    };
+
     if (person_id && password) {
       Axios.post('https://my-expense-tracker-project.herokuapp.com/api/login', {
         person_id: person_id,
         password: password
       }).then((response) => {
         if (!response.data.message && !response.data.error) {
-          window.location.href = "/";
+          navigateToHome();
         }
         else {
           alert(response.data.message);
@@ -28,9 +39,9 @@ function Login() {
 
   return (
     <div className="login-form">
-      <a href='/'>
+      <Link to ='/'>
         <img src="/logo.png" />
-      </a>
+      </Link>
       <div>
         <h1>Login</h1>
         <div className="content">
@@ -48,12 +59,10 @@ function Login() {
                 set_password(e.target.value);
               }} placeholder="Password" />
           </div>
-          <a href="/forgot" className="link">Forgot Your Password?</a>
+          <Link to ="/forgot" className="link">Forgot Your Password?</Link>
         </div>
         <div className="action">
-          <button className='button1' onClick={() => {
-            window.location.href = "/signup";
-          }}> Register an account </button>
+          <button className='button1' onClick={navigateToSignup}> Register an account </button>
           <button className='button1' onClick={() => {
             handleSubmit();
           }}> Sign in </button>

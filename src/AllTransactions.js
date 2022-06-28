@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Header from './Header';
 import Spinner from "./Spinner";
@@ -81,6 +82,13 @@ function AllTransactions() {
 		doc.autoTable(cols, rows, { startY: 10 });
 		doc.save("transactions.pdf");
 	}
+
+	const navigate = useNavigate();
+
+	const navigateToFilterTrans = () => {
+		navigate('/filtertransactions');
+	}
+
 	if (loading) {
 		return (<Spinner />);
 	}
@@ -122,9 +130,7 @@ function AllTransactions() {
 				</div>
 				<div>
 					<button className="button" disabled={!money.length} onClick={jsPdfGenerator}> Generate PDF for all transactions </button>
-					<button className='button' onClick={() => {
-					window.location.href = "/filtertransactions";
-				}}> Filter Transactions By Month And Year </button>
+					<button className='button' onClick={navigateToFilterTrans}> Filter Transactions By Month And Year </button>
 				</div>
 			</div>
 		);

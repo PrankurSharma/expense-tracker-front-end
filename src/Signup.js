@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import uuid from 'react-uuid';
 import Axios from 'axios';
 
 
 function Signup() {
   Axios.defaults.withCredentials = true;
+  
+  const navigate = useNavigate();
+  const navigateToLogin = () => {
+    navigate('/login');
+  };
+
   const [username, setuser_name] = useState("");
   const [password, set_password] = useState("");
   const person_id = uuid().slice(0, 7);
@@ -18,7 +25,7 @@ function Signup() {
         alert(err);
       });
       alert("Your personal id is: " + person_id + ". Please keep it safely as it will be used for all the future logins.");
-      window.location.href = "/login";
+      navigateToLogin();
     }
     else {
       alert("Please fill both the fields in order to proceed.");
@@ -27,9 +34,9 @@ function Signup() {
 
   return (
     <div className="login-form">
-      <a href='/'>
+      <Link to='/'>
         <img src="/logo.png" />
-      </a>
+      </Link>
       <div>
         <h1> Signup </h1>
         <div className="content">
@@ -49,9 +56,7 @@ function Signup() {
           </div>
         </div>
         <div className="action">
-          <button onClick={() => {
-            window.location.href = "/login";
-          }}> Already signed up? Login </button>
+          <button onClick={navigateToLogin}> Already signed up? Login </button>
           <button onClick={() => {
             handleSubmit();
           }}> Register </button>

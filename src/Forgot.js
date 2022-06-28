@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 
 function Forgot() {
 
   const [person_id, setperson_id] = useState("");
   const [newpassword, setnew_password] = useState("");
+
+  const navigate = useNavigate();
+  const navigateToLogin = () => {
+    navigate('/login');
+  };
 
   const handleSubmit = () => {
     if (person_id && newpassword) {
@@ -14,7 +20,7 @@ function Forgot() {
       }).then((response) => {
         if (!response.data.message) {
           alert("Password updated successfully.");
-          window.location.href = "/login";
+          navigateToLogin();
         }
         else {
           alert(response.data.message);
@@ -32,9 +38,9 @@ function Forgot() {
 
   return (
     <div className="login-form">
-      <a href='/'>
+      <Link to ='/'>
         <img src="/logo.png" />
-      </a>
+      </Link>
       <div>
         <h1> Forgot Password </h1>
         <div className="content">

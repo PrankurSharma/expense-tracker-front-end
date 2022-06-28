@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import ChartsIncome from './ChartsIncome';
 import ChartsExpense from './ChartsExpense';
@@ -134,6 +135,17 @@ function CrudSpeechlyPDF() {
 		doc.autoTable(cols, rows, { startY: 10 });
 		doc.save("transactions.pdf");
 	}
+
+	const navigate = useNavigate();
+
+	const navigateToAllTrans = () => {
+		navigate('/alltransactions');
+	};
+
+	const navigateToFilterTrans = () => {
+		navigate('/filtertransactions');
+	}
+
 	if (loading) {
 		return (<Spinner />);
 	}
@@ -237,12 +249,8 @@ function CrudSpeechlyPDF() {
 			</div>
 			<div>
 				<button className="button" disabled={!monthmoney.length} onClick={jsPdfGenerator}> Generate PDF </button>
-				<button className="button" onClick={() => {
-					window.location.href = "/alltransactions";
-				}}> View All Transactions </button>
-				<button className='button' onClick={() => {
-					window.location.href = "/filtertransactions";
-				}}> Filter Transactions By Month And Year </button>
+				<button className="button" onClick={navigateToAllTrans}> View All Transactions </button>
+				<button className='button' onClick={navigateToFilterTrans}> Filter Transactions By Month And Year </button>
 			</div>
 		</div>
 	);
