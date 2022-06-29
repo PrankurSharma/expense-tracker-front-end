@@ -11,7 +11,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
 	return (
 			<BrowserRouter>
-				<div>
+				<div className="App">
 					<Header />
 				</div>
 				<Routes>
