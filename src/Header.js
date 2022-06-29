@@ -38,9 +38,9 @@ function Header() {
             </div>
             <div className="divhead">
                 <h1 className="head"> Hi {user_name}, </h1>
-                <button className="button" onClick={() => {
+                {!this.state.user_name.length ? null : <button className="button" onClick={() => {
                     logout();
-                }}> Logout </button>
+                }}> Logout </button>}
             </div>
         </div>
     );
