@@ -74,6 +74,7 @@ function FilterTransactions() {
         }).catch((err) => {
             alert(err);
         });
+        alert("Transaction deleted successfully.");
         filterEntries();
         filterIncome();
         filterExpense();
@@ -88,6 +89,7 @@ function FilterTransactions() {
             }).catch((err) => {
                 alert(err);
             });
+            alert("Transaction updated successfully.");
             filterEntries();
             filterIncome();
             filterExpense();

@@ -75,6 +75,7 @@ function CrudSpeechlyPDF() {
 			}).catch((err) => {
 				alert(err);
 			});
+			alert("Record inserted successfully.");
 			setLoading((loading) => !loading);
 			monthTrans();
 			monthIncome();
@@ -92,6 +93,7 @@ function CrudSpeechlyPDF() {
 		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`).catch((err) => {
 			alert(err);
 		});
+		alert("Transaction deleted successfully.");
 		setLoading((loading) => !loading);
 		monthTrans();
 		monthIncome();
@@ -107,6 +109,7 @@ function CrudSpeechlyPDF() {
 			}).catch((err) => {
 				alert(err);
 			});
+			alert("Transaction updated successfully.");
 			setLoading((loading) => !loading);
 			monthTrans();
 			monthIncome();
