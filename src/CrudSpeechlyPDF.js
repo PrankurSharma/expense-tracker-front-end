@@ -271,7 +271,7 @@ function CrudSpeechlyPDF() {
 				</div>
 			</div>
 			<div>
-				<button className="button" disabled={!monthmoney.length} onClick={jsPdfGenerator}> Generate PDF </button>
+				{!monthmoney.length ? null : <button className="button" onClick={jsPdfGenerator}> Generate PDF </button>}
 				<button className="button" onClick={navigateToAllTrans}> View All Transactions </button>
 				<button className='button' onClick={navigateToFilterTrans}> Filter Transactions By Month And Year </button>
 			</div>

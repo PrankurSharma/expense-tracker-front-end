@@ -153,7 +153,7 @@ function AllTransactions() {
 					</div>
 				</div>
 				<div>
-					<button className="button" disabled={!money.length} onClick={jsPdfGenerator}> Generate PDF for all transactions </button>
+					{!money.length ? null : <button className="button" onClick={jsPdfGenerator}> Generate PDF For All Transactions </button>}
 					<button className='button' onClick={navigateToFilterTrans}> Filter Transactions By Month And Year </button>
 				</div>
 			</div>

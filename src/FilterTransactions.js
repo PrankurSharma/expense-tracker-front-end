@@ -276,7 +276,7 @@ function FilterTransactions() {
                     </div>
                 </div>
                 <div>
-                    <button className="button" disabled={!money.length} onClick={jsPdfGenerator}> Generate PDF </button>
+                    {!money.length ? null : <button className="button" onClick={jsPdfGenerator}> Generate PDF </button>}
                     <button className='button' onClick={navigateToAllTrans}> View All Transactions </button>
                 </div>
             </div>
