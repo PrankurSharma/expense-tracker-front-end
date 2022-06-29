@@ -125,6 +125,7 @@ function FilterTransactions() {
     else {
         return (
             <div className='App'>
+                <Header />
                 <h1 className='head'> Filter Transactions </h1>
                 <div>
                     <select id="month" name="month" onChange={(e) => {

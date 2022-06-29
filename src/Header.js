@@ -22,15 +22,6 @@ function Header() {
         })
     }, []);
 
-    const checkLogin = () => {
-        Axios.get('https://my-expense-tracker-project.herokuapp.com/api/login').then((response) => {
-            if (response.data[0].person_id && response.data[0].username) {
-                setuser_id(response.data[0].person_id);
-                setuser_name(response.data[0].username);
-            }
-        });
-    }
-
     const logout = () => {
         Axios.get('https://my-expense-tracker-project.herokuapp.com/api/logout').then((response) => {
             alert("Please click OK to proceed logging out.");
@@ -50,7 +41,6 @@ function Header() {
                 <h1 className="head"> Hi {user_name}, </h1>
                 {!user_name.length ? null : <button className="button" onClick={() => {
                     logout();
-                    checkLogin();
                 }}> Logout </button>}
             </div>
         </div>
