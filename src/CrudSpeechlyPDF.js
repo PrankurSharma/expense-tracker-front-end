@@ -76,13 +76,10 @@ function CrudSpeechlyPDF() {
 				alert(err);
 			});
 			alert("Record inserted successfully.");
-			<>
-				<ChartsIncome />
-				<ChartsExpense />
-			</>
-			monthTrans();
+			//setLoading((loading) => !loading);
+			/*monthTrans();
 			monthIncome();
-			monthExpense();
+			monthExpense();*/
 		}
 		else if (type !== "Income" && type !== "Expense" && type !== "INCOME" && type !== "EXPENSE" && type !== "income" && type !== "expense") {
 			alert("Type of transaction can either be Income or Expense.");
@@ -98,13 +95,9 @@ function CrudSpeechlyPDF() {
 		});
 		alert("Transaction deleted successfully.");
 		//setLoading((loading) => !loading);
-		<>
-			<ChartsIncome />
-			<ChartsExpense />
-		</>
-		monthTrans();
+		/*monthTrans();
 		monthIncome();
-		monthExpense();
+		monthExpense();*/
 	};
 
 	const updateTransaction = (trans_id) => {
@@ -118,13 +111,9 @@ function CrudSpeechlyPDF() {
 			});
 			alert("Transaction updated successfully.");
 			//setLoading((loading) => !loading);
-			<>
-				<ChartsIncome />
-				<ChartsExpense />
-			</>
-			monthTrans();
+			/*monthTrans();
 			monthIncome();
-			monthExpense();
+			monthExpense();*/
 		}
 		else {
 			alert("Please fill both the values in order to update the transaction.");
