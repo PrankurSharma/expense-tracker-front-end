@@ -30,7 +30,7 @@ function CrudSpeechlyPDF() {
 			setmonth_money(response.data);
 			setLoading((loading) => !loading);
 		});
-	}, [money]);
+	}, [monthmoney]);
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthincome').then((response) => {
