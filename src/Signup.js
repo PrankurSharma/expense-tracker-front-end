@@ -24,7 +24,6 @@ function Signup() {
       }).catch((err) => {
         alert(err);
       });
-      alert("Your personal id is: " + person_id + ". Please keep it safely as it will be used for all the future logins.");
       navigateToLogin();
     }
     else {
