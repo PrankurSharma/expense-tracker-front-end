@@ -18,11 +18,11 @@ const ChartsExpense = () => {
           set_getTask(dataObj.Task);
         }
         setChartData({
-          labels: getTask,
+          labels: [getTask],
           datasets: [
             {
               label: "Amount",
-              data: getAmount,
+              data: [getAmount],
               backgroundColor: function (context) {
                 return palette[context.dataIndex % palette.length];
               },
