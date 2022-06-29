@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import ChartsIncome from './ChartsIncome';
-import { ChartsExpense, chart } from './ChartsExpense';
+import ChartsExpense from './ChartsExpense';
 import Header from './Header';
 import Spinner from "./Spinner";
 import { PushToTalkButton, BigTranscript, ErrorPanel } from '@speechly/react-ui';
@@ -77,7 +77,10 @@ function CrudSpeechlyPDF() {
 			});
 			alert("Record inserted successfully.");
 			//setLoading((loading) => !loading);
-			chart();
+			<>
+				<ChartsIncome />
+				<ChartsExpense />
+			</>
 			monthTrans();
 			monthIncome();
 			monthExpense();
@@ -96,7 +99,10 @@ function CrudSpeechlyPDF() {
 		});
 		alert("Transaction deleted successfully.");
 		//setLoading((loading) => !loading);
-		chart();
+		<>
+			<ChartsIncome />
+			<ChartsExpense />
+		</>
 		monthTrans();
 		monthIncome();
 		monthExpense();
@@ -113,7 +119,10 @@ function CrudSpeechlyPDF() {
 			});
 			alert("Transaction updated successfully.");
 			//setLoading((loading) => !loading);
-			chart();
+			<>
+				<ChartsIncome />
+				<ChartsExpense />
+			</>
 			monthTrans();
 			monthIncome();
 			monthExpense();
