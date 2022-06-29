@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import './App.css';
 import CrudSpeechlyPDF from "./CrudSpeechlyPDF";
 import Login from './Login';
@@ -10,7 +10,7 @@ import Header from "./Header";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
 	return (
-		<div>
+		<div className="App">
 			<Header />
 			<BrowserRouter>
 				<Routes>
