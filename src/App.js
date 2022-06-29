@@ -10,9 +10,8 @@ import Header from "./Header";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
 	return (
-		<div className="App">
-			<Header />
 			<BrowserRouter>
+				<Header />
 				<Routes>
 					<Route exact path="/" element={<CrudSpeechlyPDF />} />
 					<Route exact path="/login" element={<Login />} />
@@ -22,7 +21,6 @@ function App() {
 					<Route exact path="/filtertransactions" element={<FilterTransactions />} />
 				</Routes>
 			</BrowserRouter>
-		</div>
 	);
 }
 export default App;
