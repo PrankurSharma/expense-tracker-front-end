@@ -5,15 +5,12 @@ import axios from "axios";
 
 const ChartsIncome = () => {
   const [chartData, setChartData] = useState({});
-  const [list1, set_list1] = useState([]);
-  const [list2, set_list2] = useState([]);
 
   var palette = ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"];
 
   const chart = () => {
     let getAmount = [];
     let getTask = [];
-    
 
     axios.get("https://my-expense-tracker-project.herokuapp.com/api/getincome")
       .then(res => {
@@ -21,14 +18,12 @@ const ChartsIncome = () => {
           getAmount.push(parseInt(dataObj.Amount));
           getTask.push(dataObj.Task);
         }
-        set_list1(getAmount);
-        set_list2(getTask);
         setChartData({
-          labels: list2,
+          labels: getTask,
           datasets: [
             {
               label: "Amount",
-              data: list1,
+              data: getAmount,
               backgroundColor: function (context) {
                 return palette[context.dataIndex % palette.length];
               },
