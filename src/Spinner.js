@@ -8,7 +8,7 @@ function Spinner() {
     
     const navigate = useNavigate();
     const navigateToLogin = () => {
-        navigate('login');
+        navigate('/login');
     };
     
     useEffect(() => {
