@@ -119,7 +119,6 @@ function AllTransactions() {
 	else {
 		return (
 			<div className='App'>
-				<Header />
 				<h1 className='head'> All Transactions </h1>
 				<h1 className="record"> Income: ₹ {totalincome} </h1>
 				<h1 className="record"> Expenses: ₹ {totalexpense} </h1>

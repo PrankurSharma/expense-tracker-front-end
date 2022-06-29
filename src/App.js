@@ -11,7 +11,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
 	return (
 			<BrowserRouter>
-				<Header />
+				<div>
+					<Header />
+				</div>
 				<Routes>
 					<Route exact path="/" element={<CrudSpeechlyPDF />} />
 					<Route exact path="/login" element={<Login />} />

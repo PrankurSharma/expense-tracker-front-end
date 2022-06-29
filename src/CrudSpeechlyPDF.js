@@ -177,7 +177,6 @@ function CrudSpeechlyPDF() {
 	return (
 		<div className="App">
 			<div className="bg"> </div>
-			<Header />
 			<div className="container">
 				<div className="container1">
 				<div className="income">
