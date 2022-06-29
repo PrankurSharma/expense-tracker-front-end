@@ -49,8 +49,8 @@ function Header() {
             <div className="divhead">
                 <h1 className="head"> Hi {user_name}, </h1>
                 {!user_name.length ? null : <button className="button" onClick={() => {
-                    checkLogin();
                     logout();
+                    checkLogin();
                 }}> Logout </button>}
             </div>
         </div>
