@@ -5,6 +5,8 @@ import axios from "axios";
 
 const ChartsExpense = () => {
   const [chartData, setChartData] = useState({});
+  const [list1, set_list1] = useState([]);
+  const [list2, set_list2] = useState([]);
 
   var palette = ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"];
 
@@ -18,12 +20,14 @@ const ChartsExpense = () => {
           getAmount.push(parseInt(dataObj.Amount));
           getTask.push(dataObj.Task);
         }
+        set_list1(getAmount);
+        set_list2(getTask);
         setChartData({
-          labels: getTask,
+          labels: list2,
           datasets: [
             {
               label: "Amount",
-              data: getAmount,
+              data: list1,
               backgroundColor: function (context) {
                 return palette[context.dataIndex % palette.length];
               },
