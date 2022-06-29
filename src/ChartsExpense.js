@@ -39,14 +39,14 @@ const ChartsExpense = () => {
 
   useEffect(() => {
     chart();
-  }, []);
+  }, [chartData]);
   return (
     <div className="App">
       <div style={{width: '100%', height: '100%'}}>
         <Doughnut
           data={chartData}
           options={{
-            responsive: true,
+            responsive: false,
             maintainAspectRatio: true,
             scales: {
               yAxes: [
