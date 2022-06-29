@@ -30,21 +30,21 @@ function CrudSpeechlyPDF() {
 			setmonth_money(response.data);
 			setLoading((loading) => !loading);
 		});
-	}, [monthmoney]);
+	}, []);
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthincome').then((response) => {
 			setmonth_income(response.data[0].amTotal);
 		});
-	}, [monthincome]);
+	});
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthexpense').then((response) => {
 			setmonth_expense(response.data[0].amTotal);
 		});
-	}, [monthexpense]);
+	});
 	
-	/*const monthTrans = () => {
+	const monthTrans = () => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {
 			setmonth_money(response.data);
 			//setLoading((loading) => !loading);
@@ -61,7 +61,7 @@ function CrudSpeechlyPDF() {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthexpense').then((response) => {
 			setmonth_expense(response.data[0].amTotal);
 		});
-	};*/
+	};
 
 	const submitEntries = () => {
 		if (amount && task && type && date && (type === "Income" || type === "Expense" || type === "INCOME" || type === "EXPENSE" || type === "income" || type === "expense")) {
@@ -77,9 +77,9 @@ function CrudSpeechlyPDF() {
 			});
 			alert("Record inserted successfully.");
 			//setLoading((loading) => !loading);
-			/*monthTrans();
+			monthTrans();
 			monthIncome();
-			monthExpense();*/
+			monthExpense();
 		}
 		else if (type !== "Income" && type !== "Expense" && type !== "INCOME" && type !== "EXPENSE" && type !== "income" && type !== "expense") {
 			alert("Type of transaction can either be Income or Expense.");
@@ -95,9 +95,9 @@ function CrudSpeechlyPDF() {
 		});
 		alert("Transaction deleted successfully.");
 		//setLoading((loading) => !loading);
-		/*monthTrans();
+		monthTrans();
 		monthIncome();
-		monthExpense();*/
+		monthExpense();
 	};
 
 	const updateTransaction = (trans_id) => {
@@ -111,9 +111,9 @@ function CrudSpeechlyPDF() {
 			});
 			alert("Transaction updated successfully.");
 			//setLoading((loading) => !loading);
-			/*monthTrans();
+			monthTrans();
 			monthIncome();
-			monthExpense();*/
+			monthExpense();
 		}
 		else {
 			alert("Please fill both the values in order to update the transaction.");
