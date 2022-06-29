@@ -70,8 +70,6 @@ function CrudSpeechlyPDF() {
 				task: task,
 				type: type,
 				date: date
-			}).then(() => {
-				alert("Successful insert");
 			}).catch((err) => {
 				alert(err);
 			});
