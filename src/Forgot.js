@@ -19,7 +19,6 @@ function Forgot() {
         newpassword: newpassword
       }).then((response) => {
         if (!response.data.message) {
-          alert("Password updated successfully.");
           navigateToLogin();
         }
         else {

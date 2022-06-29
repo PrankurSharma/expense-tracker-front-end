@@ -68,7 +68,6 @@ function AllTransactions() {
 		}).catch((err) => {
 			alert(err);
 		});
-		alert("Transaction deleted successfully");
 		totalTrans();
 		totalIncome();
 		totalExpense();
@@ -83,7 +82,6 @@ function AllTransactions() {
 			}).catch((err) => {
 				alert(err);
 			});
-			alert("Transaction updated successfully.");
 			totalTrans();
 			totalIncome();
 			totalExpense();
