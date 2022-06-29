@@ -46,7 +46,7 @@ const ChartsIncome = () => {
         <Doughnut
           data={chartData}
           options={{
-            responsive: false,
+            responsive: true,
             maintainAspectRatio: true,
             scales: {
               yAxes: [
