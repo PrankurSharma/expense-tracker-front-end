@@ -76,7 +76,6 @@ function CrudSpeechlyPDF() {
 				alert(err);
 			});
 			alert("Record inserted successfully.");
-			//setLoading((loading) => !loading);
 			<>
 				<ChartsIncome />
 				<ChartsExpense />
