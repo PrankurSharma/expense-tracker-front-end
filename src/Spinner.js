@@ -13,7 +13,6 @@ function Spinner() {
 
     const logout = () => {
         Axios.get('https://my-expense-tracker-project.herokuapp.com/api/logout').then((response) => {
-            alert("Please login/register to continue.");
             navigateToLogin();
         }).catch((err) => {
             alert(err);
@@ -22,7 +21,7 @@ function Spinner() {
     
     useEffect(() => {
         Axios.get('https://my-expense-tracker-project.herokuapp.com/api/login').then((response) => {
-            if (!response.data[0].person_id && !response.data[0].username) {
+            if (response.message) {
                 logout();
             }
         })
