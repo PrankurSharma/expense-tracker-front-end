@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Doughnut } from "react-chartjs-2";
+import { PS } from "react-chartjs-2";
 import axios from "axios";
 
 
@@ -39,11 +39,11 @@ const ChartsExpense = () => {
 
   useEffect(() => {
     chart();
-  }, []);
+  }, [chartData]);
   return (
     <div className="App">
       <div style={{width: '100%', height: '100%'}}>
-        <Doughnut
+        <Pie
           data={chartData}
           options={{
             responsive: true,
