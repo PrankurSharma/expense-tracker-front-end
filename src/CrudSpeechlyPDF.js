@@ -47,7 +47,6 @@ function CrudSpeechlyPDF() {
 	const monthTrans = () => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {
 			setmonth_money(response.data);
-			setLoading((loading) => !loading);
 		});
 	};
 
@@ -74,7 +73,6 @@ function CrudSpeechlyPDF() {
 				alert(err);
 			});
 			alert("Record inserted successfully.");
-			setLoading((loading) => !loading);
 			monthTrans();
 			monthIncome();
 			monthExpense();
@@ -92,7 +90,6 @@ function CrudSpeechlyPDF() {
 			alert(err);
 		});
 		alert("Transaction deleted successfully.");
-		setLoading((loading) => !loading);
 		monthTrans();
 		monthIncome();
 		monthExpense();
@@ -107,7 +104,6 @@ function CrudSpeechlyPDF() {
 			}).catch((err) => {
 				alert(err);
 			});
-			alert("Transaction updated successfully.");
 			setLoading((loading) => !loading);
 			monthTrans();
 			monthIncome();
