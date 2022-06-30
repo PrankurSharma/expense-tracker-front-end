@@ -104,6 +104,7 @@ function CrudSpeechlyPDF() {
 			}).catch((err) => {
 				alert(err);
 			});
+			alert("Transaction updated successfully.");
 			monthTrans();
 			monthIncome();
 			monthExpense();
