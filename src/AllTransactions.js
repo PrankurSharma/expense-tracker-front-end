@@ -41,7 +41,6 @@ function AllTransactions() {
 	const totalTrans = () => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
 			set_money(response.data);
-			setLoading((loading) => !loading);
 		}).catch((err) => {
 			alert(err);
 		});
@@ -69,8 +68,7 @@ function AllTransactions() {
 		}).catch((err) => {
 			alert(err);
 		});
-		setLoading((loading) => !loading);
-		alert("Transaction deleted successfully.");
+		alert("Transaction deleted successfully");
 		totalTrans();
 		totalIncome();
 		totalExpense();
@@ -85,7 +83,6 @@ function AllTransactions() {
 			}).catch((err) => {
 				alert(err);
 			});
-			setLoading((loading) => !loading);
 			alert("Transaction updated successfully.");
 			totalTrans();
 			totalIncome();
