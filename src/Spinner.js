@@ -24,6 +24,9 @@ function Spinner() {
             if (response.message) {
                 logout();
             }
+            else if (response.data.error){
+                navigateToLogin();
+            }
         })
     }, []);
     return (
