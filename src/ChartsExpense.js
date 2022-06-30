@@ -39,7 +39,7 @@ const ChartsExpense = () => {
 
   useEffect(() => {
     chart();
-  }, [chartData]);
+  }, []);
   return (
     <div className="App">
       <div style={{width: '100%', height: '100%'}}>
@@ -48,9 +48,6 @@ const ChartsExpense = () => {
           options={{
             responsive: true,
             maintainAspectRatio: true,
-            animation: {
-              duration: 0
-            },
             scales: {
               yAxes: [
                 {
