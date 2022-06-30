@@ -24,6 +24,12 @@ function FilterTransactions() {
 
         loadData();
     }, []);
+
+    const loadData = async () => {
+        await new Promise((r) => setTimeout(r, 5000));
+        setLoading((loading) => !loading);
+    };
+
     Axios.defaults.withCredentials = true;
 
     const filterEntries = () => {
@@ -33,6 +39,7 @@ function FilterTransactions() {
                 year: year
             }).then((response) => {
                 set_money(response.data);
+                loadData();
             }).catch((err) => {
                 alert(err);
             })
@@ -74,6 +81,7 @@ function FilterTransactions() {
         }).catch((err) => {
             alert(err);
         });
+        loadData();
         alert("Transaction deleted successfully.");
         filterEntries();
         filterIncome();
@@ -89,6 +97,7 @@ function FilterTransactions() {
             }).catch((err) => {
                 alert(err);
             });
+            loadData();
             alert("Transaction updated successfully.");
             filterEntries();
             filterIncome();
