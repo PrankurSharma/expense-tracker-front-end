@@ -69,8 +69,8 @@ function AllTransactions() {
 		}).catch((err) => {
 			alert(err);
 		});
-		alert("Transaction deleted successfully.");
 		setLoading((loading) => !loading);
+		alert("Transaction deleted successfully.");
 		totalTrans();
 		totalIncome();
 		totalExpense();
@@ -85,8 +85,8 @@ function AllTransactions() {
 			}).catch((err) => {
 				alert(err);
 			});
-			setLoading((loading) => !loading);
 			alert("Transaction updated successfully.");
+			setLoading((loading) => !loading);
 			totalTrans();
 			totalIncome();
 			totalExpense();

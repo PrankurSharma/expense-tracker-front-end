@@ -38,6 +38,7 @@ function FilterTransactions() {
                 month: month,
                 year: year
             }).then((response) => {
+                setLoading((loading) => !loading);
                 loadData();
                 set_money(response.data);
             }).catch((err) => {
@@ -81,6 +82,7 @@ function FilterTransactions() {
         }).catch((err) => {
             alert(err);
         });
+        setLoading((loading) => !loading);
         loadData();
         alert("Transaction deleted successfully.");
         filterEntries();
@@ -97,6 +99,7 @@ function FilterTransactions() {
             }).catch((err) => {
                 alert(err);
             });
+            setLoading((loading) => !loading);
             loadData();
             alert("Transaction updated successfully.");
             filterEntries();
