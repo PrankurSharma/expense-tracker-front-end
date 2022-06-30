@@ -104,7 +104,6 @@ function CrudSpeechlyPDF() {
 			}).catch((err) => {
 				alert(err);
 			});
-			setLoading((loading) => !loading);
 			monthTrans();
 			monthIncome();
 			monthExpense();
