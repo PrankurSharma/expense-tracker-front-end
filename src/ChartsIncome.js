@@ -48,6 +48,9 @@ const ChartsIncome = () => {
           options={{
             responsive: true,
             maintainAspectRatio: true,
+            animation: {
+              duration: 0
+            },
             scales: {
               yAxes: [
                 {
