@@ -15,7 +15,7 @@ function Header() {
 
     useEffect(() => {
         Axios.get('https://my-expense-tracker-project.herokuapp.com/api/login').then((response) => {
-            if (response.message) {
+            if (response.data[0].person_id && response.data[0].username) {
                 setuser_id(response.data[0].person_id);
                 setuser_name(response.data[0].username);
             }

@@ -21,7 +21,7 @@ function Spinner() {
     
     useEffect(() => {
         Axios.get('https://my-expense-tracker-project.herokuapp.com/api/login').then((response) => {
-            if (response.message) {
+            if (response.data.message) {
                 logout();
             }
             else if (response.data.error){
