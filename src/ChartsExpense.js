@@ -43,7 +43,7 @@ const ChartsExpense = () => {
   return (
     <div className="App">
       <div style={{width: '100%', height: '100%'}}>
-        <Pie
+        <Doughnut
           data={chartData}
           options={{
             responsive: true,
