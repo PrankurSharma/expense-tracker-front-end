@@ -23,7 +23,7 @@ function Spinner() {
         Axios.get('https://my-expense-tracker-project.herokuapp.com/api/login').then((response) => {
             if (response.data.message) {
                 logout();
-                alert("Please login/register to use all the features.");
+                alert("This account was deleted. So, the request was not completed. Press OK to login/register your account.");
             }
             else if (response.data.error){
                 navigateToLogin();

@@ -85,8 +85,8 @@ function AllTransactions() {
 			}).catch((err) => {
 				alert(err);
 			});
-			alert("Transaction updated successfully.");
 			setLoading((loading) => !loading);
+			alert("Transaction updated successfully.");
 			totalTrans();
 			totalIncome();
 			totalExpense();
