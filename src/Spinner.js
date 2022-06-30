@@ -23,9 +23,11 @@ function Spinner() {
         Axios.get('https://my-expense-tracker-project.herokuapp.com/api/login').then((response) => {
             if (response.data.message) {
                 logout();
+                alert("Please login/register to use all the features.");
             }
             else if (response.data.error){
                 navigateToLogin();
+                alert("Please login to continue.");
             }
         })
     }, []);

@@ -38,8 +38,8 @@ function FilterTransactions() {
                 month: month,
                 year: year
             }).then((response) => {
-                set_money(response.data);
                 loadData();
+                set_money(response.data);
             }).catch((err) => {
                 alert(err);
             })
