@@ -37,9 +37,6 @@ function FilterTransactions() {
             }).catch((err) => {
                 alert(err);
             })
-            if(!money.length){
-                alert("No transactions found for this monnth.");
-            }
         }
         else {
             alert("Please fill both the fields in order to proceed.");
