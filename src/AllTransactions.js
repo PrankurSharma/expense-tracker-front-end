@@ -33,9 +33,6 @@ function AllTransactions() {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
 			set_money(response.data);
 			setLoading((loading) => !loading);
-			if(!money.length){
-				alert("No transactions found. Start inserting transactions to access all the features.");
-			}
 		}).catch((err) => {
 			alert(err);
 		});
@@ -129,7 +126,7 @@ function AllTransactions() {
 				<div>
                     <h1 className='head'> Transaction Results </h1>
                 </div>
-				{!money.length ? null : <div className="containertrans">
+				{!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : <div className="containertrans">
 					<div className="alltransactions">
 						{money.map((val) => {
 							return (

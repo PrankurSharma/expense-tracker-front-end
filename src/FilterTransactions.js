@@ -249,7 +249,7 @@ function FilterTransactions() {
                     <div>
                         <h1 className='head'> Transaction Results </h1>
                     </div>
-                    {!money.length ? null : <div className='containertrans'>
+                    {!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : <div className='containertrans'>
                         <div className='alltransactions'>
                             {money.map((val) => {
                                 return (
