@@ -42,7 +42,7 @@ body {
 	align-items: center;
 	width: 1450px;
 	border-radius: 15px;
-	overflow-x: scroll;
+	overflow-x: auto;
 	overflow-y: hidden;
 }
 
@@ -205,7 +205,7 @@ body {
 	align-items: center;
 	border-radius: 15px;
 	height: 430px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 
