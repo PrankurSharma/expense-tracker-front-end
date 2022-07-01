@@ -241,7 +241,7 @@ function CrudSpeechlyPDF() {
 			<div>
 				<h1 className="head"> Transactions This Month </h1>
 			</div>
-			<div className="containertrans">
+			{!monthmoney.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : <div className="containertrans">
 				<div className="transactions">
 					{monthmoney.map((val) => {
 						return (
@@ -269,7 +269,7 @@ function CrudSpeechlyPDF() {
 						);
 					})}
 				</div>
-			</div>
+			</div>}
 			<div>
 				{!monthmoney.length ? null : <button className="button" onClick={jsPdfGenerator}> Generate PDF </button>}
 				<button className="button" onClick={navigateToAllTrans}> View All Transactions </button>
