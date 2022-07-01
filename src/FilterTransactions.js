@@ -33,7 +33,12 @@ function FilterTransactions() {
                 month: month,
                 year: year
             }).then((response) => {
-                set_money(response.data);
+                if(response.data){
+                    set_money(response.data);
+                }
+                else{
+                    alert("No transactions found for this month.");
+                }
             }).catch((err) => {
                 alert(err);
             })
