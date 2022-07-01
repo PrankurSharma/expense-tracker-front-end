@@ -38,8 +38,6 @@ body {
 
 .container1 {
 	display: flex;
-	justify-content: center;
-	align-items: left;
 	width: 1450px;
 	border-radius: 15px;
 	overflow-x: auto;
