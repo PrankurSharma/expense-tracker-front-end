@@ -33,15 +33,13 @@ function FilterTransactions() {
                 month: month,
                 year: year
             }).then((response) => {
-                if(response.data){
-                    set_money(response.data);
-                }
-                else{
-                    alert("No transactions found for this month.");
-                }
+                set_money(response.data);
             }).catch((err) => {
                 alert(err);
             })
+            if(!money.length){
+                alert("No transactions found for this monnth.");
+            }
         }
         else {
             alert("Please fill both the fields in order to proceed.");
