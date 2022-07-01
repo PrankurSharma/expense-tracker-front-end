@@ -34,7 +34,7 @@ function AllTransactions() {
 			set_money(response.data);
 			setLoading((loading) => !loading);
 			if(!money.length){
-				alert("No transactions found. Start inserting transactions to access all the features.")
+				alert("No transactions found. Start inserting transactions to access all the features.");
 			}
 		}).catch((err) => {
 			alert(err);
