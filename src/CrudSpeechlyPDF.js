@@ -178,7 +178,7 @@ function CrudSpeechlyPDF() {
 			<Header />
 			<div className="container">
 				<div className="container1">
-				{!monthincome.length ? null : <div className="income">
+				{!monthmoney.length ? null : <div className="income">
 					<h2 className="record"> Income For This Month: ₹ {monthincome} </h2>
 					<ChartsIncome />
 				</div>}
@@ -232,7 +232,7 @@ function CrudSpeechlyPDF() {
 				</div>
 				<BigTranscript placement="top" />
 				<ErrorPanel placement="bottom" />
-				{!monthexpense.length ? null : <div className="expense">
+				{!monthmoney.length ? null : <div className="expense">
 					<h2 className="record"> Expenses For This Month: ₹ {monthexpense} </h2>
 					<ChartsExpense />
 				</div>}
