@@ -42,7 +42,7 @@ body {
 	align-items: center;
 	width: 1450px;
 	border-radius: 15px;
-	overflow-x: auto;
+	overflow-x: scroll;
 	overflow-y: hidden;
 }
 
