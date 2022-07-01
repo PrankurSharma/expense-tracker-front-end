@@ -41,7 +41,7 @@ body {
 	align-items: center;
 	width: 1450px;
 	border-radius: 15px;
-	overflow-x: scroll;
+	overflow-x: auto;
 	overflow-y: hidden;
 }
 
