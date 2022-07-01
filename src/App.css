@@ -210,8 +210,8 @@ body {
 
 
 ::-webkit-scrollbar {
-	width: 5px;
-	height: 5px;
+	width: none;
+	height: none;
 }
 
 ::-webkit-scrollbar-track {
