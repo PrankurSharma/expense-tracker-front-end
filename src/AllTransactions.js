@@ -33,6 +33,9 @@ function AllTransactions() {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
 			set_money(response.data);
 			setLoading((loading) => !loading);
+			if(!money.length){
+				alert("No transactions found. Start inserting transactions to access all the features.")
+			}
 		}).catch((err) => {
 			alert(err);
 		});
