@@ -123,7 +123,7 @@ function AllTransactions() {
 				<h1 className='head'> All Transactions </h1>
 				<h1 className="record"> Income: ₹ {totalincome} </h1>
 				<h1 className="record"> Expenses: ₹ {totalexpense} </h1>
-				<div className="containertrans">
+				{!money.length ? null : <div className="containertrans">
 					<div className="alltransactions">
 						{money.map((val) => {
 							return (
@@ -151,7 +151,7 @@ function AllTransactions() {
 							);
 						})}
 					</div>
-				</div>
+				</div>}
 				<div>
 					{!money.length ? null : <button className="button" onClick={jsPdfGenerator}> Generate PDF For All Transactions </button>}
 					<button className='button' onClick={navigateToFilterTrans}> Filter Transactions By Month And Year </button>

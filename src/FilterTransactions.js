@@ -246,7 +246,7 @@ function FilterTransactions() {
                     <div>
                         <h1 className='head'> Transaction Results </h1>
                     </div>
-                    <div className='containertrans'>
+                    {!money.length ? null : <div className='containertrans'>
                         <div className='alltransactions'>
                             {money.map((val) => {
                                 return (
@@ -274,7 +274,7 @@ function FilterTransactions() {
                                 );
                             })}
                         </div>
-                    </div>
+                    </div>}
                 </div>
                 <div>
                     {!money.length ? null : <button className="button" onClick={jsPdfGenerator}> Generate PDF </button>}
