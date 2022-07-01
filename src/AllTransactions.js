@@ -126,6 +126,9 @@ function AllTransactions() {
 				<h1 className='head'> All Transactions </h1>
 				<h1 className="record"> Income: ₹ {totalincome} </h1>
 				<h1 className="record"> Expenses: ₹ {totalexpense} </h1>
+				<div>
+                    <h1 className='head'> Transaction Results </h1>
+                </div>
 				{!money.length ? null : <div className="containertrans">
 					<div className="alltransactions">
 						{money.map((val) => {
