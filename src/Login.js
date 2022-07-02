@@ -48,7 +48,7 @@ function Login() {
   if(loggedin){
     return (
       <div> 
-        <h1 className='head'> You are already logged in. Please close the session to continue logging in to another account. </h1> 
+        <h1 className='head'> You are already logged in. Please close the session to continue logging in to another account. Please navigate to: https://finer.netlify.app/ to access your account. </h1> 
       </div>
     );
   }
