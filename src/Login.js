@@ -45,40 +45,49 @@ function Login() {
       alert("Please fill both the fields in order to proceed.");
     }
   }
-
-  return (
-    <div className="login-form">
-      <Link to ='/'>
-        <img src="/logo.png" />
-      </Link>
-      {!loggedin ? <div> <h1 className='head'> You are already logged in. Please close the session to continue logging in to another account. </h1> </div> : <div>
-        <h1>Login</h1>
-        <div className="content">
-          <div className="input-field">
-            <input type="text"
-              name="ID"
-              onChange={(e) => {
-                setperson_id(e.target.value);
-              }} placeholder="Personal ID" />
+  if(loggedin){
+    return (
+      <div> 
+        <h1 className='head'> You are already logged in. Please close the session to continue logging in to another account. </h1> 
+      </div>
+    );
+  }
+  else{
+    return (
+      <div className="login-form">
+        <Link to ='/'>
+          <img src="/logo.png" />
+        </Link>
+        <div>
+          <h1>Login</h1>
+          <div className="content">
+            <div className="input-field">
+              <input type="text"
+                name="ID"
+                onChange={(e) => {
+                  setperson_id(e.target.value);
+                }} placeholder="Personal ID" />
+            </div>
+            <div className="input-field">
+              <input type="password"
+                name="password"
+                onChange={(e) => {
+                  set_password(e.target.value);
+                }} placeholder="Password" />
+            </div>
+            <Link to ="/forgot" className="link">Forgot Your Password?</Link>
           </div>
-          <div className="input-field">
-            <input type="password"
-              name="password"
-              onChange={(e) => {
-                set_password(e.target.value);
-              }} placeholder="Password" />
+          <div className="action">
+            <button className='button1' onClick={navigateToSignup}> Register an account </button>
+            <button className='button1' onClick={() => {
+              handleSubmit();
+            }}> Sign in </button>
           </div>
-          <Link to ="/forgot" className="link">Forgot Your Password?</Link>
         </div>
-        <div className="action">
-          <button className='button1' onClick={navigateToSignup}> Register an account </button>
-          <button className='button1' onClick={() => {
-            handleSubmit();
-          }}> Sign in </button>
-        </div>
-      </div>}
-    </div>
-  );
+      </div>
+    );
+  }
+  
 }
 
 export default Login;
