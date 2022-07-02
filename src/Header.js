@@ -39,7 +39,7 @@ function Header() {
             </div>
             <div className="divhead">
                 <h1 className="head"> Hi {user_name}, </h1>
-                <h2 className="head"> ID: {user_id} </h2>
+                <h3 className="head"> ({user_id}) </h3>
                 {!user_name.length ? null : <button className="button" onClick={() => {
                     logout();
                 }}> Logout </button>}
