@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 
@@ -7,6 +7,7 @@ function Login() {
   Axios.defaults.withCredentials = true;
   const [person_id, setperson_id] = useState("");
   const [password, set_password] = useState("");
+  const [loggedin, set_loggedin] = useState(false);
 
   const navigate = useNavigate();
 
@@ -17,6 +18,14 @@ function Login() {
     const navigateToHome = () => {
       navigate('/');
     };
+
+    useEffect(() => {
+      Axios.get('https://my-expense-tracker-project.herokuapp.com/api/login').then((response) => {
+            if (response.data[0].person_id && response.data[0].username) {
+                set_loggedin(true);
+            }
+        })
+    });
 
   const handleSubmit = () => {
     if (person_id && password) {
@@ -42,7 +51,7 @@ function Login() {
       <Link to ='/'>
         <img src="/logo.png" />
       </Link>
-      <div>
+      {!loggedin ? <div> <h1 className='head'> You are already logged in. Please close the session to continue logging in to another account. </h1> </div> : <div>
         <h1>Login</h1>
         <div className="content">
           <div className="input-field">
@@ -67,7 +76,7 @@ function Login() {
             handleSubmit();
           }}> Sign in </button>
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
