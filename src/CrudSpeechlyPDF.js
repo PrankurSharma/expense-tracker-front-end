@@ -36,13 +36,13 @@ function CrudSpeechlyPDF() {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthincome').then((response) => {
 			setmonth_income(response.data[0].amTotal);
 		});
-	});
+	}, []);
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthexpense').then((response) => {
 			setmonth_expense(response.data[0].amTotal);
 		});
-	});
+	}, []);
 	
 	const monthTrans = () => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {

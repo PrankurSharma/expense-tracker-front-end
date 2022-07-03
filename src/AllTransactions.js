@@ -17,13 +17,13 @@ function AllTransactions() {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalincome').then((response) => {
 			settotal_income(response.data[0].amTotal);
 		});
-	});
+	}, []);
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalexpense').then((response) => {
 			settotal_expense(response.data[0].amTotal);
 		});
-	});
+	}, []);
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
