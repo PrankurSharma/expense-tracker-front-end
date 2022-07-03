@@ -25,7 +25,7 @@ function Login() {
                 set_loggedin(true);
             }
         })
-    });
+    }, []);
 
   const handleSubmit = () => {
     if (person_id && password) {
