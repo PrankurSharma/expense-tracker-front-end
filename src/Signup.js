@@ -21,8 +21,6 @@ function Signup() {
         person_id: person_id,
         username: username,
         password: password
-      }).catch((err) => {
-        alert(err);
       });
       alert("Your personal id is: " + person_id + ". Please keep it safely as it will be used for all the future logins.");
       navigateToLogin();
