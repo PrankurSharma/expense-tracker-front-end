@@ -34,9 +34,7 @@ function FilterTransactions() {
                 year: year
             }).then((response) => {
                 set_money(response.data);
-            }).catch((err) => {
-                alert(err);
-            })
+            });
         }
         else {
             alert("Please fill both the fields in order to proceed.");
@@ -50,9 +48,7 @@ function FilterTransactions() {
                 year: year
             }).then((response) => {
                 setfilter_income(response.data[0].amTotal);
-            }).catch((err) => {
-                alert(err);
-            })
+            });
         }
     }
 
@@ -63,18 +59,12 @@ function FilterTransactions() {
                 year: year
             }).then((response) => {
                 setfilter_expense(response.data[0].amTotal);
-            }).catch((err) => {
-                alert(err);
             });
         }
     }
 
     const deleteTransaction = (trans_id) => {
-        Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`).catch((err) => {
-            alert(err);
-        }).catch((err) => {
-            alert(err);
-        });
+        Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`);
         alert("Transaction deleted successfully.");
         filterEntries();
         filterIncome();
@@ -87,8 +77,6 @@ function FilterTransactions() {
                 trans_id: trans_id,
                 amount: new_amount,
                 task: new_task
-            }).catch((err) => {
-                alert(err);
             });
             alert("Transaction updated successfully.");
             filterEntries();

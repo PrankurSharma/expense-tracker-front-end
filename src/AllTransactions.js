@@ -16,16 +16,12 @@ function AllTransactions() {
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalincome').then((response) => {
 			settotal_income(response.data[0].amTotal);
-		}).catch((err) => {
-			alert(err);
 		});
 	});
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalexpense').then((response) => {
 			settotal_expense(response.data[0].amTotal);
-		}).catch((err) => {
-			alert(err);
 		});
 	});
 
@@ -33,41 +29,29 @@ function AllTransactions() {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
 			set_money(response.data);
 			setLoading((loading) => !loading);
-		}).catch((err) => {
-			alert(err);
 		});
 	}, []);
 
 	const totalTrans = () => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
 			set_money(response.data);
-		}).catch((err) => {
-			alert(err);
 		});
 	};
 
 	const totalIncome = () => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalincome').then((response) => {
 			settotal_income(response.data[0].amTotal);
-		}).catch((err) => {
-			alert(err);
 		});
 	};
 
 	const totalExpense = () => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalexpense').then((response) => {
 			settotal_expense(response.data[0].amTotal);
-		}).catch((err) => {
-			alert(err);
 		});
 	};
 
 	const deleteTransaction = (trans_id) => {
-		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`).catch((err) => {
-			alert(err.response);
-		}).catch((err) => {
-			alert(err);
-		});
+		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`);
 		alert("Transaction deleted successfully");
 		totalTrans();
 		totalIncome();
@@ -80,8 +64,6 @@ function AllTransactions() {
 				trans_id: trans_id,
 				amount: new_amount,
 				task: new_task
-			}).catch((err) => {
-				alert(err);
 			});
 			alert("Transaction updated successfully.");
 			totalTrans();
