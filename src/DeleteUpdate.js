@@ -26,6 +26,7 @@ function DeleteUpdate(props, {money}) {
 		setnew_amount("");
 		setnew_task("");
 	};
+    console.log(money);
     return (
         <div>
             {money.map((val) => {
