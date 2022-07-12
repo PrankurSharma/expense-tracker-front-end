@@ -105,12 +105,10 @@ function AllTransactions() {
 									}}> Delete </button>
 									<div className="smallcard">
 										<h4 className="heading"> New Task: <input type="text" id="updateInput" onChange={(e) => {
-											setnew_task(e.target.value);
-											e.target.reset();
+											setnew_task(e.target.value)
 										}} />
 											New Amount: <input type="text" id="updateInput1" onChange={(e) => {
-												setnew_amount(e.target.value);
-												e.target.reset();
+												setnew_amount(e.target.value)
 											}} />
 										</h4>
 										<button className="update" onClick={() => {
