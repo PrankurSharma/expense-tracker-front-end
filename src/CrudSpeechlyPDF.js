@@ -74,29 +74,6 @@ function CrudSpeechlyPDF(props) {
 		}
 	};
 
-	/*const deleteTransaction = (trans_id) => {
-		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`);
-		alert("Transaction deleted successfully.");
-		setSmallLoad((loading) => !loading);
-	};
-
-	const updateTransaction = (trans_id) => {
-		if (new_amount && new_task) {
-			Axios.put('https://my-expense-tracker-project.herokuapp.com/api/update', {
-				trans_id: trans_id,
-				amount: new_amount,
-				task: new_task
-			});
-			alert("Transaction updated successfully.");
-			setSmallLoad((loading) => !loading);
-		}
-		else {
-			alert("Please fill both the values in order to update the transaction.");
-		}
-		setnew_amount("");
-		setnew_task("");
-	};*/
-
 	useEffect(() => {
 		if (segment) {
 			segment.entities.forEach((s) => {
@@ -225,10 +202,9 @@ function CrudSpeechlyPDF(props) {
 			{!monthmoney.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : 
 				<div className="containertrans">
                     <div className="transactions">
-						<DeleteUpdate money={monthmoney} onSmallLoad={handleSmallLoad}/>
+						<DeleteUpdate onSmallLoad={handleSmallLoad} money={monthmoney}/>
 					</div>
-				</div>
-			}
+				</div>}
 			<div>
 				{!monthmoney.length ? null : <button className="button" onClick={jsPdfGenerator}> Generate PDF </button>}
 				<button className="button" onClick={navigateToAllTrans}> View All Transactions </button>
