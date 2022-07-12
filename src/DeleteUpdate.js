@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-function DeleteUpdate({money}) {
+import Loading from 'react-loading';
+function DeleteUpdate({money, handleSmallLoad}) {
     const [new_amount, setnew_amount] = useState("");
 	const [new_task, setnew_task] = useState("");
 
     const deleteTransaction = (trans_id) => {
 		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`);
 		alert("Transaction deleted successfully.");
-		//props.onSmallLoad((loading) => !loading);
+        handleSmallLoad((Loading) => !Loading);
 	};
 
 	const updateTransaction = (trans_id) => {
@@ -18,7 +19,7 @@ function DeleteUpdate({money}) {
 				task: new_task
 			});
 			alert("Transaction updated successfully.");
-			//props.onSmallLoad((loading) => !loading);
+            handleSmallLoad((Loading) => !Loading);
 		}
 		else {
 			alert("Please fill both the values in order to update the transaction.");
@@ -26,7 +27,6 @@ function DeleteUpdate({money}) {
 		setnew_amount("");
 		setnew_task("");
 	};
-    console.log(money);
     return (
         <>
             {money.map((val) => {
