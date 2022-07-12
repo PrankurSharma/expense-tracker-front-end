@@ -5,7 +5,6 @@ import Axios from "axios";
 function Header() {
     const [user_id, setuser_id] = useState("");
     const [user_name, setuser_name] = useState("");
-    const [logged_in, setlogged_in] = useState(false);
     Axios.defaults.withCredentials = true;
     
     const navigate = useNavigate();
@@ -26,8 +25,6 @@ function Header() {
     const logout = () => {
         Axios.get('https://my-expense-tracker-project.herokuapp.com/api/logout').then((response) => {
             alert("Please click OK to proceed logging out.");
-            setuser_id("");
-            setuser_name("");
             navigateToLogin();
         });
     }
@@ -38,14 +35,13 @@ function Header() {
                     <img src='/logo.png' alt="Finer" />
                 </Link>
             </div>
-            
-                {!user_name.length ? null : <div className="divhead">
+            <div className="divhead">
                 <h1 className="head"> Hi {user_name}, </h1>
                 <h3 className="head"> ({user_id}) </h3>
-                <button className="button" onClick={() => {
+                {!user_name.length ? null : <button className="button" onClick={() => {
                     logout();
-                }}> Logout </button>
-                </div>}
+                }}> Logout </button>}
+            </div>
         </div>
     );
 }

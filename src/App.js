@@ -11,16 +11,18 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
 	return (
 			<BrowserRouter>
-				<div className="App">
-					<Header />
-				</div>
 				<Routes>
+					<div className="App">
+						<Header />
+					</div>
 					<Route exact path="/" element={<CrudSpeechlyPDF />} />
+					<Route exact path="/alltransactions" element={<AllTransactions />} />
+					<Route exact path="/filtertransactions" element={<FilterTransactions />} />
+					</Routes>
+				<Routes>
 					<Route exact path="/login" element={<Login />} />
 					<Route exact path="/signup" element={<Signup />} />
 					<Route exact path="/forgot" element={<Forgot />} />
-					<Route exact path="/alltransactions" element={<AllTransactions />} />
-					<Route exact path="/filtertransactions" element={<FilterTransactions />} />
 				</Routes>
 			</BrowserRouter>
 	);
