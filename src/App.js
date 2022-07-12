@@ -6,10 +6,12 @@ import Signup from './Signup';
 import Forgot from './Forgot';
 import AllTransactions from './AllTransactions';
 import FilterTransactions from './FilterTransactions';
+import Header from "./Header";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
 	return (
 			<BrowserRouter>
+				<Header />
 				<Routes>
 					<Route exact path="/" element={<CrudSpeechlyPDF />} />
 					<Route exact path="/login" element={<Login />} />

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
-import Header from './Header';
 import Spinner from './Spinner';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
@@ -108,7 +107,6 @@ function FilterTransactions() {
     else {
         return (
             <div className='App'>
-                <Header />
                 <h1 className='head'> Filter Transactions </h1>
                 <div>
                     <select id="month" name="month" onChange={(e) => {

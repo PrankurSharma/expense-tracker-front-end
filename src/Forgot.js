@@ -42,7 +42,7 @@ function Forgot() {
         <img src="/logo.png" />
       </Link>
       <div>
-        <h1> Forgot Password </h1>
+        <h1> Change Password </h1>
         <div className="content">
           <div className="input-field">
             <input type="text"
