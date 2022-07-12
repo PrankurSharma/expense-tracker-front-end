@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-function DeleteUpdate(props, {money}) {
+function DeleteUpdate({money}) {
     const [new_amount, setnew_amount] = useState("");
 	const [new_task, setnew_task] = useState("");
 
     const deleteTransaction = (trans_id) => {
 		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`);
 		alert("Transaction deleted successfully.");
-		props.onSmallLoad((loading) => !loading);
+		//props.onSmallLoad((loading) => !loading);
 	};
 
 	const updateTransaction = (trans_id) => {
@@ -18,7 +18,7 @@ function DeleteUpdate(props, {money}) {
 				task: new_task
 			});
 			alert("Transaction updated successfully.");
-			props.onSmallLoad((loading) => !loading);
+			//props.onSmallLoad((loading) => !loading);
 		}
 		else {
 			alert("Please fill both the values in order to update the transaction.");

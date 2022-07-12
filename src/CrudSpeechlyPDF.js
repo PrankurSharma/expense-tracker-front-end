@@ -202,7 +202,7 @@ function CrudSpeechlyPDF(props) {
 			{!monthmoney.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : 
 				<div className="containertrans">
                     <div className="transactions">
-						<DeleteUpdate onSmallLoad={handleSmallLoad} money={monthmoney}/>
+						<DeleteUpdate  money={monthmoney}/>
 					</div>
 				</div>}
 			<div>
