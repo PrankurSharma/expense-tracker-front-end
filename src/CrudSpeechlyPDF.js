@@ -9,7 +9,7 @@ import { PushToTalkButton, BigTranscript, ErrorPanel } from '@speechly/react-ui'
 import { useSpeechContext } from '@speechly/react-client';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-function CrudSpeechlyPDF() {
+function CrudSpeechlyPDF(props) {
 
 	const [amount, set_amount] = useState("");
 	const [task, set_task] = useState("");
@@ -22,29 +22,29 @@ function CrudSpeechlyPDF() {
 	const [new_task, setnew_task] = useState("");
 	const { segment } = useSpeechContext();
 	const [loading, setLoading] = useState(true);
+	const [smallLoad, setSmallLoad] = useState(false);
 
 	Axios.defaults.withCredentials = true;
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {
 			setmonth_money(response.data);
-			setLoading((loading) => !loading);
 		});
-	}, []);
+	}, [smallLoad]);
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthincome').then((response) => {
 			setmonth_income(response.data[0].amTotal);
 		});
-	}, []);
+	}, [smallLoad]);
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthexpense').then((response) => {
 			setmonth_expense(response.data[0].amTotal);
 		});
-	}, []);
+	}, [smallLoad]);
 	
-	const monthTrans = () => {
+	/*const monthTrans = () => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {
 			setmonth_money(response.data);
 			setLoading((loading) => !loading);
@@ -61,7 +61,7 @@ function CrudSpeechlyPDF() {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthexpense').then((response) => {
 			setmonth_expense(response.data[0].amTotal);
 		});
-	};
+	};*/
 
 	const submitEntries = () => {
 		if (amount && task && type && date && (type === "Income" || type === "Expense" || type === "INCOME" || type === "EXPENSE" || type === "income" || type === "expense")) {
@@ -72,10 +72,11 @@ function CrudSpeechlyPDF() {
 				date: date
 			});
 			alert("Record inserted successfully.");
-			setLoading((loading) => !loading);
+			/*setLoading((loading) => !loading);
 			monthTrans();
 			monthIncome();
-			monthExpense();
+			monthExpense();*/
+			setSmallLoad((loading) => !loading);
 			set_amount("");
 			set_task("");
 			set_type("");
@@ -92,10 +93,11 @@ function CrudSpeechlyPDF() {
 	const deleteTransaction = (trans_id) => {
 		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`);
 		alert("Transaction deleted successfully.");
-		setLoading((loading) => !loading);
+		setSmallLoad((loading) => !loading);
+		/*setLoading((loading) => !loading);
 		monthTrans();
 		monthIncome();
-		monthExpense();
+		monthExpense();*/
 	};
 
 	const updateTransaction = (trans_id) => {
@@ -106,10 +108,11 @@ function CrudSpeechlyPDF() {
 				task: new_task
 			});
 			alert("Transaction updated successfully.");
-			setLoading((loading) => !loading);
+			setSmallLoad((loading) => !loading);
+			/*setLoading((loading) => !loading);
 			monthTrans();
 			monthIncome();
-			monthExpense();
+			monthExpense();*/
 		}
 		else {
 			alert("Please fill both the values in order to update the transaction.");
@@ -168,7 +171,7 @@ function CrudSpeechlyPDF() {
 	}
 
 	if (loading) {
-		return (<Spinner />);
+		return (<Spinner loading={props.loading}/>);
 	}
 	return (
 		<div className="App">
