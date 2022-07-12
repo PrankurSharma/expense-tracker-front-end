@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import ChartsIncome from './ChartsIncome';
 import ChartsExpense from './ChartsExpense';
+import Header from './Header';
 import Spinner from "./Spinner";
 import { PushToTalkButton, BigTranscript, ErrorPanel } from '@speechly/react-ui';
 import { useSpeechContext } from '@speechly/react-client';
@@ -148,6 +149,7 @@ function CrudSpeechlyPDF(props) {
 	return (
 		<div className="App">
 			<div className="bg"> </div>
+			<Header />
 			<div className="container">
 				<div className="container1">
 				{!monthmoney.length ? <div className="notrans"> </div> : <div className="income">
