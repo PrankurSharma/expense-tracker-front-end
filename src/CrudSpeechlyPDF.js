@@ -28,7 +28,7 @@ function CrudSpeechlyPDF(props) {
 
 	this.state = {loading: true};
 
-	changeLoad = (newLoading) => {
+	function changeLoad(newLoading) {
 		this.setState({loading: newLoading});
 	};
 
