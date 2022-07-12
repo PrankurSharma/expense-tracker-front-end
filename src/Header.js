@@ -20,7 +20,7 @@ function Header() {
                 setuser_name(response.data[0].username);
             }
         })
-    }, []);
+    });
 
     const logout = () => {
         Axios.get('https://my-expense-tracker-project.herokuapp.com/api/logout').then((response) => {
