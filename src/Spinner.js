@@ -5,6 +5,7 @@ import Axios from "axios";
 
 function Spinner(props) {
     Axios.defaults.withCredentials = true;
+    this.Spinner.bind(this);
     
     const navigate = useNavigate();
     const navigateToLogin = () => {

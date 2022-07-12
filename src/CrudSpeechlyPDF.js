@@ -26,9 +26,10 @@ function CrudSpeechlyPDF(props) {
 
 	Axios.defaults.withCredentials = true;
 
+	this.changeLoad.bind(this);
 	this.state = {loading: true};
 
-	function changeLoad(newLoading) {
+	changeLoad = (newLoading) => {
 		this.setState({loading: newLoading});
 	};
 
