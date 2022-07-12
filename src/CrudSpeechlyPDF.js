@@ -21,10 +21,16 @@ function CrudSpeechlyPDF(props) {
 	const [new_amount, setnew_amount] = useState("");
 	const [new_task, setnew_task] = useState("");
 	const { segment } = useSpeechContext();
-	const [loading, setLoading] = useState(true);
+	//const [loading, setLoading] = useState(true);
 	const [smallLoad, setSmallLoad] = useState(false);
 
 	Axios.defaults.withCredentials = true;
+
+	this.state = {loading: true};
+
+	changeLoad = (newLoading) => {
+		this.setState({loading: newLoading});
+	};
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {
@@ -43,10 +49,6 @@ function CrudSpeechlyPDF(props) {
 			setmonth_expense(response.data[0].amTotal);
 		});
 	}, [smallLoad]);
-
-	const changeLoad = (newLoading) => {
-		setLoading(newLoading);
-	};
 	
 	/*const monthTrans = () => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {
@@ -174,7 +176,7 @@ function CrudSpeechlyPDF(props) {
 		navigate('/filtertransactions');
 	}
 
-	if (loading) {
+	if (this.state.loading) {
 		return (<Spinner changeLoad={this.changeLoad}/>);
 	}
 	return (
