@@ -5,7 +5,6 @@ import Axios from "axios";
 
 function Spinner(props) {
     Axios.defaults.withCredentials = true;
-    this.Spinner.bind(this);
     
     const navigate = useNavigate();
     const navigateToLogin = () => {
@@ -28,7 +27,7 @@ function Spinner(props) {
                 alert(response.data.error);
             }
             else{
-                this.props.changeLoad(false);
+                props.onChange(false);
             }
         })
     }, []);
