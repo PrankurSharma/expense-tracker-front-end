@@ -5,6 +5,7 @@ import Axios from "axios";
 function Header() {
     const [user_id, setuser_id] = useState("");
     const [user_name, setuser_name] = useState("");
+    const [logged_in, setlogged_in] = useState(false);
     Axios.defaults.withCredentials = true;
     
     const navigate = useNavigate();
@@ -20,11 +21,13 @@ function Header() {
                 setuser_name(response.data[0].username);
             }
         })
-    });
+    }, []);
 
     const logout = () => {
         Axios.get('https://my-expense-tracker-project.herokuapp.com/api/logout').then((response) => {
             alert("Please click OK to proceed logging out.");
+            setuser_id("");
+            setuser_name("");
             navigateToLogin();
         });
     }
