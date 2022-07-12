@@ -7,7 +7,7 @@ function DeleteUpdate({money, handleSmallLoad}) {
     const deleteTransaction = (trans_id) => {
 		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`);
 		alert("Transaction deleted successfully.");
-        handleSmallLoad((Loading) => !Loading);
+        handleSmallLoad((loading) => !loading);
 	};
 
 	const updateTransaction = (trans_id) => {
