@@ -52,7 +52,7 @@ function AllTransactions() {
 	}
 
 	if (loading) {
-		return (<Spinner onChange={handleChange}/>);
+		return (<Spinner handleChange={handleChange}/>);
 	}
 	else {
 		return (
