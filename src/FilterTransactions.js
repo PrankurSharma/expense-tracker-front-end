@@ -238,7 +238,7 @@ function FilterTransactions() {
                         <option value="2022">2022</option>
                     </select>
                     <button className='button' onClick={() => {
-                        setSmallLoad((loading) => !loading);
+                        handleSmallLoad((loading) => !loading);
                     }}> Filter Results </button>
                 </div>
                 <div className="filtertransactions">
