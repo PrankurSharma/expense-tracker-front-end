@@ -74,7 +74,7 @@ function CrudSpeechlyPDF(props) {
 		}
 	};
 
-	const deleteTransaction = (trans_id) => {
+	/*const deleteTransaction = (trans_id) => {
 		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`);
 		alert("Transaction deleted successfully.");
 		setSmallLoad((loading) => !loading);
@@ -95,7 +95,7 @@ function CrudSpeechlyPDF(props) {
 		}
 		setnew_amount("");
 		setnew_task("");
-	};
+	};*/
 
 	useEffect(() => {
 		if (segment) {
@@ -222,7 +222,7 @@ function CrudSpeechlyPDF(props) {
 			<div>
 				<h1 className="head"> Transactions This Month </h1>
 			</div>
-			{!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : 
+			{!monthmoney.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : 
 				<div className="containertrans">
                     <div className="transactions">
 						<DeleteUpdate money={monthmoney} onSmallLoad={handleSmallLoad}/>
