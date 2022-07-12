@@ -15,17 +15,11 @@ function FilterTransactions() {
     const [filter_income, setfilter_income] = useState("");
     const [filter_expense, setfilter_expense] = useState("");
     const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const loadData = async () => {
-            await new Promise((r) => setTimeout(r, 5000));
-            setLoading((loading) => !loading);
-        };
-
-        loadData();
-    }, []);
-
     Axios.defaults.withCredentials = true;
+    
+    function handleChange(newValue){
+        setLoading(newValue);
+    }
 
     const filterEntries = () => {
         if (month && year) {
@@ -109,7 +103,7 @@ function FilterTransactions() {
 	};
 
     if (loading) {
-        return (<Spinner />);
+        return (<Spinner onChange={handleChange}/>);
     }
     else {
         return (

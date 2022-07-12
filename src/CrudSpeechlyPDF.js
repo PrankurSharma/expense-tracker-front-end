@@ -22,7 +22,7 @@ function CrudSpeechlyPDF(props) {
 	const [new_task, setnew_task] = useState("");
 	const { segment } = useSpeechContext();
 	const [loading, setLoading] = useState(true);
-	const [smallLoad, setSmallLoad] = useState(false);
+	const [smallLoad, setSmallLoad] = useState(true);
 
 	Axios.defaults.withCredentials = true;
 	

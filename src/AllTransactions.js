@@ -12,27 +12,32 @@ function AllTransactions() {
 	const [totalincome, settotal_income] = useState("");
 	const [totalexpense, settotal_expense] = useState("");
 	const [loading, setLoading] = useState(true);
+	const [smallLoad, setSmallLoad] = useState(true);
+	Axios.defaults.withCredentials = true;
+	
+	function handleChange(newValue) {
+		setLoading(newValue);
+	}
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalincome').then((response) => {
 			settotal_income(response.data[0].amTotal);
 		});
-	}, []);
+	}, [smallLoad]);
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalexpense').then((response) => {
 			settotal_expense(response.data[0].amTotal);
 		});
-	}, []);
+	}, [smallLoad]);
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
 			set_money(response.data);
-			setLoading((loading) => !loading);
 		});
-	}, []);
+	}, [smallLoad]);
 
-	const totalTrans = () => {
+	/*const totalTrans = () => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
 			set_money(response.data);
 		});
@@ -48,14 +53,15 @@ function AllTransactions() {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalexpense').then((response) => {
 			settotal_expense(response.data[0].amTotal);
 		});
-	};
+	};*/
 
 	const deleteTransaction = (trans_id) => {
 		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`);
 		alert("Transaction deleted successfully");
-		totalTrans();
+		setSmallLoad((loading) => !loading);
+		/*totalTrans();
 		totalIncome();
-		totalExpense();
+		totalExpense();*/
 	};
 
 	const updateTransaction = (trans_id) => {
@@ -66,9 +72,10 @@ function AllTransactions() {
 				task: new_task
 			});
 			alert("Transaction updated successfully.");
-			totalTrans();
+			setSmallLoad((loading) => !loading);
+			/*totalTrans();
 			totalIncome();
-			totalExpense();
+			totalExpense();*/
 		}
 		else {
 			alert("Please fill both the values in order to update the transaction.");
@@ -96,7 +103,7 @@ function AllTransactions() {
 	}
 
 	if (loading) {
-		return (<Spinner />);
+		return (<Spinner onChange={handleChange}/>);
 	}
 	else {
 		return (
