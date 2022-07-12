@@ -35,13 +35,14 @@ function Header() {
                     <img src='/logo.png' alt="Finer" />
                 </Link>
             </div>
-            <div className="divhead">
+            
+                {!user_name.length ? null : <div className="divhead">
                 <h1 className="head"> Hi {user_name}, </h1>
                 <h3 className="head"> ({user_id}) </h3>
-                {!user_name.length ? null : <button className="button" onClick={() => {
+                <button className="button" onClick={() => {
                     logout();
-                }}> Logout </button>}
-            </div>
+                }}> Logout </button>
+                </div>}
         </div>
     );
 }
