@@ -185,7 +185,7 @@ function CrudSpeechlyPDF(props) {
 				<div className="container1">
 				{!monthmoney.length ? <div className="notrans"> </div> : <div className="income">
 					<h2 className="record"> Income For This Month: ₹ {monthincome} </h2>
-					<ChartsIncome />
+					<ChartsIncome smallLoad={smallLoad}/>
 				</div>}
 				<div className="form">
 					<h2 className="record"> Record Transaction </h2>
@@ -239,7 +239,7 @@ function CrudSpeechlyPDF(props) {
 				<ErrorPanel placement="bottom" />
 				{!monthmoney.length ? <div className="notrans"> </div> : <div className="expense">
 					<h2 className="record"> Expenses For This Month: ₹ {monthexpense} </h2>
-					<ChartsExpense />
+					<ChartsExpense smallLoad={smallLoad}/>
 				</div>}
 			</div>
 			</div>
