@@ -37,31 +37,10 @@ function AllTransactions() {
 		});
 	}, [smallLoad]);
 
-	/*const totalTrans = () => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
-			set_money(response.data);
-		});
-	};
-
-	const totalIncome = () => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalincome').then((response) => {
-			settotal_income(response.data[0].amTotal);
-		});
-	};
-
-	const totalExpense = () => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalexpense').then((response) => {
-			settotal_expense(response.data[0].amTotal);
-		});
-	};*/
-
 	const deleteTransaction = (trans_id) => {
 		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`);
 		alert("Transaction deleted successfully");
 		setSmallLoad((loading) => !loading);
-		/*totalTrans();
-		totalIncome();
-		totalExpense();*/
 	};
 
 	const updateTransaction = (trans_id) => {
@@ -73,9 +52,6 @@ function AllTransactions() {
 			});
 			alert("Transaction updated successfully.");
 			setSmallLoad((loading) => !loading);
-			/*totalTrans();
-			totalIncome();
-			totalExpense();*/
 		}
 		else {
 			alert("Please fill both the values in order to update the transaction.");
@@ -129,10 +105,12 @@ function AllTransactions() {
 									}}> Delete </button>
 									<div className="smallcard">
 										<h4 className="heading"> New Task: <input type="text" id="updateInput" onChange={(e) => {
-											setnew_task(e.target.value)
+											setnew_task(e.target.value);
+											e.target.reset();
 										}} />
 											New Amount: <input type="text" id="updateInput1" onChange={(e) => {
-												setnew_amount(e.target.value)
+												setnew_amount(e.target.value);
+												e.target.reset();
 											}} />
 										</h4>
 										<button className="update" onClick={() => {

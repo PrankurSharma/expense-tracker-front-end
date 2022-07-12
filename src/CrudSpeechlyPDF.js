@@ -47,25 +47,6 @@ function CrudSpeechlyPDF(props) {
 			setmonth_expense(response.data[0].amTotal);
 		});
 	}, [smallLoad]);
-	
-	/*const monthTrans = () => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {
-			setmonth_money(response.data);
-			setLoading((loading) => !loading);
-		});
-	};
-
-	const monthIncome = () => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthincome').then((response) => {
-			setmonth_income(response.data[0].amTotal);
-		});
-	};
-
-	const monthExpense = () => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthexpense').then((response) => {
-			setmonth_expense(response.data[0].amTotal);
-		});
-	};*/
 
 	const submitEntries = () => {
 		if (amount && task && type && date && (type === "Income" || type === "Expense" || type === "INCOME" || type === "EXPENSE" || type === "income" || type === "expense")) {
@@ -76,10 +57,6 @@ function CrudSpeechlyPDF(props) {
 				date: date
 			});
 			alert("Record inserted successfully.");
-			/*setLoading((loading) => !loading);
-			monthTrans();
-			monthIncome();
-			monthExpense();*/
 			setSmallLoad((loading) => !loading);
 			set_amount("");
 			set_task("");
@@ -98,10 +75,6 @@ function CrudSpeechlyPDF(props) {
 		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`);
 		alert("Transaction deleted successfully.");
 		setSmallLoad((loading) => !loading);
-		/*setLoading((loading) => !loading);
-		monthTrans();
-		monthIncome();
-		monthExpense();*/
 	};
 
 	const updateTransaction = (trans_id) => {
@@ -113,10 +86,6 @@ function CrudSpeechlyPDF(props) {
 			});
 			alert("Transaction updated successfully.");
 			setSmallLoad((loading) => !loading);
-			/*setLoading((loading) => !loading);
-			monthTrans();
-			monthIncome();
-			monthExpense();*/
 		}
 		else {
 			alert("Please fill both the values in order to update the transaction.");
@@ -195,6 +164,7 @@ function CrudSpeechlyPDF(props) {
 						name="amount"
 						onChange={(e) => {
 							set_amount(e.target.value);
+							e.target.reset();
 						}}
 					/>
 					<label className="label"> Task: </label>
@@ -203,6 +173,7 @@ function CrudSpeechlyPDF(props) {
 						name="task"
 						onChange={(e) => {
 							set_task(e.target.value);
+							e.target.reset();
 						}}
 					/>
 					<label className="label"> Type: </label>
@@ -212,6 +183,7 @@ function CrudSpeechlyPDF(props) {
 						name="type"
 						onChange={(e) => {
 							set_type(e.target.value);
+							e.target.reset();
 						}}>
 						<option> Type </option>
 						<option> Income </option>
@@ -226,6 +198,7 @@ function CrudSpeechlyPDF(props) {
 						}}
 						onChange={(e) => {
 							set_date(e.target.value);
+							e.target.reset();
 						}} />
 					<button className="button" onClick={() => {
 						submitEntries();
@@ -260,10 +233,12 @@ function CrudSpeechlyPDF(props) {
 								}}> Delete </button>
 								<div className="smallcard">
 									<h4 className="heading"> New Task: <input type="text" id="updateInput" onChange={(e) => {
-										setnew_task(e.target.value)
+										setnew_task(e.target.value);
+										e.target.reset();
 									}} />
 										New Amount: <input type="text" id="updateInput1" onChange={(e) => {
-											setnew_amount(e.target.value)
+											setnew_amount(e.target.value);
+											e.target.reset();
 										}} />
 									</h4>
 									<button className="update" onClick={() => {
