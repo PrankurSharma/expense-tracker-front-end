@@ -28,35 +28,31 @@ function DeleteUpdate(props, {money}) {
 	};
     return (
         <div>
-            {!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : <div className="containertrans">
-                    <div className="transactions">
-                        {money.map((val) => {
-                            return (
-                                <div className="card">
-                                    <h1 className="heading"> {val.Task} </h1>
-                                    <h2 className="heading"> ID: {val.trans_id} </h2>
-                                    <h3 className="heading"> Amount: ₹ {val.Amount} <span> Type: {val.Type} </span> </h3>
-                                    <h4 className="heading"> Date: {val.added_date} </h4>
-                                    <button className="delete" onClick={() => {
-                                        deleteTransaction(val.trans_id);
-                                    }}> Delete </button>
-                                    <div className="smallcard">
-                                        <h4 className="heading"> New Task: <input type="text" id="updateInput" value={new_task} onChange={(e) => {
-                                            setnew_task(e.target.value)
-                                        }} />
-                                            New Amount: <input type="text" id="updateInput1" value={new_amount} onChange={(e) => {
-                                                setnew_amount(e.target.value)
-                                        }} />
-                                    </h4>
-                                    <button className="update" onClick={() => {
-                                        updateTransaction(val.trans_id);
-                                    }}> Update </button>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>}
+            {money.map((val) => {
+                return (
+                    <div className="card">
+                        <h1 className="heading"> {val.Task} </h1>
+                        <h2 className="heading"> ID: {val.trans_id} </h2>
+                        <h3 className="heading"> Amount: ₹ {val.Amount} <span> Type: {val.Type} </span> </h3>
+                        <h4 className="heading"> Date: {val.added_date} </h4>
+                        <button className="delete" onClick={() => {
+                            deleteTransaction(val.trans_id);
+                        }}> Delete </button>
+                        <div className="smallcard">
+                            <h4 className="heading"> New Task: <input type="text" id="updateInput" value={new_task} onChange={(e) => {
+                                setnew_task(e.target.value)
+                                }} />
+                                    New Amount: <input type="text" id="updateInput1" value={new_amount} onChange={(e) => {
+                                        setnew_amount(e.target.value)
+                                }} />
+                            </h4>
+                            <button className="update" onClick={() => {
+                                updateTransaction(val.trans_id);
+                            }}> Update </button>
+                        </div>
+                    </div>
+                );
+            })}
         </div>
     );
 }

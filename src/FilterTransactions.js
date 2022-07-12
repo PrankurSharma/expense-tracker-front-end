@@ -1,24 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Header from './Header';
 import Spinner from './Spinner';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import DeleteUpdate from './DeleteUpdate';
 
 function FilterTransactions() {
     const [month, set_month] = useState("");
     const [year, set_year] = useState("");
     const [money, set_money] = useState([]);
-    const [new_amount, setnew_amount] = useState("");
-    const [new_task, setnew_task] = useState("");
+    /*const [new_amount, setnew_amount] = useState("");
+    const [new_task, setnew_task] = useState("");*/
     const [filter_income, setfilter_income] = useState("");
     const [filter_expense, setfilter_expense] = useState("");
     const [loading, setLoading] = useState(true);
+    const [smallLoad, setSmallLoad] = useState(true);
+    const isMounted = useRef(false);
     Axios.defaults.withCredentials = true;
     
     function handleChange(newValue){
         setLoading(newValue);
+    }
+
+    function handleSmallLoad(newValue){
+        setSmallLoad(newValue);
     }
 
     const filterEntries = () => {
@@ -57,7 +64,21 @@ function FilterTransactions() {
         }
     }
 
-    const deleteTransaction = (trans_id) => {
+    function filter() {
+        filterEntries();
+        filterIncome();
+        filterExpense();
+    }
+    
+    useEffect(() => {
+        if(isMounted.current){
+            filter();
+        }
+        else{
+            isMounted.current = true;
+        }
+    }, [smallLoad]);
+    /*const deleteTransaction = (trans_id) => {
         Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`);
         alert("Transaction deleted successfully.");
         filterEntries();
@@ -82,7 +103,7 @@ function FilterTransactions() {
         }
         setnew_amount("");
         setnew_task("");
-    };
+    };*/
 
     function jsPdfGenerator() {
         var doc = new jsPDF();
@@ -217,9 +238,7 @@ function FilterTransactions() {
                         <option value="2022">2022</option>
                     </select>
                     <button className='button' onClick={() => {
-                        filterEntries();
-                        filterIncome();
-                        filterExpense();
+                        setSmallLoad((loading) => !loading);
                     }}> Filter Results </button>
                 </div>
                 <div className="filtertransactions">
@@ -230,31 +249,7 @@ function FilterTransactions() {
                     </div>
                     {!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : <div className='containertrans'>
                         <div className='alltransactions'>
-                            {money.map((val) => {
-                                return (
-                                    <div className="card">
-                                        <h1 className="heading"> {val.Task} </h1>
-                                        <h2 className="heading"> ID: {val.trans_id} </h2>
-                                        <h3 className="heading"> Amount: ₹ {val.Amount} <span> Type: {val.Type} </span> </h3>
-                                        <h4 className="heading"> Date: {val.added_date} </h4>
-                                        <button className="delete" onClick={() => {
-                                            deleteTransaction(val.trans_id);
-                                        }}> Delete </button>
-                                        <div className="smallcard">
-                                            <h4 className="heading"> New Task: <input type="text" id="updateInput" value={new_task} onChange={(e) => {
-                                                setnew_task(e.target.value)
-                                            }} />
-                                                New Amount: <input type="text" id="updateInput1" value={new_amount} onChange={(e) => {
-                                                    setnew_amount(e.target.value)
-                                                }} />
-                                            </h4>
-                                            <button className="update" onClick={() => {
-                                                updateTransaction(val.trans_id);
-                                            }}> Update </button>
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                            <DeleteUpdate money={money} onSmallLoad={handleSmallLoad}/>
                         </div>
                     </div>}
                 </div>
