@@ -27,7 +27,7 @@ function Spinner(props) {
                 alert(response.data.error);
             }
             else{
-                this.props.loading = false;
+                this.props.changeLoad(false);
             }
         })
     }, []);

@@ -43,6 +43,10 @@ function CrudSpeechlyPDF(props) {
 			setmonth_expense(response.data[0].amTotal);
 		});
 	}, [smallLoad]);
+
+	const changeLoad = (newLoading) => {
+		setLoading(newLoading);
+	};
 	
 	/*const monthTrans = () => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {
@@ -171,7 +175,7 @@ function CrudSpeechlyPDF(props) {
 	}
 
 	if (loading) {
-		return (<Spinner loading={loading}/>);
+		return (<Spinner changeLoad={this.changeLoad}/>);
 	}
 	return (
 		<div className="App">
