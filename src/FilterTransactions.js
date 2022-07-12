@@ -241,10 +241,10 @@ function FilterTransactions() {
                                             deleteTransaction(val.trans_id);
                                         }}> Delete </button>
                                         <div className="smallcard">
-                                            <h4 className="heading"> New Task: <input type="text" id="updateInput" onChange={(e) => {
+                                            <h4 className="heading"> New Task: <input type="text" id="updateInput" value={new_task} onChange={(e) => {
                                                 setnew_task(e.target.value)
                                             }} />
-                                                New Amount: <input type="text" id="updateInput1" onChange={(e) => {
+                                                New Amount: <input type="text" id="updateInput1" value={new_amount} onChange={(e) => {
                                                     setnew_amount(e.target.value)
                                                 }} />
                                             </h4>

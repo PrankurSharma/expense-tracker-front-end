@@ -162,6 +162,7 @@ function CrudSpeechlyPDF(props) {
 					<input
 						type="text"
 						name="amount"
+						value={amount}
 						onChange={(e) => {
 							set_amount(e.target.value);
 						}}
@@ -170,6 +171,7 @@ function CrudSpeechlyPDF(props) {
 					<input
 						type="text"
 						name="task"
+						value={task}
 						onChange={(e) => {
 							set_task(e.target.value);
 						}}
@@ -179,6 +181,7 @@ function CrudSpeechlyPDF(props) {
 						id="type"
 						type="text"
 						name="type"
+						value={type}
 						onChange={(e) => {
 							set_type(e.target.value);
 						}}>
@@ -190,6 +193,7 @@ function CrudSpeechlyPDF(props) {
 					<input id="date"
 						type="date"
 						name="date"
+						value={date}
 						InputLabelProps={{
 							shrink: true,
 						}}
@@ -228,10 +232,10 @@ function CrudSpeechlyPDF(props) {
 									deleteTransaction(val.trans_id);
 								}}> Delete </button>
 								<div className="smallcard">
-									<h4 className="heading"> New Task: <input type="text" id="updateInput" onChange={(e) => {
+									<h4 className="heading"> New Task: <input type="text" id="updateInput" value={new_task} onChange={(e) => {
 										setnew_task(e.target.value)
 									}} />
-										New Amount: <input type="text" id="updateInput1" onChange={(e) => {
+										New Amount: <input type="text" id="updateInput1" value={new_amount} onChange={(e) => {
 											setnew_amount(e.target.value)
 										}} />
 									</h4>
