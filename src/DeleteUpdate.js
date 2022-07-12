@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import Loading from 'react-loading';
 function DeleteUpdate({money, handleSmallLoad}) {
     const [new_amount, setnew_amount] = useState("");
 	const [new_task, setnew_task] = useState("");

@@ -73,7 +73,7 @@ function AllTransactions() {
                 </div>
 				{!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : <div className="containertrans">
 					<div className="alltransactions">
-						<DeleteUpdate money={money} onSmallLoad={handleSmallLoad}/>
+						<DeleteUpdate money={money} handleSmallLoad={handleSmallLoad}/>
 					</div>
 				</div>}
 				<div>
