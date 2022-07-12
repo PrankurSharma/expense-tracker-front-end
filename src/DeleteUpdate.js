@@ -28,7 +28,7 @@ function DeleteUpdate({money}) {
 	};
     console.log(money);
     return (
-        <div>
+        <div className='containertrans'>
             {money.map((val) => {
                             return (
                                 <div className="card">
