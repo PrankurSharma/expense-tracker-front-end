@@ -5,6 +5,7 @@ import ChartsIncome from './ChartsIncome';
 import ChartsExpense from './ChartsExpense';
 import Header from './Header';
 import Spinner from "./Spinner";
+import DeleteUpdate from "./DeleteUpdate";
 import { PushToTalkButton, BigTranscript, ErrorPanel } from '@speechly/react-ui';
 import { useSpeechContext } from '@speechly/react-client';
 import jsPDF from 'jspdf';
@@ -18,8 +19,6 @@ function CrudSpeechlyPDF(props) {
 	const [monthincome, setmonth_income] = useState("");
 	const [monthexpense, setmonth_expense] = useState("");
 	const [monthmoney, setmonth_money] = useState([]);
-	const [new_amount, setnew_amount] = useState("");
-	const [new_task, setnew_task] = useState("");
 	const { segment } = useSpeechContext();
 	const [loading, setLoading] = useState(true);
 	const [smallLoad, setSmallLoad] = useState(true);
@@ -28,6 +27,10 @@ function CrudSpeechlyPDF(props) {
 	
 	function handleChange(newValue) {
 		setLoading(newValue);
+	}
+
+	function handleSmallLoad(newValue) {
+		setSmallLoad(newValue);
 	}
 
 	useEffect(() => {
@@ -219,35 +222,7 @@ function CrudSpeechlyPDF(props) {
 			<div>
 				<h1 className="head"> Transactions This Month </h1>
 			</div>
-			{!monthmoney.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : <div className="containertrans">
-				<div className="transactions">
-					{monthmoney.map((val) => {
-						return (
-							<div className="card">
-								<h1 className="heading"> {val.Task} </h1>
-								<h2 className="heading"> ID: {val.trans_id} </h2>
-								<h3 className="heading"> Amount: ₹ {val.Amount} <span> Type: {val.Type} </span> </h3>
-								<h4 className="heading"> Date: {val.added_date} </h4>
-								<button className="delete" onClick={() => {
-									deleteTransaction(val.trans_id);
-								}}> Delete </button>
-								<div className="smallcard">
-									<h4 className="heading"> New Task: <input type="text" id="updateInput" value={new_task} onChange={(e) => {
-										setnew_task(e.target.value)
-									}} />
-										New Amount: <input type="text" id="updateInput1" value={new_amount} onChange={(e) => {
-											setnew_amount(e.target.value)
-										}} />
-									</h4>
-									<button className="update" onClick={() => {
-										updateTransaction(val.trans_id);
-									}}> Update </button>
-								</div>
-							</div>
-						);
-					})}
-				</div>
-			</div>}
+				<DeleteUpdate money={monthmoney} onSmallLoad={handleSmallLoad}/>
 			<div>
 				{!monthmoney.length ? null : <button className="button" onClick={jsPdfGenerator}> Generate PDF </button>}
 				<button className="button" onClick={navigateToAllTrans}> View All Transactions </button>
