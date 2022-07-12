@@ -1,6 +1,6 @@
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-function jsPdfGenerator() {
+function jsPdfGenerator({money, genPDFSubmit}) {
     var doc = new jsPDF();
     var cols = ["Trans_id", "Task", "Amount", "Type", "Date"];
     var rows = [];
@@ -10,5 +10,7 @@ function jsPdfGenerator() {
     });
     doc.autoTable(cols, rows, { startY: 10 });
     doc.save("transactions.pdf");
+    genPDFSubmit((called) => !called);
+    return;
 }
 export default jsPdfGenerator;

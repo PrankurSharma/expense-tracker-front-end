@@ -14,6 +14,7 @@ function FilterTransactions() {
     const [filter_expense, setfilter_expense] = useState("");
     const [loading, setLoading] = useState(true);
     const [smallLoad, setSmallLoad] = useState(true);
+    const [pdfcalled, setPdfCalled] = useState(false);
     const isMounted = useRef(false);
     Axios.defaults.withCredentials = true;
     
@@ -24,6 +25,10 @@ function FilterTransactions() {
     function handleSmallLoad(newValue){
         setSmallLoad(newValue);
     }
+
+    function genPDFSubmit(newValue) {
+		setPdfCalled(newValue);
+	}
 
     const filterEntries = () => {
         if (month && year) {
@@ -213,7 +218,10 @@ function FilterTransactions() {
                     </div>}
                 </div>
                 <div>
-                    {!money.length ? null : <button className="button" onClick={jsPdfGenerator}> Generate PDF </button>}
+                    {!money.length ? null : <button className="button" onClick={() => {
+                        genPDFSubmit((called) => !called);
+                    }}> Generate PDF </button>}
+                    {pdfcalled && <jsPdfGenerator money={money} genPDFSubmit={genPDFSubmit} />}
                     <button className='button' onClick={navigateToAllTrans}> View All Transactions </button>
                 </div>
             </div>

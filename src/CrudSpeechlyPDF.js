@@ -21,6 +21,7 @@ function CrudSpeechlyPDF() {
 	const { segment } = useSpeechContext();
 	const [loading, setLoading] = useState(true);
 	const [smallLoad, setSmallLoad] = useState(true);
+	const [pdfcalled, setPdfCalled] = useState(false);
 
 	Axios.defaults.withCredentials = true;
 	
@@ -30,6 +31,10 @@ function CrudSpeechlyPDF() {
 
 	function handleSmallLoad(newValue) {
 		setSmallLoad(newValue);
+	}
+
+	function genPDFSubmit(newValue) {
+		setPdfCalled(newValue);
 	}
 
 	useEffect(() => {
@@ -193,7 +198,10 @@ function CrudSpeechlyPDF() {
 					</div>
 				</div>}
 			<div>
-				{!monthmoney.length ? null : <button className="button" onClick={jsPdfGenerator}> Generate PDF </button>}
+				{!monthmoney.length ? null : <button className="button" onClick={() => {
+					genPDFSubmit((called) => !called);
+					}}> Generate PDF </button>}
+				{pdfcalled && <jsPdfGenerator money={monthmoney} genPDFSubmit={genPDFSubmit} />}
 				<button className="button" onClick={navigateToAllTrans}> View All Transactions </button>
 				<button className='button' onClick={navigateToFilterTrans}> Filter Transactions By Month And Year </button>
 			</div>
