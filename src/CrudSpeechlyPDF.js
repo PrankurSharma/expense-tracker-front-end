@@ -171,7 +171,7 @@ function CrudSpeechlyPDF(props) {
 	}
 
 	if (loading) {
-		return (<Spinner loading={props.loading}/>);
+		return (<Spinner loading={loading}/>);
 	}
 	return (
 		<div className="App">
