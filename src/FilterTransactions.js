@@ -3,16 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Header from './Header';
 import Spinner from './Spinner';
-import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import jsPdfGenerator from './JSPDFGenerator';
 import DeleteUpdate from './DeleteUpdate';
 
 function FilterTransactions() {
     const [month, set_month] = useState("");
     const [year, set_year] = useState("");
     const [money, set_money] = useState([]);
-    /*const [new_amount, setnew_amount] = useState("");
-    const [new_task, setnew_task] = useState("");*/
     const [filter_income, setfilter_income] = useState("");
     const [filter_expense, setfilter_expense] = useState("");
     const [loading, setLoading] = useState(true);
@@ -78,44 +75,6 @@ function FilterTransactions() {
             isMounted.current = true;
         }
     }, [smallLoad]);
-    /*const deleteTransaction = (trans_id) => {
-        Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`);
-        alert("Transaction deleted successfully.");
-        filterEntries();
-        filterIncome();
-        filterExpense();
-    };
-
-    const updateTransaction = (trans_id) => {
-        if (new_amount && new_task) {
-            Axios.put('https://my-expense-tracker-project.herokuapp.com/api/update', {
-                trans_id: trans_id,
-                amount: new_amount,
-                task: new_task
-            });
-            alert("Transaction updated successfully.");
-            filterEntries();
-            filterIncome();
-            filterExpense();
-        }
-        else {
-            alert("Please fill both the values in order to update the transaction.");
-        }
-        setnew_amount("");
-        setnew_task("");
-    };*/
-
-    function jsPdfGenerator() {
-        var doc = new jsPDF();
-        var cols = ["Trans_id", "Task", "Amount", "Type", "Date"];
-        var rows = [];
-        money.forEach(element => {
-            var temp = [element.trans_id, element.Task, element.Amount, element.Type, element.added_date];
-            rows.push(temp);
-        });
-        doc.autoTable(cols, rows, { startY: 10 });
-        doc.save("transactions.pdf");
-    }
 
     const navigate = useNavigate();
 

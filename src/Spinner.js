@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 import Axios from "axios";
 
-function Spinner(props) {
+function Spinner({handleChange}) {
     Axios.defaults.withCredentials = true;
     
     const navigate = useNavigate();
@@ -27,7 +27,7 @@ function Spinner(props) {
                 alert(response.data.error);
             }
             else{
-                props.onChange(false);
+                handleChange(false);
             }
         })
     }, []);

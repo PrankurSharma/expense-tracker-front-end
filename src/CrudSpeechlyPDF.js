@@ -8,9 +8,8 @@ import Spinner from "./Spinner";
 import DeleteUpdate from "./DeleteUpdate";
 import { PushToTalkButton, BigTranscript, ErrorPanel } from '@speechly/react-ui';
 import { useSpeechContext } from '@speechly/react-client';
-import jsPDF from 'jspdf';
-import 'jspdf-autotable';
-function CrudSpeechlyPDF(props) {
+import jsPdfGenerator from "./JSPDFGenerator";
+function CrudSpeechlyPDF() {
 
 	const [amount, set_amount] = useState("");
 	const [task, set_task] = useState("");
@@ -101,18 +100,6 @@ function CrudSpeechlyPDF(props) {
 		}
 	}, [segment]);
 
-	function jsPdfGenerator() {
-		var doc = new jsPDF();
-		var cols = ["Trans_id", "Task", "Amount", "Type", "Date"];
-		var rows = [];
-		monthmoney.forEach(element => {
-			var temp = [element.trans_id, element.Task, element.Amount, element.Type, element.added_date];
-			rows.push(temp);
-		});
-		doc.autoTable(cols, rows, { startY: 10 });
-		doc.save("transactions.pdf");
-	}
-
 	const navigate = useNavigate();
 
 	const navigateToAllTrans = () => {
@@ -124,7 +111,7 @@ function CrudSpeechlyPDF(props) {
 	}
 
 	if (loading) {
-		return (<Spinner onChange={handleChange}/>);
+		return (<Spinner handleChange={handleChange}/>);
 	}
 	return (
 		<div className="App">
