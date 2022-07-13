@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Header from '../Header';
 import Spinner from '../Spinner';
-import jsPdfGenerator from '../JSPDFGenerator';
+import JSPDFGenerator from '../JSPDFGenerator';
 import DeleteUpdate from '../InsertDeleteUpdateComponents/DeleteUpdate';
 import FilterIncome from '../IncomeComponents/FilterIncome';
 import FilterExpense from '../ExpenseComponents/FilterExpense';
@@ -189,7 +189,7 @@ function FilterTransactions() {
                     {!money.length ? null : <button className="button" onClick={() => {
                         genPDFSubmit((called) => !called);
                     }}> Generate PDF </button>}
-                    {pdfcalled && <jsPdfGenerator money={money} genPDFSubmit={genPDFSubmit} />}
+                    {pdfcalled && <JSPDFGenerator money={money} genPDFSubmit={genPDFSubmit} />}
                     <button className='button' onClick={navigateToAllTrans}> View All Transactions </button>
                 </div>
             </div>

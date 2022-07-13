@@ -4,7 +4,7 @@ import Axios from "axios";
 import Header from '../Header';
 import Spinner from "../Spinner";
 import DeleteUpdate from "../InsertDeleteUpdateComponents/DeleteUpdate";
-import jsPdfGenerator from "../JSPDFGenerator";
+import JSPDFGenerator from "../JSPDFGenerator";
 import InsertEntries from '../InsertDeleteUpdateComponents/InsertEntries';
 import MonthlyExpense from "../ExpenseComponents/MonthlyExpense";
 import MonthlyIncome from "../IncomeComponents/MonthlyIncome";
@@ -72,7 +72,7 @@ function CrudSpeechlyPDF() {
 				{!monthmoney.length ? null : <button className="button" onClick={() => {
 					genPDFSubmit((called) => !called);
 					}}> Generate PDF </button>}
-				{pdfcalled && <jsPdfGenerator money={monthmoney} genPDFSubmit={genPDFSubmit} />}
+				{pdfcalled && <JSPDFGenerator money={monthmoney} genPDFSubmit={genPDFSubmit} />}
 				<button className="button" onClick={navigateToAllTrans}> View All Transactions </button>
 				<button className='button' onClick={navigateToFilterTrans}> Filter Transactions By Month And Year </button>
 			</div>

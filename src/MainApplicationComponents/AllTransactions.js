@@ -4,7 +4,7 @@ import Axios from 'axios';
 import Header from '../Header';
 import Spinner from "../Spinner";
 import DeleteUpdate from '../InsertDeleteUpdateComponents/DeleteUpdate';
-import jsPdfGenerator from '../JSPDFGenerator';
+import JSPDFGenerator from '../JSPDFGenerator';
 import TotalIncome from '../IncomeComponents/TotalIncome';
 import TotalExpense from '../ExpenseComponents/TotalExpense';
 
@@ -61,7 +61,7 @@ function AllTransactions() {
 					{!money.length ? null : <button className="button" onClick={() => {
 						genPDFSubmit((called) => !called);
 					}}> Generate PDF For All Transactions </button>}
-					{pdfcalled && <jsPdfGenerator money={money} genPDFSubmit={genPDFSubmit} />}
+					{pdfcalled && <JSPDFGenerator money={money} genPDFSubmit={genPDFSubmit} />}
 					<button className='button' onClick={navigateToFilterTrans}> Filter Transactions By Month And Year </button>
 				</div>
 			</div>
