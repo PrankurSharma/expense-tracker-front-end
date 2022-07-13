@@ -1,11 +1,11 @@
 import React from "react";
 import './App.css';
-import CrudSpeechlyPDF from "./CrudSpeechlyPDF";
-import Login from './Login';
-import Signup from './Signup';
-import Forgot from './Forgot';
-import AllTransactions from './AllTransactions';
-import FilterTransactions from './FilterTransactions';
+import CrudSpeechlyPDF from "./MainApplicationComponents/CrudSpeechlyPDF";
+import Login from './LoginSignupForgotComponents/Login';
+import Signup from './LoginSignupForgotComponents/Signup';
+import Forgot from './LoginSignupForgotComponents/Forgot';
+import AllTransactions from './MainApplicationComponents/AllTransactions';
+import FilterTransactions from './MainApplicationComponents/FilterTransactions';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
 	return (

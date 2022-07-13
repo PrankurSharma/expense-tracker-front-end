@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Header from './Header';
 import Spinner from "./Spinner";
-import DeleteUpdate from './DeleteUpdate';
+import DeleteUpdate from './InsertDeleteUpdateComponents/DeleteUpdate';
 import jsPdfGenerator from './JSPDFGenerator';
+import TotalIncome from './IncomeComponents/TotalIncome';
+import TotalExpense from './ExpenseComponents/TotalExpense';
 
 function AllTransactions() {
 	const [money, set_money] = useState([]);
-	const [totalincome, settotal_income] = useState("");
-	const [totalexpense, settotal_expense] = useState("");
 	const [loading, setLoading] = useState(true);
 	const [smallLoad, setSmallLoad] = useState(true);
 	const [pdfcalled, setPdfCalled] = useState(false);
@@ -26,18 +26,6 @@ function AllTransactions() {
 	function genPDFSubmit(newValue) {
 		setPdfCalled(newValue);
 	}
-
-	useEffect(() => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalincome').then((response) => {
-			settotal_income(response.data[0].amTotal);
-		});
-	}, [smallLoad]);
-
-	useEffect(() => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalexpense').then((response) => {
-			settotal_expense(response.data[0].amTotal);
-		});
-	}, [smallLoad]);
 
 	useEffect(() => {
 		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
@@ -59,8 +47,8 @@ function AllTransactions() {
 			<div className='App'>
 				<Header />
 				<h1 className='head'> All Transactions </h1>
-				<h1 className="record"> Income: ₹ {totalincome} </h1>
-				<h1 className="record"> Expenses: ₹ {totalexpense} </h1>
+				<TotalIncome smallLoad={smallLoad} />
+				<TotalExpense smallLoad={smallLoad} />
 				<div>
                     <h1 className='head'> Transaction Results </h1>
                 </div>

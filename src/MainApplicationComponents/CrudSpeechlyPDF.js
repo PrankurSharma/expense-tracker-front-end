@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
-import ChartsIncome from './ChartsIncome';
-import ChartsExpense from './ChartsExpense';
-import Header from './Header';
-import Spinner from "./Spinner";
-import DeleteUpdate from "./DeleteUpdate";
-import jsPdfGenerator from "./JSPDFGenerator";
-import InsertEntries from './InsertEntries';
+import Header from '../Header';
+import Spinner from "../Spinner";
+import DeleteUpdate from "../InsertDeleteUpdateComponents/DeleteUpdate";
+import jsPdfGenerator from "../JSPDFGenerator";
+import InsertEntries from '../InsertDeleteUpdateComponents/InsertEntries';
+import MonthlyExpense from "../ExpenseComponents/MonthlyExpense";
+import MonthlyIncome from "../IncomeComponents/MonthlyIncome";
 
 function CrudSpeechlyPDF() {
-
-	const [monthincome, setmonth_income] = useState("");
-	const [monthexpense, setmonth_expense] = useState("");
 	const [monthmoney, setmonth_money] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [smallLoad, setSmallLoad] = useState(true);
@@ -38,18 +35,6 @@ function CrudSpeechlyPDF() {
 		});
 	}, [smallLoad]);
 
-	useEffect(() => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthincome').then((response) => {
-			setmonth_income(response.data[0].amTotal);
-		});
-	}, [smallLoad]);
-
-	useEffect(() => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthexpense').then((response) => {
-			setmonth_expense(response.data[0].amTotal);
-		});
-	}, [smallLoad]);
-
 	const navigate = useNavigate();
 
 	const navigateToAllTrans = () => {
@@ -69,15 +54,9 @@ function CrudSpeechlyPDF() {
 			<Header />
 			<div className="container">
 				<div className="container1">
-				{!monthmoney.length ? <div className="notrans"> </div> : <div className="income">
-					<h2 className="record"> Income For This Month: ₹ {monthincome} </h2>
-					<ChartsIncome smallLoad={smallLoad}/>
-				</div>}
+				<MonthlyIncome monthmoney={monthmoney} smallLoad={smallLoad}/>
 				<InsertEntries handleSmallLoad={handleSmallLoad}/>
-				{!monthmoney.length ? <div className="notrans"> </div> : <div className="expense">
-					<h2 className="record"> Expenses For This Month: ₹ {monthexpense} </h2>
-					<ChartsExpense smallLoad={smallLoad}/>
-				</div>}
+				<MonthlyExpense monthmoney={monthmoney} smallLoad={smallLoad}/>
 			</div>
 			</div>
 			<div>

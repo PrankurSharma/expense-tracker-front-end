@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
-import Header from './Header';
-import Spinner from './Spinner';
-import jsPdfGenerator from './JSPDFGenerator';
-import DeleteUpdate from './DeleteUpdate';
+import Header from '../Header';
+import Spinner from '../Spinner';
+import jsPdfGenerator from '../JSPDFGenerator';
+import DeleteUpdate from '../InsertDeleteUpdateComponents/DeleteUpdate';
+import FilterIncome from '../IncomeComponents/FilterIncome';
+import FilterExpense from '../ExpenseComponents/FilterExpense';
 
 function FilterTransactions() {
     const [month, set_month] = useState("");
     const [year, set_year] = useState("");
     const [money, set_money] = useState([]);
-    const [filter_income, setfilter_income] = useState("");
-    const [filter_expense, setfilter_expense] = useState("");
     const [loading, setLoading] = useState(true);
     const [smallLoad, setSmallLoad] = useState(true);
     const [pdfcalled, setPdfCalled] = useState(false);
@@ -29,52 +29,20 @@ function FilterTransactions() {
     function genPDFSubmit(newValue) {
 		setPdfCalled(newValue);
 	}
-
-    const filterEntries = () => {
-        if (month && year) {
-            Axios.post('https://my-expense-tracker-project.herokuapp.com/api/filter', {
-                month: month,
-                year: year
-            }).then((response) => {
-                set_money(response.data);
-            });
-        }
-        else {
-            alert("Please fill both the fields in order to proceed.");
-        }
-    }
-
-    const filterIncome = () => {
-        if (month && year) {
-            Axios.post('https://my-expense-tracker-project.herokuapp.com/api/filterincome', {
-                month: month,
-                year: year
-            }).then((response) => {
-                setfilter_income(response.data[0].amTotal);
-            });
-        }
-    }
-
-    const filterExpense = () => {
-        if (month && year) {
-            Axios.post('https://my-expense-tracker-project.herokuapp.com/api/filterexpense', {
-                month: month,
-                year: year
-            }).then((response) => {
-                setfilter_expense(response.data[0].amTotal);
-            });
-        }
-    }
-
-    function filter() {
-        filterEntries();
-        filterIncome();
-        filterExpense();
-    }
     
     useEffect(() => {
         if(isMounted.current){
-            filter();
+            if (month && year) {
+                Axios.post('https://my-expense-tracker-project.herokuapp.com/api/filter', {
+                    month: month,
+                    year: year
+                }).then((response) => {
+                    set_money(response.data);
+                });
+            }
+            else {
+                alert("Please fill both the fields in order to proceed.");
+            }
         }
         else{
             isMounted.current = true;
@@ -206,8 +174,8 @@ function FilterTransactions() {
                     }}> Filter Results </button>
                 </div>
                 <div className="filtertransactions">
-                    <h1 className='heading'> Income for the chosen month: ₹ {filter_income} </h1>
-                    <h1 className='heading'> Expenses for the chosen month: ₹ {filter_expense} </h1>
+                    <FilterIncome smallLoad={smallLoad} month={month} year={year} />
+                    <FilterExpense smallLoad={smallLoad} month={month} year={year} />
                     <div>
                         <h1 className='head'> Transaction Results </h1>
                     </div>
