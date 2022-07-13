@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import { baseUrl } from '../baseUrl';
 
 function FilterIncome({smallLoad, month, year}) {
     const [filter_income, setfilter_income] = useState("");
     useEffect(() => {
         if (month && year) {
-            Axios.post('https://my-expense-tracker-project.herokuapp.com/api/filterincome', {
+            Axios.post(baseUrl + "/api/filterincome", {
                 month: month,
                 year: year
             }).then((response) => {

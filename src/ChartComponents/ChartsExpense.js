@@ -13,7 +13,7 @@ const ChartsExpense = ({smallLoad}) => {
     let getAmount = [];
     let getTask = [];
 
-    axios.get(baseUrl + '/api/getexpense')
+    axios.get(baseUrl + "/api/getexpense")
       .then(res => {
         for (const dataObj of res.data) {
           getAmount.push(parseInt(dataObj.Amount));

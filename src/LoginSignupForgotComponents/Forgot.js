@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
+import { baseUrl } from '../baseUrl';
 
 function Forgot() {
 
@@ -14,7 +15,7 @@ function Forgot() {
 
   const handleSubmit = () => {
     if (person_id && newpassword) {
-      Axios.put('https://my-expense-tracker-project.herokuapp.com/api/forgot', {
+      Axios.put(baseUrl + "/api/forgot", {
         person_id: person_id,
         newpassword: newpassword
       }).then((response) => {

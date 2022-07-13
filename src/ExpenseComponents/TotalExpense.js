@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import { baseUrl } from '../baseUrl';
 
 function TotalExpense({smallLoad}) {
     const [totalexpense, settotal_expense] = useState("");
 
     useEffect(() => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/gettotalexpense').then((response) => {
+		Axios.get(baseUrl + "/api/gettotalexpense").then((response) => {
 			settotal_expense(response.data[0].amTotal);
 		});
 	}, [smallLoad]);

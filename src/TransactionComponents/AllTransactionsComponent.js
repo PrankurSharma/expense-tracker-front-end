@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import Axios from 'axios';
+import { baseUrl } from '../baseUrl';
 
 function AllTransactionsComponent({smallLoad, updateMoney}) {
     useEffect(() => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
+		Axios.get(baseUrl + "/api/get").then((response) => {
 			updateMoney(response.data);
 		});
 	}, [smallLoad]);

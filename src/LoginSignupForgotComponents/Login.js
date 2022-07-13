@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
+import { baseUrl } from '../baseUrl';
 
 
 function Login() {
@@ -20,7 +21,7 @@ function Login() {
     };
 
     useEffect(() => {
-      Axios.get('https://my-expense-tracker-project.herokuapp.com/api/login').then((response) => {
+      Axios.get(baseUrl + "/api/login").then((response) => {
             if (response.data[0].person_id && response.data[0].username) {
                 set_loggedin(true);
             }
@@ -29,7 +30,7 @@ function Login() {
 
   const handleSubmit = () => {
     if (person_id && password) {
-      Axios.post('https://my-expense-tracker-project.herokuapp.com/api/login', {
+      Axios.post(baseUrl + "/api/login", {
         person_id: person_id,
         password: password
       }).then((response) => {

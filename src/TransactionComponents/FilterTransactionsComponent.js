@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import Axios from "axios";
+import { baseUrl } from "../baseUrl";
 
 function FilterTransactionsComponent({month, year, smallLoad, updateMoney}) {
     const isMounted = useRef(false);
     useEffect(() => {
         if(isMounted.current){
             if (month && year) {
-                Axios.post('https://my-expense-tracker-project.herokuapp.com/api/filter', {
+                Axios.post(baseUrl + "/api/filter", {
                     month: month,
                     year: year
                 }).then((response) => {

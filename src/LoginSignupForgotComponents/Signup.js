@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import uuid from 'react-uuid';
 import Axios from 'axios';
+import { baseUrl } from '../baseUrl';
 
 
 function Signup() {
@@ -17,7 +18,7 @@ function Signup() {
   const person_id = uuid().slice(0, 7);
   const handleSubmit = async () => {
     if (username && password) {
-      Axios.post('https://my-expense-tracker-project.herokuapp.com/api/signup', {
+      Axios.post(baseUrl + "/api/signup", {
         person_id: person_id,
         username: username,
         password: password

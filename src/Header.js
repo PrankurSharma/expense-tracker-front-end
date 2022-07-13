@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
+import { baseUrl } from "./baseUrl";
 
 function Header() {
     const [user_id, setuser_id] = useState("");
@@ -14,7 +15,7 @@ function Header() {
     };
 
     useEffect(() => {
-        Axios.get('https://my-expense-tracker-project.herokuapp.com/api/login').then((response) => {
+        Axios.get(baseUrl + "/api/login").then((response) => {
             if (response.data[0].person_id && response.data[0].username) {
                 setuser_id(response.data[0].person_id);
                 setuser_name(response.data[0].username);
@@ -23,7 +24,7 @@ function Header() {
     }, []);
 
     const logout = () => {
-        Axios.get('https://my-expense-tracker-project.herokuapp.com/api/logout').then((response) => {
+        Axios.get(baseUrl + "/api/logout").then((response) => {
             alert("Please click OK to proceed logging out.");
             navigateToLogin();
         });

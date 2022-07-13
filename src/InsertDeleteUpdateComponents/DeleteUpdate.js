@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import { baseUrl } from '../baseUrl';
 function DeleteUpdate({money, handleSmallLoad}) {
     const [new_amount, setnew_amount] = useState("");
 	const [new_task, setnew_task] = useState("");
 
     const deleteTransaction = (trans_id) => {
-		Axios.delete(`https://my-expense-tracker-project.herokuapp.com/api/delete/${trans_id}`);
+		Axios.delete(baseUrl + `/api/delete/${trans_id}`);
 		alert("Transaction deleted successfully.");
         handleSmallLoad((loading) => !loading);
 	};
 
 	const updateTransaction = (trans_id) => {
 		if (new_amount && new_task) {
-			Axios.put('https://my-expense-tracker-project.herokuapp.com/api/update', {
+			Axios.put(baseUrl + "/api/update", {
 				trans_id: trans_id,
 				amount: new_amount,
 				task: new_task

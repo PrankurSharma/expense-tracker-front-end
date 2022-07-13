@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { PushToTalkButton, BigTranscript, ErrorPanel } from '@speechly/react-ui';
 import { useSpeechContext } from '@speechly/react-client';
+import { baseUrl } from "../baseUrl";
 
 function InsertEntries({handleSmallLoad}) {
 
@@ -13,7 +14,7 @@ function InsertEntries({handleSmallLoad}) {
 
     const submitEntries = () => {
 		if (amount && task && type && date && (type === "Income" || type === "Expense" || type === "INCOME" || type === "EXPENSE" || type === "income" || type === "expense")) {
-			Axios.post('https://my-expense-tracker-project.herokuapp.com/api/insert', {
+			Axios.post(baseUrl + "/api/insert", {
 				amount: amount,
 				task: task,
 				type: type,

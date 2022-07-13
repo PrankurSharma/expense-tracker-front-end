@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import ChartsExpense from '../ChartComponents/ChartsExpense';
+import { baseUrl } from '../baseUrl';
 
 function MonthlyExpense({monthmoney, smallLoad}) {
     const [monthexpense, setmonth_expense] = useState("");
 
     useEffect(() => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthexpense').then((response) => {
+		Axios.get(baseUrl + "/api/getmonthexpense").then((response) => {
 			setmonth_expense(response.data[0].amTotal);
 		});
 	}, [smallLoad]);
