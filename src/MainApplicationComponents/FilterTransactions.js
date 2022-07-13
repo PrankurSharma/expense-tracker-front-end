@@ -93,6 +93,7 @@ function FilterTransactions() {
                     <select id="year" name="year" onChange={(e) => {
                         set_year(e.target.value);
                     }}>
+                        <option>year</option>
                         {yearList}
                     </select>
                     <button className='button' onClick={() => {
