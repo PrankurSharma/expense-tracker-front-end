@@ -15,7 +15,6 @@ function FilterTransactions() {
     const [loading, setLoading] = useState(true);
     const [smallLoad, setSmallLoad] = useState(true);
     const [pdfcalled, setPdfCalled] = useState(false);
-    const [loggedin, setLoggedIn] = useState(true);
     const isMounted = useRef(false);
     Axios.defaults.withCredentials = true;
     
@@ -30,10 +29,6 @@ function FilterTransactions() {
     function genPDFSubmit(newValue) {
 		setPdfCalled(newValue);
 	}
-
-    function checkLogin(newValue) {
-        setLoggedIn(newValue);
-    }
 
     const filterEntries = () => {
         if (month && year) {
@@ -98,7 +93,7 @@ function FilterTransactions() {
     else {
         return (
             <div className='App'>
-                <Header loggedin={loggedin} checkLogin={checkLogin}/>
+                <Header />
                 <h1 className='head'> Filter Transactions </h1>
                 <div>
                     <select id="month" name="month" onChange={(e) => {

@@ -13,7 +13,6 @@ function AllTransactions() {
 	const [loading, setLoading] = useState(true);
 	const [smallLoad, setSmallLoad] = useState(true);
 	const [pdfcalled, setPdfCalled] = useState(false);
-	const [loggedin, setLoggedIn] = useState(true);
 	Axios.defaults.withCredentials = true;
 	
 	function handleChange(newValue) {
@@ -26,10 +25,6 @@ function AllTransactions() {
 
 	function genPDFSubmit(newValue) {
 		setPdfCalled(newValue);
-	}
-
-	function checkLogin(newValue) {
-		setLoggedIn(newValue);
 	}
 
 	useEffect(() => {
@@ -62,7 +57,7 @@ function AllTransactions() {
 	else {
 		return (
 			<div className='App'>
-				<Header loggedin={loggedin} checkLogin={checkLogin}/>
+				<Header />
 				<h1 className='head'> All Transactions </h1>
 				<h1 className="record"> Income: ₹ {totalincome} </h1>
 				<h1 className="record"> Expenses: ₹ {totalexpense} </h1>
