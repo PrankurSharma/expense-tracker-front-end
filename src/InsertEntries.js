@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { PushToTalkButton, BigTranscript, ErrorPanel } from '@speechly/react-ui';
 import { useSpeechContext } from '@speechly/react-client';
 
 function InsertEntries({handleSmallLoad}) {
-    
+
     const [amount, set_amount] = useState("");
 	const [task, set_task] = useState("");
 	const [type, set_type] = useState("");
