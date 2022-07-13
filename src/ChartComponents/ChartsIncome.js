@@ -49,13 +49,13 @@ const ChartsIncome = ({smallLoad}) => {
             responsive: true,
             maintainAspectRatio: true,
             scales: {
-              yAxes: [
+              y: [
                 {
                   gridLines: {
                     display: false
                   }
                 }],
-              xAxes: [
+              x: [
                 {
                   gridLines: {
                     display: false
