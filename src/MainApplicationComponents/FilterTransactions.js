@@ -30,14 +30,21 @@ function FilterTransactions() {
 		setPdfCalled(newValue);
 	}
 
-    let minOffset = 0, maxOffset = 10;
+    let maxOffset = 60;
     let thisYear = (new Date()).getFullYear();
     let allYears = [];
     for(let x = 0; x <= maxOffset; x++) {
         allYears.push(thisYear - x)
     }
-
     const yearList = allYears.map((x) => {return(<option key={x}>{x}</option>)});
+
+    let end = 11;
+    let max = 12;
+    let allMonths = [];
+    for(let x = 0; x <= end; x++) {
+        allMonths.push(max - x);
+    }
+    const monthList = allMonths.map((x) => {return(<option key={x}>{x}</option>)});
     
     useEffect(() => {
         if(isMounted.current){
@@ -76,19 +83,7 @@ function FilterTransactions() {
                     <select id="month" name="month" onChange={(e) => {
                         set_month(e.target.value);
                     }}>
-                        <option>month</option>
-                        <option value="01">01</option>
-                        <option value="02">02</option>
-                        <option value="03">03</option>
-                        <option value="04">04</option>
-                        <option value="05">05</option>
-                        <option value="06">06</option>
-                        <option value="07">07</option>
-                        <option value="08">08</option>
-                        <option value="09">09</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
+                        {monthList}
                     </select>
                     <select id="year" name="year" onChange={(e) => {
                         set_year(e.target.value);
