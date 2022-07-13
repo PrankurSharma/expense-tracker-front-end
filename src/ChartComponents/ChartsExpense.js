@@ -48,9 +48,9 @@ const ChartsExpense = ({smallLoad}) => {
           options={{
             responsive: true,
             maintainAspectRatio: true,
-            elements: {
-              point: {
-                  radius: 0
+            plugins: {
+              datalabels: {
+                display: false
               }
             },
             scales: {
