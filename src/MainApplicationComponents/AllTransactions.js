@@ -7,6 +7,7 @@ import DeleteUpdate from '../InsertDeleteUpdateComponents/DeleteUpdate';
 import JSPDFGenerator from '../JSPDFGenerator';
 import TotalIncome from '../IncomeComponents/TotalIncome';
 import TotalExpense from '../ExpenseComponents/TotalExpense';
+import AllTransactionsComponent from '../TransactionComponents/AllTransactionsComponent';
 
 function AllTransactions() {
 	const [money, set_money] = useState([]);
@@ -27,11 +28,9 @@ function AllTransactions() {
 		setPdfCalled(newValue);
 	}
 
-	useEffect(() => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/get').then((response) => {
-			set_money(response.data);
-		});
-	}, [smallLoad]);
+	function updateMoney(newValue) {
+		set_money(newValue);
+	}
 
 	const navigate = useNavigate();
 
@@ -52,11 +51,13 @@ function AllTransactions() {
 				<div>
                     <h1 className='head'> Transaction Results </h1>
                 </div>
-				{!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : <div className="containertrans">
-					<div className="alltransactions">
-						<DeleteUpdate money={money} handleSmallLoad={handleSmallLoad}/>
-					</div>
-				</div>}
+				{!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : 
+					<div className="containertrans">
+						<div className="alltransactions">
+							<AllTransactionsComponent smallLoad={smallLoad} updateMoney={updateMoney} />
+							<DeleteUpdate money={money} handleSmallLoad={handleSmallLoad}/>
+						</div>
+					</div>}
 				<div>
 					{!money.length ? null : <button className="button" onClick={() => {
 						genPDFSubmit((called) => !called);

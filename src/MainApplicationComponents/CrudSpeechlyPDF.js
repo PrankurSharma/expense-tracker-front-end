@@ -8,6 +8,7 @@ import JSPDFGenerator from "../JSPDFGenerator";
 import InsertEntries from '../InsertDeleteUpdateComponents/InsertEntries';
 import MonthlyExpense from "../ExpenseComponents/MonthlyExpense";
 import MonthlyIncome from "../IncomeComponents/MonthlyIncome";
+import MonthlyTransactionsComponent from "../TransactionComponents/MonthlyTransactionsComponent";
 
 function CrudSpeechlyPDF() {
 	const [monthmoney, setmonth_money] = useState([]);
@@ -29,11 +30,9 @@ function CrudSpeechlyPDF() {
 		setPdfCalled(newValue);
 	}
 
-	useEffect(() => {
-		Axios.get('https://my-expense-tracker-project.herokuapp.com/api/getmonthtrans').then((response) => {
-			setmonth_money(response.data);
-		});
-	}, [smallLoad]);
+	function updateMoney(newValue) {
+		setmonth_money(newValue);
+	}
 
 	const navigate = useNavigate();
 
@@ -62,10 +61,12 @@ function CrudSpeechlyPDF() {
 			<div>
 				<h1 className="head"> Transactions This Month </h1>
 			</div>
+
 			{!monthmoney.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : 
 				<div className="containertrans">
                     <div className="transactions">
-						<DeleteUpdate handleSmallLoad={handleSmallLoad} money={monthmoney}/>
+						<MonthlyTransactionsComponent smallLoad={smallLoad} updateMoney={updateMoney} />
+						<DeleteUpdate handleSmallLoad={handleSmallLoad} money={monthmoney} />
 					</div>
 				</div>}
 			<div>

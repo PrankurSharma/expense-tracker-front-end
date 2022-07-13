@@ -7,6 +7,7 @@ import JSPDFGenerator from '../JSPDFGenerator';
 import DeleteUpdate from '../InsertDeleteUpdateComponents/DeleteUpdate';
 import FilterIncome from '../IncomeComponents/FilterIncome';
 import FilterExpense from '../ExpenseComponents/FilterExpense';
+import FilterTransactionsComponent from '../TransactionComponents/FilterTransactionsComponent';
 
 function FilterTransactions() {
     const [month, set_month] = useState("");
@@ -15,7 +16,6 @@ function FilterTransactions() {
     const [loading, setLoading] = useState(true);
     const [smallLoad, setSmallLoad] = useState(true);
     const [pdfcalled, setPdfCalled] = useState(false);
-    const isMounted = useRef(false);
     Axios.defaults.withCredentials = true;
     
     function handleChange(newValue){
@@ -30,6 +30,10 @@ function FilterTransactions() {
 		setPdfCalled(newValue);
 	}
 
+    function updateMoney(newValue) {
+        set_money(newValue);
+    }
+
     let maxOffset = 60;
     let thisYear = (new Date()).getFullYear();
     let allYears = [];
@@ -38,25 +42,6 @@ function FilterTransactions() {
     }
 
     const yearList = allYears.map((x) => {return(<option key={x}>{x}</option>)});
-    
-    useEffect(() => {
-        if(isMounted.current){
-            if (month && year) {
-                Axios.post('https://my-expense-tracker-project.herokuapp.com/api/filter', {
-                    month: month,
-                    year: year
-                }).then((response) => {
-                    set_money(response.data);
-                });
-            }
-            else {
-                alert("Please fill both the fields in order to proceed.");
-            }
-        }
-        else{
-            isMounted.current = true;
-        }
-    }, [smallLoad]);
 
     const navigate = useNavigate();
 
@@ -106,8 +91,10 @@ function FilterTransactions() {
                     <div>
                         <h1 className='head'> Transaction Results </h1>
                     </div>
-                    {!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : <div className='containertrans'>
+                    {!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : 
+                    <div className='containertrans'>
                         <div className='alltransactions'>
+                            <FilterTransactionsComponent month={month} year={year} smallLoad={smallLoad} updateMoney={updateMoney} />
                             <DeleteUpdate money={money} handleSmallLoad={handleSmallLoad}/>
                         </div>
                     </div>}
