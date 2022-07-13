@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import axios from "axios";
+import { baseUrl } from "../baseUrl";
 
 
 const ChartsExpense = ({smallLoad}) => {
@@ -12,7 +13,7 @@ const ChartsExpense = ({smallLoad}) => {
     let getAmount = [];
     let getTask = [];
 
-    axios.get("https://my-expense-tracker-project.herokuapp.com/api/getexpense")
+    axios.get({baseUrl} + "/api/getexpense")
       .then(res => {
         for (const dataObj of res.data) {
           getAmount.push(parseInt(dataObj.Amount));
