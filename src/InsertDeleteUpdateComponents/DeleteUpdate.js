@@ -40,16 +40,14 @@ function DeleteUpdate({ money, handleSmallLoad }) {
                             deleteTransaction(val.trans_id);
                         }}> Delete </button>
                         <div className="smallcard">
-                            <>
-                                <h4 className="heading"> New Task: </h4>
-                                <input type="text" id="updateInput" value={new_task} onChange={(e) => {
-                                    setnew_task(e.target.value)
-                                }} />
-                                <h4 className="heading">New Amount: </h4>
-                                <input type="text" id="updateInput1" value={new_amount} onChange={(e) => {
-                                    setnew_amount(e.target.value)
-                                }} />
-                            </>
+                            <h4 className="heading"> New Task: </h4>
+                            <input type="text" id="updateInput" value={new_task} onChange={(e) => {
+                                setnew_task(e.target.value)
+                            }} />
+                            <h4 className="heading">New Amount: </h4>
+                            <input type="text" id="updateInput1" value={new_amount} onChange={(e) => {
+                                setnew_amount(e.target.value)
+                            }} />
                             <button className="update" onClick={() => {
                                 updateTransaction(val.trans_id);
                             }}> Update </button>
