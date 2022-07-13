@@ -13,4 +13,4 @@ function JSPDFGenerator({money, genPDFSubmit}) {
     genPDFSubmit((called) => !called);
     return;
 }
-export default jsPdfGenerator;
+export default JSPDFGenerator;
