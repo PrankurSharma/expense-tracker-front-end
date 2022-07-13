@@ -49,18 +49,16 @@ const ChartsExpense = ({smallLoad}) => {
             responsive: true,
             maintainAspectRatio: true,
             scales: {
-              y: [
-                {
+              y: {
                   gridLines: {
                     display: false
                   }
-                }],
-              x: [
-                {
+                },
+              x: {
                   gridLines: {
                     display: false
                   }
-                }]
+                }
             }
           }}
         />
