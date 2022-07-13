@@ -45,8 +45,6 @@ function DeleteUpdate({ money, handleSmallLoad }) {
                                 <input type="text" id="updateInput" value={new_task} onChange={(e) => {
                                     setnew_task(e.target.value)
                                 }} />
-                            </>
-                            <>
                                 <h4 className="heading">New Amount: </h4>
                                 <input type="text" id="updateInput1" value={new_amount} onChange={(e) => {
                                     setnew_amount(e.target.value)
