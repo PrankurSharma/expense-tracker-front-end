@@ -1,6 +1,6 @@
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-function JSPDFGenerator({money, genPDFSubmit}) {
+function JSPDFGenerator({ money, genPDFSubmit }) {
     var doc = new jsPDF();
     var cols = ["Trans_id", "Task", "Amount", "Type", "Date"];
     var rows = [];

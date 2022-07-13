@@ -4,9 +4,9 @@ import ReactLoading from 'react-loading';
 import Axios from "axios";
 import { baseUrl } from './baseUrl';
 
-function Spinner({handleChange}) {
+function Spinner({ handleChange }) {
     Axios.defaults.withCredentials = true;
-    
+
     const navigate = useNavigate();
     const navigateToLogin = () => {
         navigate('/login');
@@ -17,17 +17,17 @@ function Spinner({handleChange}) {
             navigateToLogin();
         });
     }
-    
+
     useEffect(() => {
         Axios.get(baseUrl + "/api/login").then((response) => {
             if (response.data.message) {
                 logout();
             }
-            else if (response.data.error){
+            else if (response.data.error) {
                 navigateToLogin();
                 alert(response.data.error);
             }
-            else{
+            else {
                 handleChange(false);
             }
         })

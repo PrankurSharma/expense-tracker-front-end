@@ -17,18 +17,18 @@ function FilterTransactions() {
     const [smallLoad, setSmallLoad] = useState(true);
     const [pdfcalled, setPdfCalled] = useState(false);
     Axios.defaults.withCredentials = true;
-    
-    function handleChange(newValue){
+
+    function handleChange(newValue) {
         setLoading(newValue);
     }
 
-    function handleSmallLoad(newValue){
+    function handleSmallLoad(newValue) {
         setSmallLoad(newValue);
     }
 
     function genPDFSubmit(newValue) {
-		setPdfCalled(newValue);
-	}
+        setPdfCalled(newValue);
+    }
 
     function updateMoney(newValue) {
         set_money(newValue);
@@ -37,20 +37,20 @@ function FilterTransactions() {
     let maxOffset = 60;
     let thisYear = (new Date()).getFullYear();
     let allYears = [];
-    for(let x = 0; x <= maxOffset; x++) {
+    for (let x = 0; x <= maxOffset; x++) {
         allYears.push(thisYear - x)
     }
 
-    const yearList = allYears.map((x) => {return(<option key={x}>{x}</option>)});
+    const yearList = allYears.map((x) => { return (<option key={x}>{x}</option>) });
 
     const navigate = useNavigate();
 
-	const navigateToAllTrans = () => {
-		navigate('/alltransactions');
-	};
+    const navigateToAllTrans = () => {
+        navigate('/alltransactions');
+    };
 
     if (loading) {
-        return (<Spinner handleChange={handleChange}/>);
+        return (<Spinner handleChange={handleChange} />);
     }
     else {
         return (
@@ -92,12 +92,12 @@ function FilterTransactions() {
                         <h1 className='head'> Transaction Results </h1>
                     </div>
                     <FilterTransactionsComponent month={month} year={year} smallLoad={smallLoad} updateMoney={updateMoney} />
-                    {!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : 
-                    <div className='containertrans'>
-                        <div className='alltransactions'>
-                            <DeleteUpdate money={money} handleSmallLoad={handleSmallLoad}/>
-                        </div>
-                    </div>}
+                    {!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> :
+                        <div className='containertrans'>
+                            <div className='alltransactions'>
+                                <DeleteUpdate money={money} handleSmallLoad={handleSmallLoad} />
+                            </div>
+                        </div>}
                 </div>
                 <div>
                     {!money.length ? null : <button className="button" onClick={() => {

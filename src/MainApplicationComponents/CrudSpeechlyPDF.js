@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import Header from '../Header';
@@ -17,7 +17,7 @@ function CrudSpeechlyPDF() {
 	const [pdfcalled, setPdfCalled] = useState(false);
 
 	Axios.defaults.withCredentials = true;
-	
+
 	function handleChange(newValue) {
 		setLoading(newValue);
 	}
@@ -45,7 +45,7 @@ function CrudSpeechlyPDF() {
 	}
 
 	if (loading) {
-		return (<Spinner handleChange={handleChange}/>);
+		return (<Spinner handleChange={handleChange} />);
 	}
 	return (
 		<div className="App">
@@ -53,25 +53,25 @@ function CrudSpeechlyPDF() {
 			<Header />
 			<div className="container">
 				<div className="container1">
-				<MonthlyIncome monthmoney={monthmoney} smallLoad={smallLoad}/>
-				<InsertEntries handleSmallLoad={handleSmallLoad}/>
-				<MonthlyExpense monthmoney={monthmoney} smallLoad={smallLoad}/>
-			</div>
+					<MonthlyIncome monthmoney={monthmoney} smallLoad={smallLoad} />
+					<InsertEntries handleSmallLoad={handleSmallLoad} />
+					<MonthlyExpense monthmoney={monthmoney} smallLoad={smallLoad} />
+				</div>
 			</div>
 			<div>
 				<h1 className="head"> Transactions This Month </h1>
 			</div>
 			<MonthlyTransactionsComponent smallLoad={smallLoad} updateMoney={updateMoney} />
-			{!monthmoney.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : 
+			{!monthmoney.length ? <div> <h1 className='head'> No transactions found. </h1> </div> :
 				<div className="containertrans">
-                    <div className="transactions">
+					<div className="transactions">
 						<DeleteUpdate handleSmallLoad={handleSmallLoad} money={monthmoney} />
 					</div>
 				</div>}
 			<div>
 				{!monthmoney.length ? null : <button className="button" onClick={() => {
 					genPDFSubmit((called) => !called);
-					}}> Generate PDF </button>}
+				}}> Generate PDF </button>}
 				{pdfcalled && <JSPDFGenerator money={monthmoney} genPDFSubmit={genPDFSubmit} />}
 				<button className="button" onClick={navigateToAllTrans}> View All Transactions </button>
 				<button className='button' onClick={navigateToFilterTrans}> Filter Transactions By Month And Year </button>

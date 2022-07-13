@@ -2,10 +2,10 @@ import React, { useEffect, useRef } from "react";
 import Axios from "axios";
 import { baseUrl } from "../baseUrl";
 
-function FilterTransactionsComponent({month, year, smallLoad, updateMoney}) {
+function FilterTransactionsComponent({ month, year, smallLoad, updateMoney }) {
     const isMounted = useRef(false);
     useEffect(() => {
-        if(isMounted.current){
+        if (isMounted.current) {
             if (month && year) {
                 Axios.post(baseUrl + "/api/filter", {
                     month: month,
@@ -18,7 +18,7 @@ function FilterTransactionsComponent({month, year, smallLoad, updateMoney}) {
                 alert("Please fill both the fields in order to proceed.");
             }
         }
-        else{
+        else {
             isMounted.current = true;
         }
     }, [smallLoad]);

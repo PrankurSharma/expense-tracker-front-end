@@ -7,7 +7,7 @@ function Header() {
     const [user_id, setuser_id] = useState("");
     const [user_name, setuser_name] = useState("");
     Axios.defaults.withCredentials = true;
-    
+
     const navigate = useNavigate();
 
     const navigateToLogin = () => {
@@ -32,7 +32,7 @@ function Header() {
     return (
         <div>
             <div>
-                <Link to ="/">
+                <Link to="/">
                     <img src='/logo.png' alt="Finer" />
                 </Link>
             </div>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
-import axios from "axios";
+import Axios from "axios";
 import { baseUrl } from "../baseUrl";
 
 
-const ChartsExpense = ({smallLoad}) => {
+const ChartsExpense = ({ smallLoad }) => {
   const [chartData, setChartData] = useState({});
 
   var palette = ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"];
@@ -13,7 +13,7 @@ const ChartsExpense = ({smallLoad}) => {
     let getAmount = [];
     let getTask = [];
 
-    axios.get(baseUrl + "/api/getexpense")
+    Axios.get(baseUrl + "/api/getexpense")
       .then(res => {
         for (const dataObj of res.data) {
           getAmount.push(parseInt(dataObj.Amount));
@@ -43,7 +43,7 @@ const ChartsExpense = ({smallLoad}) => {
   }, [smallLoad]);
   return (
     <div className="App">
-      <div style={{width: '100%', height: '100%'}}>
+      <div style={{ width: '100%', height: '100%' }}>
         <Doughnut
           data={chartData}
           options={{
@@ -51,21 +51,21 @@ const ChartsExpense = ({smallLoad}) => {
             maintainAspectRatio: true,
             scales: {
               y: {
-                  gridLines: {
-                    display: false
-                  },
-                  ticks: {
-                    display: false
-                  }
+                gridLines: {
+                  display: false
                 },
-              x: {
-                  gridLines: {
-                    display: false
-                  },
-                  ticks: {
-                    display: false
-                  }
+                ticks: {
+                  display: false
                 }
+              },
+              x: {
+                gridLines: {
+                  display: false
+                },
+                ticks: {
+                  display: false
+                }
+              }
             }
           }}
         />

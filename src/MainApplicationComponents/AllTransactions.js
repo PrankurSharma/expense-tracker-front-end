@@ -15,7 +15,7 @@ function AllTransactions() {
 	const [smallLoad, setSmallLoad] = useState(true);
 	const [pdfcalled, setPdfCalled] = useState(false);
 	Axios.defaults.withCredentials = true;
-	
+
 	function handleChange(newValue) {
 		setLoading(newValue);
 	}
@@ -39,7 +39,7 @@ function AllTransactions() {
 	}
 
 	if (loading) {
-		return (<Spinner handleChange={handleChange}/>);
+		return (<Spinner handleChange={handleChange} />);
 	}
 	else {
 		return (
@@ -49,13 +49,13 @@ function AllTransactions() {
 				<TotalIncome smallLoad={smallLoad} />
 				<TotalExpense smallLoad={smallLoad} />
 				<div>
-                    <h1 className='head'> Transaction Results </h1>
-                </div>
+					<h1 className='head'> Transaction Results </h1>
+				</div>
 				<AllTransactionsComponent smallLoad={smallLoad} updateMoney={updateMoney} />
-				{!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : 
+				{!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> :
 					<div className="containertrans">
 						<div className="alltransactions">
-							<DeleteUpdate money={money} handleSmallLoad={handleSmallLoad}/>
+							<DeleteUpdate money={money} handleSmallLoad={handleSmallLoad} />
 						</div>
 					</div>}
 				<div>

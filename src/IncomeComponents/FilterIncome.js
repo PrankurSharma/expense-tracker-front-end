@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { baseUrl } from '../baseUrl';
 
-function FilterIncome({smallLoad, month, year}) {
+function FilterIncome({ smallLoad, month, year }) {
     const [filter_income, setfilter_income] = useState("");
     useEffect(() => {
         if (month && year) {

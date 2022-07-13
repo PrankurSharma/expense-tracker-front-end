@@ -7,7 +7,7 @@ import { baseUrl } from '../baseUrl';
 
 function Signup() {
   Axios.defaults.withCredentials = true;
-  
+
   const navigate = useNavigate();
   const navigateToLogin = () => {
     navigate('/login');

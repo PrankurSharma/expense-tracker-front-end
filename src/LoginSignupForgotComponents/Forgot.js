@@ -39,7 +39,7 @@ function Forgot() {
 
   return (
     <div className="login-form">
-      <Link to ='/'>
+      <Link to='/'>
         <img src="/logo.png" />
       </Link>
       <div>
