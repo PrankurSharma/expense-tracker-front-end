@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
-import Header from './Header';
-import Spinner from "./Spinner";
-import DeleteUpdate from './InsertDeleteUpdateComponents/DeleteUpdate';
-import jsPdfGenerator from './JSPDFGenerator';
-import TotalIncome from './IncomeComponents/TotalIncome';
-import TotalExpense from './ExpenseComponents/TotalExpense';
+import Header from '../Header';
+import Spinner from "../Spinner";
+import DeleteUpdate from '../InsertDeleteUpdateComponents/DeleteUpdate';
+import jsPdfGenerator from '../JSPDFGenerator';
+import TotalIncome from '../IncomeComponents/TotalIncome';
+import TotalExpense from '../ExpenseComponents/TotalExpense';
 
 function AllTransactions() {
 	const [money, set_money] = useState([]);
