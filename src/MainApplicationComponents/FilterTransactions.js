@@ -36,7 +36,7 @@ function FilterTransactions() {
     for(let x = 0; x <= maxOffset; x++) {
         allYears.push(thisYear - x)
     }
-    const yearList = allYears.map((x) => {return(<option key={x}>{x}</option>)});
+    const yearList = allYears.map((x) => {return(<option key={x} value={x}>{x}</option>)});
 
     let end = 11;
     let max = 12;
@@ -44,7 +44,7 @@ function FilterTransactions() {
     for(let x = 0; x <= end; x++) {
         allMonths.push(max - x);
     }
-    const monthList = allMonths.map((x) => {return(<option key={x}>{x}</option>)});
+    const monthList = allMonths.map((x) => {return(<option key={x} value={x}> {x} </option>)});
     
     useEffect(() => {
         if(isMounted.current){
