@@ -48,19 +48,20 @@ const ChartsIncome = ({smallLoad}) => {
           options={{
             responsive: true,
             maintainAspectRatio: true,
-            plugins: {
-              datalabels: {
-                display: false
-              }
-            },
             scales: {
               y: {
                   gridLines: {
+                    display: false
+                  },
+                  ticks: {
                     display: false
                   }
                 },
               x: {
                   gridLines: {
+                    display: false
+                  },
+                  ticks: {
                     display: false
                   }
                 }
