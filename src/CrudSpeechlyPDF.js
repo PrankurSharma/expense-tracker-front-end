@@ -22,6 +22,7 @@ function CrudSpeechlyPDF() {
 	const [loading, setLoading] = useState(true);
 	const [smallLoad, setSmallLoad] = useState(true);
 	const [pdfcalled, setPdfCalled] = useState(false);
+	const [loggedin, setLoggedIn] = useState(true);
 
 	Axios.defaults.withCredentials = true;
 	
@@ -35,6 +36,10 @@ function CrudSpeechlyPDF() {
 
 	function genPDFSubmit(newValue) {
 		setPdfCalled(newValue);
+	}
+
+	function checkLogin(newValue) {
+		setLoggedIn((login) => !login);
 	}
 
 	useEffect(() => {
@@ -121,7 +126,7 @@ function CrudSpeechlyPDF() {
 	return (
 		<div className="App">
 			<div className="bg"> </div>
-			<Header />
+			<Header loggedin={loggedin} checkLogin={checkLogin}/>
 			<div className="container">
 				<div className="container1">
 				{!monthmoney.length ? <div className="notrans"> </div> : <div className="income">
