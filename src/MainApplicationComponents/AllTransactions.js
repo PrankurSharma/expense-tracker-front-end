@@ -51,10 +51,10 @@ function AllTransactions() {
 				<div>
                     <h1 className='head'> Transaction Results </h1>
                 </div>
+				<AllTransactionsComponent smallLoad={smallLoad} updateMoney={updateMoney} />
 				{!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : 
 					<div className="containertrans">
 						<div className="alltransactions">
-							<AllTransactionsComponent smallLoad={smallLoad} updateMoney={updateMoney} />
 							<DeleteUpdate money={money} handleSmallLoad={handleSmallLoad}/>
 						</div>
 					</div>}

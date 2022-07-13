@@ -91,10 +91,10 @@ function FilterTransactions() {
                     <div>
                         <h1 className='head'> Transaction Results </h1>
                     </div>
+                    <FilterTransactionsComponent month={month} year={year} smallLoad={smallLoad} updateMoney={updateMoney} />
                     {!money.length ? <div> <h1 className='head'> No transactions found. </h1> </div> : 
                     <div className='containertrans'>
                         <div className='alltransactions'>
-                            <FilterTransactionsComponent month={month} year={year} smallLoad={smallLoad} updateMoney={updateMoney} />
                             <DeleteUpdate money={money} handleSmallLoad={handleSmallLoad}/>
                         </div>
                     </div>}
