@@ -11,6 +11,5 @@ function JSPDFGenerator({money, genPDFSubmit}) {
     doc.autoTable(cols, rows, { startY: 10 });
     doc.save("transactions.pdf");
     genPDFSubmit((called) => !called);
-    return;
 }
 export default JSPDFGenerator;
