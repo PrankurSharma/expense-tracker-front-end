@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 import Axios from "axios";
 import { baseUrl } from './baseUrl';
 
 function Spinner({ handleChange, fetchDetails }) {
-    const [user_id, setuser_id] = useState("");
-    const [user_name, setuser_name] = useState("");
     Axios.defaults.withCredentials = true;
 
     const navigate = useNavigate();
@@ -30,9 +28,7 @@ function Spinner({ handleChange, fetchDetails }) {
                 alert(response.data.error);
             }
             else {
-                setuser_id(response.data[0].person_id);
-                setuser_name(response.data[0].username);
-                fetchDetails(user_id, user_name);
+                fetchDetails(response.data[0].person_id, response.data[0].username);
                 handleChange(false);
             }
         })
