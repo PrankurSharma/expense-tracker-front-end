@@ -10,6 +10,8 @@ import FilterExpense from '../ExpenseComponents/FilterExpense';
 import FilterTransactionsComponent from '../TransactionComponents/FilterTransactionsComponent';
 
 function FilterTransactions() {
+    const [user_id, setuser_id] = useState("");
+    const [user_name, setuser_name] = useState("");
     const [month, set_month] = useState("");
     const [year, set_year] = useState("");
     const [money, set_money] = useState([]);
@@ -50,12 +52,12 @@ function FilterTransactions() {
     };
 
     if (loading) {
-        return (<Spinner />);
+        return (<Spinner handleChange={handleChange} fetchDetails={fetchDetails}/>);
     }
     else {
         return (
             <div className='App'>
-                <Header handleChange={handleChange}/>
+                <Header user_id={user_id} user_name={user_name} />
                 <h1 className='head'> Filter Transactions </h1>
                 <div>
                     <select id="month" name="month" onChange={(e) => {

@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import { baseUrl } from "./baseUrl";
 
-function Header({ handleChange }) {
-    const [user_id, setuser_id] = useState("");
-    const [user_name, setuser_name] = useState("");
+function Header({ user_id, user_name }) {
     Axios.defaults.withCredentials = true;
 
     const navigate = useNavigate();
@@ -13,23 +11,6 @@ function Header({ handleChange }) {
     const navigateToLogin = () => {
         navigate('/login');
     };
-
-    useEffect(() => {
-        Axios.get(baseUrl + "/api/login").then((response) => {
-            if (response.data.message) {
-                logout();
-            }
-            else if (response.data.error) {
-                navigateToLogin();
-                alert(response.data.error);
-            }
-            else {
-                setuser_id(response.data[0].person_id);
-                setuser_name(response.data[0].username);
-                handleChange(false);
-            }
-        })
-    }, []);
 
     const logout = () => {
         Axios.get(baseUrl + "/api/logout").then((response) => {
