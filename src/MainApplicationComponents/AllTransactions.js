@@ -34,6 +34,11 @@ function AllTransactions() {
 		set_money(newValue);
 	}
 
+	function fetchDetails(newValue1, newValue2){
+		setuser_id(newValue1);
+		setuser_name(newValue2);
+	}
+
 	const navigate = useNavigate();
 
 	const navigateToFilterTrans = () => {

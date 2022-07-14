@@ -36,6 +36,11 @@ function FilterTransactions() {
         set_money(newValue);
     }
 
+    function fetchDetails(newValue1, newValue2){
+		setuser_id(newValue1);
+		setuser_name(newValue2);
+	}
+
     let maxOffset = 60;
     let thisYear = (new Date()).getFullYear();
     let allYears = [];
