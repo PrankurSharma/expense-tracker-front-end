@@ -39,12 +39,12 @@ function AllTransactions() {
 	}
 
 	if (loading) {
-		return (<Spinner handleChange={handleChange} />);
+		return (<Spinner />);
 	}
 	else {
 		return (
 			<div className='App'>
-				<Header />
+				<Header handleChange={handleChange}/>
 				<h1 className='head'> All Transactions </h1>
 				<TotalIncome smallLoad={smallLoad} />
 				<TotalExpense smallLoad={smallLoad} />

@@ -45,12 +45,12 @@ function CrudSpeechlyPDF() {
 	}
 
 	if (loading) {
-		return (<Spinner handleChange={handleChange} />);
+		return (<Spinner />);
 	}
 	return (
 		<div className="App">
 			<div className="bg"> </div>
-			<Header />
+			<Header handleChange={handleChange}/>
 			<div className="container">
 				<div className="container1">
 					<MonthlyIncome monthmoney={monthmoney} smallLoad={smallLoad} />

@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import { baseUrl } from "./baseUrl";
 
-function Header() {
+function Header({ handleChange }) {
     const [user_id, setuser_id] = useState("");
     const [user_name, setuser_name] = useState("");
     Axios.defaults.withCredentials = true;
@@ -16,9 +16,17 @@ function Header() {
 
     useEffect(() => {
         Axios.get(baseUrl + "/api/login").then((response) => {
-            if (response.data[0].person_id && response.data[0].username) {
+            if (response.data.message) {
+                logout();
+            }
+            else if (response.data.error) {
+                navigateToLogin();
+                alert(response.data.error);
+            }
+            else {
                 setuser_id(response.data[0].person_id);
                 setuser_name(response.data[0].username);
+                handleChange(false);
             }
         })
     }, []);
