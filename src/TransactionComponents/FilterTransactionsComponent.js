@@ -16,10 +16,10 @@ function FilterTransactionsComponent({ month, year, smallLoad, updateMoney }) {
             navigateToLogin();
         });
     }
-    
+
     useEffect(() => {
         if (isMounted.current) {
-            if (month && year) {
+            if (month === "month" || year === "year") {
                 Axios.post(baseUrl + "/api/filter", {
                     month: month,
                     year: year
