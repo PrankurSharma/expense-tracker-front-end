@@ -21,7 +21,6 @@ function InsertEntries({ handleSmallLoad }) {
 
     const logout = () => {
         Axios.get(baseUrl + "/api/logout").then((response) => {
-            alert("Please click OK to proceed logging out.");
             navigateToLogin();
         });
     }

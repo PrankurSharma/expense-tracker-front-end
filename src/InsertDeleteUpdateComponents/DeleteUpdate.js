@@ -14,7 +14,6 @@ function DeleteUpdate({ money, handleSmallLoad }) {
 
     const logout = () => {
         Axios.get(baseUrl + "/api/logout").then((response) => {
-            alert("Please click OK to proceed logging out.");
             navigateToLogin();
         });
     }
@@ -43,15 +42,15 @@ function DeleteUpdate({ money, handleSmallLoad }) {
                 }
                 else{
                     alert("Transaction updated successfully.");
-                    handleSmallLoad((Loading) => !Loading);
+                    handleSmallLoad((loading) => !loading);
+                    setnew_amount("");
+                    setnew_task("");
                 }
             });
         }
         else {
             alert("Please fill both the values in order to update the transaction.");
         }
-        setnew_amount("");
-        setnew_task("");
     };
     return (
         <>
