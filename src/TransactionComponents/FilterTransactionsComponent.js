@@ -1,9 +1,22 @@
 import React, { useEffect, useRef } from "react";
+import { useNavigate } from 'react-router-dom';
 import Axios from "axios";
 import { baseUrl } from "../baseUrl";
 
 function FilterTransactionsComponent({ month, year, smallLoad, updateMoney }) {
     const isMounted = useRef(false);
+    const navigate = useNavigate();
+
+    const navigateToLogin = () => {
+        navigate('/login');
+    };
+
+    const logout = () => {
+        Axios.get(baseUrl + "/api/logout").then((response) => {
+            navigateToLogin();
+        });
+    }
+    
     useEffect(() => {
         if (isMounted.current) {
             if (month && year) {
@@ -11,7 +24,12 @@ function FilterTransactionsComponent({ month, year, smallLoad, updateMoney }) {
                     month: month,
                     year: year
                 }).then((response) => {
-                    updateMoney(response.data);
+                    if(response.data.message){
+                        logout();
+                    }
+                    else{
+                        updateMoney(response.data);
+                    }
                 });
             }
             else {
