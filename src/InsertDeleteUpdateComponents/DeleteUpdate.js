@@ -1,30 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import { baseUrl } from '../baseUrl';
 function DeleteUpdate({ money, handleSmallLoad }) {
     const [new_amount, setnew_amount] = useState("");
     const [new_task, setnew_task] = useState("");
 
-    const navigate = useNavigate();
-
-    const navigateToLogin = () => {
-        navigate('/login');
-    };
-
-    const logout = () => {
-        Axios.get(baseUrl + "/api/logout").then((response) => {
-            alert("Please click OK to proceed logging out.");
-            navigateToLogin();
-        });
-    }
-
     const deleteTransaction = (trans_id) => {
-        Axios.delete(baseUrl + `/api/delete/${trans_id}`).then((response) => {
-            if(response.data.message){
-                logout();
-            }
-        });
+        Axios.delete(baseUrl + `/api/delete/${trans_id}`);
         alert("Transaction deleted successfully.");
         handleSmallLoad((loading) => !loading);
     };
