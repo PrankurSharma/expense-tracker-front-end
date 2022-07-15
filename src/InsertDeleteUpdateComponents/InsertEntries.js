@@ -3,7 +3,6 @@ import Axios from "axios";
 import { PushToTalkButton, BigTranscript, ErrorPanel } from '@speechly/react-ui';
 import { useSpeechContext } from '@speechly/react-client';
 import { baseUrl } from "../baseUrl";
-import { useNavigate } from 'react-router-dom';
 
 function InsertEntries({ handleSmallLoad }) {
 
@@ -13,11 +12,6 @@ function InsertEntries({ handleSmallLoad }) {
     const [date, set_date] = useState("");
     const { segment } = useSpeechContext();
 
-    const navigate = useNavigate();
-    const navigateToLogin = () => {
-        navigate('/login');
-    };
-
     const submitEntries = () => {
         if (amount && task && type && date && (type === "Income" || type === "Expense" || type === "INCOME" || type === "EXPENSE" || type === "income" || type === "expense")) {
             Axios.post(baseUrl + "/api/insert", {
@@ -25,10 +19,6 @@ function InsertEntries({ handleSmallLoad }) {
                 task: task,
                 type: type,
                 date: date
-            }).then((response) => {
-                if(response.data.message){
-                    navigateToLogin();
-                }
             });
             alert("Record inserted successfully.");
             handleSmallLoad((loading) => !loading);
