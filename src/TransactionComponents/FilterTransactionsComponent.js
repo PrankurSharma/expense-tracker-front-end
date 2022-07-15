@@ -20,6 +20,9 @@ function FilterTransactionsComponent({ month, year, smallLoad, updateMoney }) {
     useEffect(() => {
         if (isMounted.current) {
             if (month === "month" || year === "year") {
+                alert("Please fill both the fields in order to proceed.");
+            }
+            else {
                 Axios.post(baseUrl + "/api/filter", {
                     month: month,
                     year: year
@@ -31,9 +34,6 @@ function FilterTransactionsComponent({ month, year, smallLoad, updateMoney }) {
                         updateMoney(response.data);
                     }
                 });
-            }
-            else {
-                alert("Please fill both the fields in order to proceed.");
             }
         }
         else {
