@@ -37,13 +37,15 @@ function InsertEntries({ handleSmallLoad }) {
                 if(response.data.message){
                     logout();
                 }
+                else{
+                    alert("Record inserted successfully.");
+                    handleSmallLoad((loading) => !loading);
+                    set_amount("");
+                    set_task("");
+                    set_type("");
+                    set_date("");
+                }
             });
-            alert("Record inserted successfully.");
-            handleSmallLoad((loading) => !loading);
-            set_amount("");
-            set_task("");
-            set_type("");
-            set_date("");
         }
         else if (type !== "Income" && type !== "Expense" && type !== "INCOME" && type !== "EXPENSE" && type !== "income" && type !== "expense") {
             alert("Type of transaction can either be Income or Expense.");

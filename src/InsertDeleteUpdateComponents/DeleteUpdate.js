@@ -24,9 +24,11 @@ function DeleteUpdate({ money, handleSmallLoad }) {
             if(response.data.message){
                 logout();
             }
+            else{
+                alert("Transaction deleted successfully.");
+                handleSmallLoad((loading) => !loading);
+            }
         });
-        alert("Transaction deleted successfully.");
-        handleSmallLoad((loading) => !loading);
     };
 
     const updateTransaction = (trans_id) => {
@@ -35,9 +37,15 @@ function DeleteUpdate({ money, handleSmallLoad }) {
                 trans_id: trans_id,
                 amount: new_amount,
                 task: new_task
+            }).then((response) =>{
+                if(response.data.message){
+                    logout();
+                }
+                else{
+                    alert("Transaction updated successfully.");
+                    handleSmallLoad((Loading) => !Loading);
+                }
             });
-            alert("Transaction updated successfully.");
-            handleSmallLoad((Loading) => !Loading);
         }
         else {
             alert("Please fill both the values in order to update the transaction.");
