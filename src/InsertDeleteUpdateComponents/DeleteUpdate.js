@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { baseUrl } from '../baseUrl';
+import { useNavigate } from 'react-router-dom';
+
 function DeleteUpdate({ money, handleSmallLoad }) {
     const [new_amount, setnew_amount] = useState("");
     const [new_task, setnew_task] = useState("");
 
+    const navigate = useNavigate();
+    const navigateToLogin = () => {
+        navigate('/login');
+    };
+
     const deleteTransaction = (trans_id) => {
-        Axios.delete(baseUrl + `/api/delete/${trans_id}`);
+        Axios.delete(baseUrl + `/api/delete/${trans_id}`).then((response) => {
+            if(response.data.message){
+                navigateToLogin();
+            }
+        });
         alert("Transaction deleted successfully.");
         handleSmallLoad((loading) => !loading);
     };
@@ -17,9 +28,13 @@ function DeleteUpdate({ money, handleSmallLoad }) {
                 trans_id: trans_id,
                 amount: new_amount,
                 task: new_task
+            }).then((response) => {
+                if(response.data.message){
+                    navigateToLogin();
+                }
             });
             alert("Transaction updated successfully.");
-            handleSmallLoad((Loading) => !Loading);
+            handleSmallLoad((loading) => !loading);
         }
         else {
             alert("Please fill both the values in order to update the transaction.");
