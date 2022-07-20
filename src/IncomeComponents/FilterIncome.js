@@ -5,7 +5,7 @@ import { baseUrl } from '../baseUrl';
 function FilterIncome({ smallLoad, month, year }) {
     const [filter_income, setfilter_income] = useState("");
     useEffect(() => {
-        if (month && year) {
+        if (month !== "month" && year !== "year") {
             Axios.post(baseUrl + "/api/filterincome", {
                 month: month,
                 year: year

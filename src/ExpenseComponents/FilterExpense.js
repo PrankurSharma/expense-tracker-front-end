@@ -5,15 +5,15 @@ import { baseUrl } from '../baseUrl';
 function FilterExpense({ smallLoad, month, year }) {
     const [filter_expense, setfilter_expense] = useState("");
     useEffect(() => {
-        if (month && year) {
-            Axios.post(baseUrl + "/api/filterexpense", {
-                month: month,
-                year: year
-            }).then((response) => {
-                setfilter_expense(response.data[0].amTotal);
-            });
-        }
-    }, [smallLoad]);
+            if(month !== "month" && year !== "year"){
+                Axios.post(baseUrl + "/api/filterexpense", {
+                    month: month,
+                    year: year
+                }).then((response) => {
+                    setfilter_expense(response.data[0].amTotal);
+                });
+            }
+        }, [smallLoad]);
 
     return (
         <>
