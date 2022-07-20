@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Axios from 'axios';
 import { baseUrl } from '../baseUrl';
 
 function FilterExpense({ smallLoad, month, year }) {
+    const isMounted = useRef(false);
     const [filter_expense, setfilter_expense] = useState("");
     useEffect(() => {
+        if(isMounted.current){
             if(month !== "month" && year !== "year"){
                 Axios.post(baseUrl + "/api/filterexpense", {
                     month: month,
@@ -13,7 +15,11 @@ function FilterExpense({ smallLoad, month, year }) {
                     setfilter_expense(response.data[0].amTotal);
                 });
             }
-        }, [smallLoad]);
+        }
+        else{
+            isMounted.current = true;
+        }
+    }, [smallLoad]);
 
     return (
         <>
